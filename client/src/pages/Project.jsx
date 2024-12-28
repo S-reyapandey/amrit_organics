@@ -1,6 +1,7 @@
 import { Breadcrumbs, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ProjectSec from '../components/ProjectSec'
 
 function Project() {
   return (
@@ -43,6 +44,8 @@ function Project() {
           </div>
         </div>
       </div>
+
+      <ProjectSec/>
     </Stack>
   </div>
   )

@@ -7,8 +7,8 @@ function MapComponent() {
   const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
   const mapRef = useRef(null);
   const initialView = {
-    latitude: 28.6139,
-    longitude: 77.209,
+    latitude: 26.914526,
+    longitude: 75.807688,
     zoom: 12,
   };
 

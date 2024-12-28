@@ -49,6 +49,11 @@ const nav_links = [
     path: "/blog",
     display: "Blogs",
   },
+  {
+    id: "contact",
+    path: "/contact",
+    display: "Contact Us",
+  }
 ];
 
 const drawerWidth = 400;
@@ -240,7 +245,7 @@ function Header({ navLinks = nav_links }) {
                       alignItems: "center",
                     }}
                   >
-                    <img src="../../../../src/assets/logo.png" alt="Logo" />
+                    <img src="/logo.png" alt="Logo" style={{height: 63}} />
                   </Box>
                   {/* to wrap icons social media handles */}
                   <Box

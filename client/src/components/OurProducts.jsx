@@ -3,6 +3,7 @@ import products from "../utils/productData";
 import Slider from "react-slick";
 import { Divider, IconButton } from "@mui/material";
 import { ArrowLeft, ArrowRight, Share } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 function OurProducts() {
   const [hoverCard, setHoverCard] = useState(null);
@@ -112,6 +113,7 @@ function OurProducts() {
               }`}
               style={{
                 transform: hoverCard === idx ? "translateY(-8px)" : "none",
+                height: 510
               }}
             >
               <div className="mb-3">
@@ -146,12 +148,15 @@ function OurProducts() {
 
               {/* Action Buttons */}
               <div className="flex justify-between items-center">
-                <button
-                  className="text-yellow-600 font-medium"
-                  style={{ fontFamily: "Signika" }}
-                >
-                  Learn More
-                </button>
+              <Link to={product.path}>
+              <button
+              className="text-yellow-600 font-medium"
+              style={{ fontFamily: "Signika" }}
+            >
+              Learn More
+            </button>
+              </Link>
+                
                 <a>
                   <IconButton
                     className="p-2"
