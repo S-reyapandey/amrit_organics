@@ -35,6 +35,11 @@ const __dirname = path.resolve();
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
 app.use("/", router);
 app.use(express.static(path.join(__dirname, 'client/dist')));
 
@@ -157,9 +162,6 @@ app.delete("/admin/blogs/:id", adminAuth, async (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
