@@ -7,7 +7,7 @@ const blogData = [
     },
     {
         id : "2",
-        title : "Gallery 2 Ashwagandha root is a natural fiber supplement that can help promote digestive health",
+        title : "Gallery 2 ",
         image: "/blogImages/gal2.jpg",
         description: "Ashwagandha root is a natural fiber supplement that can help promote digestive health Ashwagandha root is a natural fiber supplement that can help promote digestive health Ashwagandha root is a natural fiber supplement that can help promote digestive health",
     },

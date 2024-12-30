@@ -1,14 +1,15 @@
 import React, { useRef, useState } from "react";
 import blogs from "../utils/blogData";
 import Slider from "react-slick";
-import { Button, Card, CardActions, CardContent, CardMedia, Divider, IconButton, Typography } from "@mui/material";
 import {
-  ArrowLeft,
-  ArrowRight,
-  CalendarMonth,
-  Share,
-} from "@mui/icons-material";
-import { FaUser } from "react-icons/fa";
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
 function BlogSection() {
   const [hoverCard, setHoverCard] = useState(null);
@@ -122,77 +123,78 @@ function BlogSection() {
 
       {/* Blogs Grid */}
       <div className="p-3 ml-4">
-      <Slider {...settings} ref={sliderRef}>
-        {blogs.map((blog) => (
-          <Card
-            sx={{
-              height: 450,
-              maxWidth: 345,
-              borderRadius: 3,
-              boxShadow: 3,
-              bgcolor: "transparent",
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: 2,
-              },
-            }}
-          >
-            <CardMedia
-              component="img"
-              alt="Blog Image"
-              image={blog.image}
-              sx={{
-                height: 250,
-                borderTopLeftRadius: "12px",
-                borderTopRightRadius: "12px",
-                objectFit: "cover",
-              }}
-            />
-            <CardContent sx={{ padding: "16px 18px 8px" }}>
-              <Typography
-                gutterBottom
-                variant="h6"
-                component="div"
+        <Slider {...settings} ref={sliderRef}>
+          {blogs.map((blog) => (
+            <Link>
+              <Card
                 sx={{
-                  fontFamily: "Manrope, sans-serif",
-                  fontWeight: "bold",
-                  fontSize: "1.25rem",
-                  color: "text.primary",
+                  height: 450,
+                  maxWidth: 345,
+                  borderRadius: 3,
+                  boxShadow: 3,
+                  bgcolor: "transparent",
+                  transition: "transform 0.3s, box-shadow 0.3s",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                    boxShadow: 2,
+                  },
                 }}
               >
-                {blog.title.slice(0, 25)}
-              </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{
-                  fontFamily: "Signika, sans-serif",
-                  fontSize: "0.9rem",
-                  lineHeight: 1.6,
-                }}
-              >
-                {blog.description.slice(0, 90)}
-              </Typography>
-            </CardContent>
+                <CardMedia
+                  component="img"
+                  alt="Blog Image"
+                  image={blog.image}
+                  sx={{
+                    height: 250,
+                    borderTopLeftRadius: "12px",
+                    borderTopRightRadius: "12px",
+                    objectFit: "cover",
+                  }}
+                />
+                <CardContent sx={{ padding: "16px 18px 8px" }}>
+                  <Typography
+                    gutterBottom
+                    variant="h6"
+                    component="div"
+                    sx={{
+                      fontFamily: "Manrope, sans-serif",
+                      fontWeight: "bold",
+                      fontSize: "1.25rem",
+                      color: "text.primary",
+                    }}
+                  >
+                    {blog.title.slice(0, 25)}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{
+                      fontFamily: "Signika, sans-serif",
+                      fontSize: "0.9rem",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {blog.description.slice(0, 90)}
+                  </Typography>
+                </CardContent>
 
-            <CardActions
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              px: 2,
-              pb: 2,
-            }}
-          >
-            <button className="px-6 py-2 text-white rounded-lg btn-grad2">
-                      View Post
-                    </button>
-          </CardActions>
-
-          </Card>
-        ))}
-      </Slider>
+                <CardActions
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    px: 2,
+                    pb: 2,
+                  }}
+                >
+                  <button className="px-6 py-2 text-white rounded-lg btn-grad2">
+                    View Post
+                  </button>
+                </CardActions>
+              </Card>
+            </Link>
+          ))}
+        </Slider>
       </div>
     </div>
   );

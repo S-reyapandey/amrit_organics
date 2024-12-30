@@ -1,9 +1,8 @@
 import { Breadcrumbs, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import BlogSec from '../components/BlogSec'
 
-function Blog() {
+function Blogdetail() {
   return (
     <div  className="px-4 mb-20">
     <Stack spacing={6}>
@@ -45,10 +44,11 @@ function Blog() {
         </div>
       </div>
 
-      <BlogSec/>
+      
+      
     </Stack>
   </div>
   )
 }
 
-export default Blog
+export default Blogdetail

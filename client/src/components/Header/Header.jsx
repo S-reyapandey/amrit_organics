@@ -45,8 +45,8 @@ const nav_links = [
     display: "Projects",
   },
   {
-    id: "blog",
-    path: "/blog",
+    id: "blogs",
+    path: "/blogs",
     display: "Blogs",
   },
   {
@@ -92,7 +92,7 @@ function Header({ navLinks = nav_links }) {
         }}
       >
         <img
-          src="../../../../src/assets/logo.png"
+          src="/logo.png"
           alt="Logo"
           style={{ width: "150px" }}
         />
@@ -331,7 +331,7 @@ function Header({ navLinks = nav_links }) {
                           >
                             Call anytime
                           </Typography>
-                          <a href="tel: +91 95695 01586" target="_blank">
+                          <a href="tel: +91 95695 01586" target="_blank" className="no-underline" style={{textDecoration: 'none'}}>
                             <Typography
                               variant="h6"
                               sx={{
@@ -390,7 +390,7 @@ function Header({ navLinks = nav_links }) {
                           </Typography>
                           <a
                             href="mailto:sales@amritorganics.in"
-                            target="_blank"
+                            target="_blank" className="no-underline" style={{textDecoration: 'none'}}
                           >
                             <Typography
                               variant="h6"
@@ -453,7 +453,7 @@ function Header({ navLinks = nav_links }) {
                           <a
                             href="https://maps.app.goo.gl/xAAT4BADbVacRKMd9"
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noopener noreferrer" className="no-underline" style={{textDecoration: 'none'}}
                           >
                             <Typography
                               variant="h6"
@@ -527,7 +527,7 @@ function Header({ navLinks = nav_links }) {
                       <Link
                         to={link.path}
                         style={{ color: "inherit", textDecoration: "none" }}
-                        aria-label={link.display}
+                        aria-label={link.display} className="no-underline"
                         
                       >
                        <ListItem disableGutters><ListItemButton sx={{ transition:"all 0.2s ease", fontFamily: "Signika","&:hover":{

@@ -23,6 +23,10 @@ import MoringaPowder from "./components/productItems/MoringaPowder";
 import PsylliumHuskPowder from "./components/productItems/PsylliumHuskPowder";
 import { useEffect } from "react";
 import Contact from "./pages/Contact";
+import Blogdetail from "./pages/Blogdetail";
+import Pagenotfound from "./pages/Pagenotfound";
+import AdminLogin from "./pages/AdminLogin";
+import CreatePost from "./pages/CreatePost";
 
 function ScrollToTop() {
   const {pathname} = useLocation();
@@ -58,8 +62,12 @@ function App() {
           <Route path="/products/coriander" element={<CorianderPowder/>}/>
           <Route path="/projects" element={<Project/>}/>
           <Route path="/project/:projectId" element={<Projectdetail/>}/>
-          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/blogs" element={<Blog/>}/>
+          <Route path="/blogs/:id" element={<Blogdetail/>}/>
           <Route path="/contact" element={<Contact/>}/>
+          <Route path="*" element={<Pagenotfound/>}/>
+          <Route path="/admin/login" element={<AdminLogin/>}/>
+          <Route path="/admin/create-post" element={<CreatePost/>}/>
         </Routes>
       </div>
 

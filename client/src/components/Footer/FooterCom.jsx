@@ -18,19 +18,24 @@ function FooterCom() {
             <div className="space-y-2">
               <Footer.Title title="Follow us" />
               <Footer.LinkGroup col className="space-y-2">
-                <Footer.Link href="#">WhatsApp</Footer.Link>
-                <Footer.Link href="https://www.linkedin.com/company/amrit-organics-jaipur/">
+                <Footer.Link className="no-underline"
+                style={{ textDecoration: "none", color: "inherit" }} href="tel: +91 9569501586" target="_blank">WhatsApp</Footer.Link>
+                <Footer.Link href="https://www.linkedin.com/company/amrit-organics-jaipur/" className="no-underline"
+                style={{ textDecoration: "none", color: "inherit" }}>
                   LinkedIn
                 </Footer.Link>
-                <Footer.Link href="#">Instagram</Footer.Link>
+                <Footer.Link href="#" className="no-underline"
+                style={{ textDecoration: "none", color: "inherit" }}>Instagram</Footer.Link>
               </Footer.LinkGroup>
             </div>
 
             <div className="space-y-2">
               <Footer.Title title="Legal" />
               <Footer.LinkGroup col className="space-y-2">
-                <Footer.Link href="#">Privacy Policy</Footer.Link>
-                <Footer.Link href="#">Terms & Conditions</Footer.Link>
+                <Footer.Link href="#" className="no-underline"
+                style={{ textDecoration: "none", color: "inherit" }}>Privacy Policy</Footer.Link>
+                <Footer.Link href="#" className="no-underline"
+                style={{ textDecoration: "none", color: "inherit" }}>Terms & Conditions</Footer.Link>
               </Footer.LinkGroup>
             </div>
 
@@ -39,7 +44,8 @@ function FooterCom() {
               <Footer.LinkGroup col className="space-y-2">
                 <div className="flex items-center space-x-2">
                   <FaPhoneAlt className="text-white" />
-                  <Footer.Link href="tel: +91 9569501586" target="_blank">
+                  <Footer.Link href="tel: +91 9569501586" target="_blank" className="no-underline"
+                  style={{ textDecoration: "none", color: "inherit" }}>
                     +91 9569501586
                   </Footer.Link>
                 </div>
@@ -47,14 +53,16 @@ function FooterCom() {
                   <FaEnvelope className="text-white" />
                   <Footer.Link
                     href="mailto:sales@amritorganics.in"
-                    target="_blank"
+                    target="_blank" className="no-underline"
+                    style={{ textDecoration: "none", color: "inherit" }}
                   >
                     sales@amritorganics.in
                   </Footer.Link>
                 </div>
                 <div className="flex items-start space-x-2">
                   <FaMapMarkerAlt className="text-white" />
-                  <Footer.Link
+                  <Footer.Link className="no-underline"
+                  style={{ textDecoration: "none", color: "inherit" }}
                     href="https://maps.app.goo.gl/xAAT4BADbVacRKMd9"
                     target="_blank"
                   >
@@ -73,10 +81,9 @@ function FooterCom() {
         {/* Social Media Icons */}
         <div className="w-full flex flex-col sm:flex sm:flex-row sm:items-center sm:justify-center py-4 px-6 lg:px-16 xl:px-20 border-t border-gray-700 bg-gray-1000">
           <Footer.Copyright
-            href="#"
             by="Amrit Organics™ All Right Reserved"
             year={2024}
-            className="mt-4 mb-2 sm:mt-0 flex justify-center sm:justify-center space-x-6 flex-1"
+            className="mt-4 mb-2 sm:mt-0 flex justify-center sm:justify-center space-x-6 flex-1" 
           />
           <div className="mt-4 mb-2 sm:mt-0 flex justify-center sm:justify-center space-x-6 flex-1">
             <Footer.Icon href="#" icon={BsWhatsapp} />

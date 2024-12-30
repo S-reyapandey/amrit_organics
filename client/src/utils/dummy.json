@@ -1,0 +1,62 @@
+[
+    {
+        "title": "The Incredible Benefits of Ashwagandha for Stress Relief",
+        "description": "Discover how Ashwagandha can help reduce stress and improve overall well-being.",
+        "content": "Ashwagandha, an ancient herb in Ayurveda, is renowned for its adaptogenic properties that help the body manage stress. Regular consumption can lead to reduced cortisol levels, enhanced mood, and improved cognitive function. Incorporating Ashwagandha into your daily routine can provide a natural way to combat anxiety and promote mental clarity...",
+        "author": "Dr. Anjali Mehta",
+        "image": {
+            "url": "https://example.com/images/ashwagandha-benefits.jpg",
+            "publicId": "ashwagandha-benefits-001"
+        },
+        "createdAt": "2024-01-15T09:30:00.000Z",
+        "updatedAt": "2024-01-15T09:30:00.000Z"
+    },
+    {
+        "title": "Guar Gum: The Natural Thickener for Your Recipes",
+        "description": "Learn how Guar Gum can enhance the texture of your culinary creations.",
+        "content": "Guar Gum, derived from the guar plant, is a versatile natural thickener used in various culinary applications. Its ability to improve the texture and consistency of sauces, soups, and baked goods makes it a favorite among chefs and home cooks alike. Additionally, Guar Gum is gluten-free, making it an excellent choice for those with dietary restrictions...",
+        "author": "Chef Rajiv Kapoor",
+        "image": {
+            "url": "https://example.com/images/guar-gum-recipes.jpg",
+            "publicId": "guar-gum-recipes-002"
+        },
+        "createdAt": "2024-02-10T14:45:00.000Z",
+        "updatedAt": "2024-02-10T14:45:00.000Z"
+    },
+    {
+        "title": "Moringa Oleifera: The Miracle Tree for Nutritional Health",
+        "description": "Explore the myriad health benefits of Moringa and how to incorporate it into your diet.",
+        "content": "Moringa Oleifera, often referred to as the 'Miracle Tree,' is packed with essential nutrients, including vitamins, minerals, and antioxidants. Regular consumption of Moringa can boost immunity, enhance energy levels, and support overall health. Whether added to smoothies, salads, or taken as a supplement, Moringa is a powerful addition to any health regimen...",
+        "author": "Nutritionist Priya Sharma",
+        "image": {
+            "url": "https://example.com/images/moringa-health.jpg",
+            "publicId": "moringa-health-003"
+        },
+        "createdAt": "2024-03-05T11:20:00.000Z",
+        "updatedAt": "2024-03-05T11:20:00.000Z"
+    },
+    {
+        "title": "Stevia vs. Sugar: Which Sweetener is Right for You?",
+        "description": "Compare Stevia and sugar to make an informed choice about your sweetener.",
+        "content": "Stevia, a natural sweetener derived from the Stevia plant, offers a zero-calorie alternative to traditional sugar. With a sweetness 200–300 times greater than sugar, Stevia allows you to enjoy sweet flavors without the added calories or impact on blood sugar levels. This makes it an ideal choice for those managing diabetes, weight loss, or seeking a healthier lifestyle...",
+        "author": "Health Blogger Sneha Rao",
+        "image": {
+            "url": "https://example.com/images/stevia-vs-sugar.jpg",
+            "publicId": "stevia-vs-sugar-004"
+        },
+        "createdAt": "2024-04-12T08:15:00.000Z",
+        "updatedAt": "2024-04-12T08:15:00.000Z"
+    },
+    {
+        "title": "Coriander Powder: Enhancing Your Dishes with Flavor and Nutrition",
+        "description": "Unlock the full potential of your recipes with premium Coriander Powder.",
+        "content": "Coriander Powder, made from finely ground coriander seeds, is a staple in many cuisines around the world. Its warm, citrusy flavor and aroma can elevate a wide range of dishes, from curries and soups to marinades and spice blends. Beyond its culinary uses, Coriander Powder is also known for its digestive and anti-inflammatory properties, making it a valuable addition to both your kitchen and your health routine...",
+        "author": "Culinary Expert Vikram Singh",
+        "image": {
+            "url": "https://example.com/images/coriander-powder.jpg",
+            "publicId": "coriander-powder-005"
+        },
+        "createdAt": "2024-05-20T16:50:00.000Z",
+        "updatedAt": "2024-05-20T16:50:00.000Z"
+    }
+]

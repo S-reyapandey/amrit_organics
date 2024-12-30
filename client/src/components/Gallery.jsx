@@ -45,6 +45,8 @@ function Gallery() {
 
   return (
     <div className="relative container mx-auto px-8 py-10">
+
+
     
       {/* Products Grid */}
 
@@ -82,6 +84,8 @@ function Gallery() {
       </Slider>
     </div>
   );
+
+  
 }
 
 export default Gallery
