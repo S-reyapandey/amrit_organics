@@ -4,7 +4,9 @@ import "dotenv/config";
 import path from "path";
 import cors from "cors";
 import nodemailer from "nodemailer";
-import authRoutes from "./routes/authRoutes.js"
+
+import dotenv from 'dotenv';
+dotenv.config({ path: '../.env' });
 
 import Blog from "./models/blogModel.js";
 import { adminAuth } from "./controllers/authController.js";
