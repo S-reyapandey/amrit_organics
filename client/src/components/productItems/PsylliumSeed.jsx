@@ -245,7 +245,6 @@ function PsylliumSeed() {
                         fontWeight: 530,
                         fontFamily: "Signika",
                         color: "#000",
-                        fontSize: "1.22rem",
                       }}
                     >
                       {fea.title}

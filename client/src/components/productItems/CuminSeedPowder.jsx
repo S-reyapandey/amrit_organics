@@ -188,7 +188,6 @@ function CuminSeedPowder() {
                       fontWeight: 530,
                       fontFamily: "Signika",
                       color: "#000",
-                      fontSize: "1.22rem",
                     }}
                   >
                     Variety Available :
@@ -252,7 +251,6 @@ function CuminSeedPowder() {
                       fontWeight: 530,
                       fontFamily: "Signika",
                       color: "#000",
-                      fontSize: "1.22rem",
                     }}
                   >
                     Nutritional Values :
@@ -374,7 +372,6 @@ function CuminSeedPowder() {
                         fontWeight: 530,
                         fontFamily: "Signika",
                         color: "#000",
-                        fontSize: "1.22rem",
                       }}
                     >
                       {fea.title}
