@@ -160,7 +160,7 @@ app.listen(port, () => {
 });
 
 app.get("*", (req, res) => {
-  res.send("Hello Api!");
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
 /*app.use("/api/admin", authRoutes);*/
