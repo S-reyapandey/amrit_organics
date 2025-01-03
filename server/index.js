@@ -4,13 +4,15 @@ import "dotenv/config";
 import path from "path";
 import cors from "cors";
 import nodemailer from "nodemailer";
-
 import dotenv from 'dotenv';
 dotenv.config({ path: '../.env' });
 
 import Blog from "./models/blogModel.js";
 import { adminAuth } from "./controllers/authController.js";
+import authRoutes from "./routes/authRoutes.js"
+import blogRoutes from "./routes/blogRoutes.js"
 const router = express.Router();
+
 
 const DB = process.env.DBURI.replace("<PASSWORD>", process.env.DBPASSWORD);
 
@@ -26,6 +28,7 @@ mongoose
   })
   .catch((err) => {
     console.log(err);
+    process.exit(1);
   });
 
 const port = process.env.PORT || 3000;
@@ -33,19 +36,22 @@ const port = process.env.PORT || 3000;
 const __dirname = path.resolve();
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
-app.use("/", router);
 app.use(express.static(path.join(__dirname, 'client/dist')));
+
+app.use("/api/admin", authRoutes);
+app.use("/api/post", blogRoutes);
+
 
 import cloudinary from "cloudinary"
 import {CloudinaryStorage} from 'multer-storage-cloudinary'
 import multer from "multer";
+import cookieParser from "cookie-parser";
+
 
 const cloudinaryV2 = cloudinary.v2;
 
@@ -66,108 +72,91 @@ const storage = new CloudinaryStorage({
 
 const cloudinaryUpload = multer({ storage: storage });
 
-app.get("/api/blogs", async (req, res) => {
-  try {
-    const blog = await Blog.find().sort({ createdAt: -1 });
-    res.json(blog);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+// app.get("/api/blogs/:id", async (req, res) => {
+//   try {
+//     const blog = await Blog.findById(req.params.id);
+//     if (!blog) {
+//       return res.status(404).json({ message: "Blog not found" });
+//     }
+//     res.json(blog);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
 
-app.get("/api/blogs/:id", async (req, res) => {
-  try {
-    const blog = await Blog.findById(req.params.id);
-    if (!blog) {
-      return res.status(404).json({ message: "Blog not found" });
-    }
-    res.json(blog);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+// app.post(
+//   "/api/admin/blogs",
+//   adminAuth,
+//   cloudinaryUpload.single("image"),
+//   async (req, res) => {
+//     try {
+//       const { title, description, content } = req.body;
+//       const blog = new Blog({
+//         title,
+//         description,
+//         content,
+//         image: {
+//           url: req.file.path,
+//           publicId: req.file.filename,
+//         },
+//       });
+//       await blog.save();
+//       res.status(201).json(blog);
+//     } catch (err) {
+//       res.status(500).json({ message: err.message });
+//     }
+//   }
+// );
 
-app.post(
-  "/api/admin/blogs",
-  adminAuth,
-  cloudinaryUpload.single("image"),
-  async (req, res) => {
-    try {
-      const { title, description, content } = req.body;
-      const blog = new Blog({
-        title,
-        description,
-        content,
-        image: {
-          url: req.file.path,
-          publicId: req.file.filename,
-        },
-      });
-      await blog.save();
-      res.status(201).json(blog);
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  }
-);
+// app.put(
+//   "/api/admin/blogs/:id",
+//   adminAuth,
+//   cloudinaryUpload.single("image"),
+//   async (req, res) => {
+//     try {
+//       const { title, description, content } = req.body;
+//       const blog = await Blog.findById(req.params.id);
+//       if (!blog) {
+//         return res.status(404).json({ message: "Blog not found" });
+//       }
+//       const updateData = { title, description, content };
 
-app.put(
-  "/api/admin/blogs/:id",
-  adminAuth,
-  cloudinaryUpload.single("image"),
-  async (req, res) => {
-    try {
-      const { title, description, content } = req.body;
-      const blog = await Blog.findById(req.params.id);
-      if (!blog) {
-        return res.status(404).json({ message: "Blog not found" });
-      }
-      const updateData = { title, description, content };
+//       if (req.file) {
+//         if (blog.image.publicId) {
+//           await cloudinary.uploader.destroy(blog.image.publicId);
+//         }
+//         updateData.image = {
+//           url: req.file.path,
+//           publicId: req.file.filename,
+//         };
+//       }
 
-      if (req.file) {
-        if (blog.image.publicId) {
-          await cloudinary.uploader.destroy(blog.image.publicId);
-        }
-        updateData.image = {
-          url: req.file.path,
-          publicId: req.file.filename,
-        };
-      }
+//       const updatedBlog = await Blog.findByIdAndUpdate(
+//         req.params.id,
+//         updateData,
+//         { new: true }
+//       );
+//       res.json(updatedBlog);
+//     } catch (err) {
+//       res.status(500).json({ message: err.message });
+//     }
+//   }
+// );
 
-      const updatedBlog = await Blog.findByIdAndUpdate(
-        req.params.id,
-        updateData,
-        { new: true }
-      );
-      res.json(updatedBlog);
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  }
-);
-
-app.delete("/admin/blogs/:id", adminAuth, async (req, res) => {
-  try {
-    const blog = await Blog.findById(req.params.id);
-    if (!blog) {
-      return res.status(404).json({ message: "Blog not found" });
-    }
-    if (blog.image.publicId) {
-      await cloudinary.uploader.destroy(blog.image.publicId);
-    }
-    res.json({ message: "Blog deleted successfully" });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
-
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-});
-
-/*app.use("/api/admin", authRoutes);*/
+// app.delete("/admin/blogs/:id", adminAuth, async (req, res) => {
+//   try {
+//     const blog = await Blog.findById(req.params.id);
+//     if (!blog) {
+//       return res.status(404).json({ message: "Blog not found" });
+//     }
+//     if (blog.image.publicId) {
+//       await cloudinary.uploader.destroy(blog.image.publicId);
+//     }
+//     res.json({ message: "Blog deleted successfully" });
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
 
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
@@ -208,4 +197,12 @@ router.post("/contact", (req, res) => {
       res.json({ code: 200, status: "Message Sent" });
     }
   });
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

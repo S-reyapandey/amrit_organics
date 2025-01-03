@@ -8,6 +8,7 @@
             "url": "https://example.com/images/ashwagandha-benefits.jpg",
             "publicId": "ashwagandha-benefits-001"
         },
+        "category": "Sustainable agricultural",
         "createdAt": "2024-01-15T09:30:00.000Z",
         "updatedAt": "2024-01-15T09:30:00.000Z"
     },
@@ -20,6 +21,7 @@
             "url": "https://example.com/images/guar-gum-recipes.jpg",
             "publicId": "guar-gum-recipes-002"
         },
+         "category": "Sustainable agricultural",
         "createdAt": "2024-02-10T14:45:00.000Z",
         "updatedAt": "2024-02-10T14:45:00.000Z"
     },
@@ -32,6 +34,7 @@
             "url": "https://example.com/images/moringa-health.jpg",
             "publicId": "moringa-health-003"
         },
+         "category": "Sustainable agricultural",
         "createdAt": "2024-03-05T11:20:00.000Z",
         "updatedAt": "2024-03-05T11:20:00.000Z"
     },
@@ -44,6 +47,7 @@
             "url": "https://example.com/images/stevia-vs-sugar.jpg",
             "publicId": "stevia-vs-sugar-004"
         },
+         "category": "Sustainable agricultural",
         "createdAt": "2024-04-12T08:15:00.000Z",
         "updatedAt": "2024-04-12T08:15:00.000Z"
     },
@@ -56,6 +60,7 @@
             "url": "https://example.com/images/coriander-powder.jpg",
             "publicId": "coriander-powder-005"
         },
+         "category": "Sustainable agricultural",
         "createdAt": "2024-05-20T16:50:00.000Z",
         "updatedAt": "2024-05-20T16:50:00.000Z"
     }

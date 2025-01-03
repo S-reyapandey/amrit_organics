@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../AuthContext';
 
 const AdminLogin = () => {
+  const {login} = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -11,10 +13,11 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/admin/login', {
+      const response = await axios.post('/api/admin/login', {
         email,
         password
       });
+      login();
       localStorage.setItem('adminToken', response.data.token);
       navigate('/admin/create-post');
     } catch (err) {

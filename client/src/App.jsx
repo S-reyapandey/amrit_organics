@@ -27,9 +27,11 @@ import Blogdetail from "./pages/Blogdetail";
 import Pagenotfound from "./pages/Pagenotfound";
 import AdminLogin from "./pages/AdminLogin";
 import CreatePost from "./pages/CreatePost";
+import ProtectedRoute from "./ProtectedRoute";
+import { AuthProvider } from "./AuthContext";
 
 function ScrollToTop() {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,39 +42,50 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <BrowserRouter>
-    <ScrollToTop/>
-      <Header />
-      <div style={{ marginTop: "1px" }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About/>}/>
-          <Route path="/products" element={<Products/>}/>
-          <Route path="/products/psylliumSeed" element={<PsylliumSeed/>}/>
-          <Route path="/products/psylliumHusk" element={<PsylliumHusk/>}/>
-          <Route path="/products/psylliumHuskPowder" element={<PsylliumHuskPowder/>}/>
-          <Route path="/products/animalFeed" element={<AnimalFeed/>}/>
-          <Route path="/products/cuminSeedPowder" element={<CuminSeedPowder/>}/>
-          <Route path="/products/guarGumPowder" element={<GuarGumPowder/>}/>
-          <Route path="/products/ashwagandha" element={<AshwagandhaRoot/>}/>
-          <Route path="/products/moringaPowder" element={<MoringaPowder/>}/>
-          <Route path="/products/fenugreek" element={<FenugreekSeed/>}/>
-          <Route path="/products/steviaPowder" element={<SteviaPowder/>}/>
-          <Route path="/products/sennaPowder" element={<SennaPowder/>}/>
-          <Route path="/products/coriander" element={<CorianderPowder/>}/>
-          <Route path="/projects" element={<Project/>}/>
-          <Route path="/project/:projectId" element={<Projectdetail/>}/>
-          <Route path="/blogs" element={<Blog/>}/>
-          <Route path="/blogs/:id" element={<Blogdetail/>}/>
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="*" element={<Pagenotfound/>}/>
-          <Route path="/admin/login" element={<AdminLogin/>}/>
-          <Route path="/admin/create-post" element={<CreatePost/>}/>
-        </Routes>
-      </div>
+    <AuthProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Header />
+        <div style={{ marginTop: "1px" }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/psylliumSeed" element={<PsylliumSeed />} />
+            <Route path="/products/psylliumHusk" element={<PsylliumHusk />} />
+            <Route
+              path="/products/psylliumHuskPowder"
+              element={<PsylliumHuskPowder />}
+            />
+            <Route path="/products/animalFeed" element={<AnimalFeed />} />
+            <Route
+              path="/products/cuminSeedPowder"
+              element={<CuminSeedPowder />}
+            />
+            <Route path="/products/guarGumPowder" element={<GuarGumPowder />} />
+            <Route path="/products/ashwagandha" element={<AshwagandhaRoot />} />
+            <Route path="/products/moringaPowder" element={<MoringaPowder />} />
+            <Route path="/products/fenugreek" element={<FenugreekSeed />} />
+            <Route path="/products/steviaPowder" element={<SteviaPowder />} />
+            <Route path="/products/sennaPowder" element={<SennaPowder />} />
+            <Route path="/products/coriander" element={<CorianderPowder />} />
+            <Route path="/projects" element={<Project />} />
+            <Route path="/project/:projectId" element={<Projectdetail />} />
+            <Route path="/blogs" element={<Blog />} />
+            <Route path="/blogs/:id" element={<Blogdetail />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Pagenotfound />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route
+              path="/admin/create-post"
+              element={<ProtectedRoute element={<CreatePost />} />}
+            />
+          </Routes>
+        </div>
 
-      <FooterCom />
-    </BrowserRouter>
+        <FooterCom />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

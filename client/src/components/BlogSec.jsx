@@ -1,29 +1,37 @@
 import React, { useEffect, useState } from "react";
 import {
   Box,
+  Button,
   Card,
   CardContent,
   CardHeader,
   CardMedia,
-  IconButton,
   Typography,
 } from "@mui/material";
-import { Share } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useInView } from "react-intersection-observer";
 
 function BlogSec() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("/api/blogs");
-        setBlogs(response.data);
-        setLoading(false);
+        const response = await axios.get("/api/post/getposts");
+
+        if (response.data.status === "success") {
+          setBlogs(response.data.blogs);
+        } else {
+          setError(response.data.message);
+          setBlogs([]);
+        }
       } catch (err) {
-        console.log(err);
+        console.log("Error fetching blogs : ", err);
+        setBlogs(err.response?.data?.message || "Failed to fetch blogs");
+      } finally {
         setLoading(false);
       }
     };
@@ -36,6 +44,14 @@ function BlogSec() {
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
       </div>
     );
+  }
+
+  if (error) {
+    return <div className="text-center mt-10 text-red-500">{error}</div>;
+  }
+
+  if (!blogs || blogs.length === 0) {
+    return <div className="text-center mt-10">No blogs found</div>;
   }
 
   const formatDate = (date) => {
@@ -52,83 +68,96 @@ function BlogSec() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gap: "30px",
         }}
       >
         {blogs.map((blog, idx) => {
+        
           return (
-            <Link to={`/blogs/${blog._id}`} key={blog._id} className="no-underline" style={{textDecoration: 'none'}}>
-              <Box key={idx}>
+            <Link
+              to={`/blogs/${blog._id}`}
+              key={blog._id}
+              className="no-underline"
+              style={{ textDecoration: "none" }}
+            >
+              <Box
+                
+              >
                 <Card
                   sx={{
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
                     position: "relative",
-                    height: 400,
-                    maxWidth: 345,
-                    boxShadow: 3,
-                    bgcolor: "transparent",
-                    transition: "transform 0.3s, box-shadow 0.3s",
-                    "&:hover": {
-                      transform: "scale(1.05)",
-                      boxShadow: 2,
+                    transition: "all 0.3s",
+                    "&:hover .blog-image": {
+                      transform: "scale(1.1)",
                     },
+                    "&:hover .blog-text": {
+                      color: "#5B8C51",
+                    },
+                    height: 400,
+                    bgcolor: "#C3F5C1",
+                    backgroundImage: `url("/back2.png"), linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.1))`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundBlendMode: "screen",
                   }}
                 >
-                  <CardHeader
-                    title={
-                      blog.title.length > 18
-                        ? `${blog.title.slice(0, 18)}...`
-                        : blog.title
-                    }
-                    subheader={`By ${blog.author} • ${formatDate(
-                      blog.createdAt
-                    )}`}
-                    sx={{
-                      bgcolor: "#4BAF89",
-                      color: "#fff",
-                      height: 95,
-                      fontWeight: "bold",
-                      "& .MuiCardHeader-subheader": {
-                    color: "rgba(255,255,255,0.8)",
-                    fontSize: "0.80rem",
-                  },
-                  "& .MuiCardHeader-title": {
-                    fontSize: "1.3rem",
-                  }
-                    }}
-                  />
                   <CardMedia
                     component="img"
-                    image={blog.image.url}
-                    alt={blog.title}
+                    image={blog.image?.url || "/default.png"}
+                    alt={blog.title || "Blog Image"}
                     sx={{
-                      height: 170,
+                      height: 200,
                       objectFit: "cover",
+                      transition: "transform 0.3s ease-in-out",
                     }}
+                    className="blog-image"
                   />
-                  <CardContent
-                    sx={{ bgcolor: "#4BAF89", color: "#fff", height: 135 }}
-                  >
+                  <CardContent sx={{ padding: "20px" }}>
                     <Typography
-                      gutterBottom
-                      component="div"
+                      variant="h6"
+                      className="blog-text"
                       sx={{
-                        fontFamily: "Signika",
-                        fontSize: "0.95rem",
+                        fontWeight: "bold",
+                        fontSize: "1.2rem",
+                        marginBottom: "10px",
+                        color: "#333",
+                        transition: "color 0.3s ease-in-out",
                       }}
                     >
-                    {blog.description.length > 120 
-                        ? `${blog.description.slice(0, 120)}...` 
-                        : blog.description}
+                      {blog.title.length > 50
+                        ? `${blog.title.slice(0, 50)}...`
+                        : blog.title}
                     </Typography>
-                    <div className="flex justify-between items-center">
-                      <button
-                        className="text-gray-700 font-medium"
-                        style={{ fontFamily: "Signika" }}
-                      >
-                        Read More 
-                      </button>
-                    </div>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontSize: "0.9rem",
+                        color: "#555",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      {`By ${blog.author} • ${formatDate(blog.createdAt)}`}
+                    </Typography>
+
+                    <Button
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "#4CAF50",
+                        color: "#fff",
+                        textTransform: "none",
+                        "&:hover": {
+                          backgroundColor: "#45a049",
+                        },
+                      }}
+                      component={Link}
+                      to={`/blogs/${blog._id}`}
+                    >
+                      Read More
+                    </Button>
                   </CardContent>
                 </Card>
               </Box>

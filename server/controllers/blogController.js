@@ -1,17 +1,58 @@
-// import express from "express";
-// import Blog from "../models/blogModel";
-// import { adminAuth } from "./authController";
-// import { cloudinary, cloudinaryUpload } from "../config/cloudinary";
-// const router = express.Router();
+import Blog from "../models/blogModel.js";
 
-// router.get("/blog", async (req, res) => {
-//   try {
-//     const blog = await Blog.find().sort({ createdAt: -1 });
-//     res.json(blog);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// });
+export const getBlog = async (req, res) => {
+  console.log("Entering to fetch the blogs");
+  try {
+    const blogs = await Blog.find()
+      .sort({ createdAt: -1 })
+      .select("-_v")
+      .lean();
+
+    console.log(`Found ${blogs.length} blogs`);
+
+    if (!blogs || blogs.length === 0) {
+      console.log("No blogs found in database");
+
+      return res.status(404).json({ message: "No blogs found" });
+    }
+
+    res.json({ status: "success", results: blogs.length, blogs });
+  } catch (err) {
+    console.log("Error fetching blogs : ", err);
+    res.status(500).json({
+      message: err.message,
+      error: process.env.NODE_ENV === "development" ? err.message : undefined,
+    });
+  }
+};
+
+export const getBlogById = async (req, res) => {
+  console.log("Request parameters: ", req.params); // Debugging line
+  console.log("Entering to fetch the blog by id", req.params?.id);
+  
+
+  try {
+    const blog = await Blog.findById(req.params.id).select("-__v").lean();
+
+    if (!blog) {
+      console.log("Blog not found with id: ".req.params.id);
+      return res.status(404).json({
+        message: "Blog not found",
+      });
+    }
+
+
+    console.log("Successfully found blog");
+    res.json({ status: "success", blog });
+  } catch (err) {
+    console.log("Error fetching blog details: ", err);
+    res.status(500).json({
+      status: "error",
+      message: "Error fetching blog details",
+      error: process.env.NODE_ENV === "development" ? err.message : undefined,
+    });
+  }
+};
 
 // router.get("/api/blog/:id", async (req, res) => {
 //   try {

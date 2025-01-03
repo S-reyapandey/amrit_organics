@@ -1,14 +1,10 @@
-// import express from "express";
-// import { login, verifyToken } from "../controllers/adminAuthController.js";
+import express from 'express';
+import { adminAuth, login, logOut } from '../controllers/authController.js';
+ 
 
-// const router = express.Router();
+const router = express.Router();
 
-// // Login Route
-// router.post("/login", login);
+router.post('/login', login);
+router.post('/logout', adminAuth, logOut);
 
-// // Protected Route Example
-// router.get("/protected", verifyToken, (req, res) => {
-//   res.json({ message: "You are authorized!" });
-// });
-
-// export default router;
+export default router;

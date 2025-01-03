@@ -1,59 +1,79 @@
-import pkg from "jsonwebtoken";
-const {jwt} = pkg;
 import Admin from "../models/adminModel.js";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import { errorHandler } from "../middleware/error.js";
 
-export const adminAuth = (req, res, next) => {
-  const { email, password } = req.headers;
+export const adminAuth = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization?.split(" ")[1];
 
-  if (
-    email === process.env.ADMIN_EMAIL &&
-    password === process.env.ADMIN_PASSWORD
-  ) {
+    if (!token) {
+      return next(errorHandler(401, "Authentication required"));
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decoded) {
+      return next(errorHandler(401, "Invalid token"));
+    }
+    const admin = await Admin.findById(decoded.id);
+
+    if (!admin) {
+      return next(errorHandler(401, "Invalid token"));
+    }
+
+    req.admin = admin;
     next();
-  } else {
-    res.status(401).json({ message: "Unauthorized" });
+  } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      return next(errorHandler(401, "Token expired"));
+    }
+    next(errorHandler(401, "Invalid token"));
   }
 };
 
-// export const login = async (req, res) => {
-//     try {
-//       const { email, password } = req.body;
-  
-//       // Fetch the admin from the database
-//       const admin = await Admin.findOne({ email });
-//       if (!admin) {
-//         return res.status(404).json({ message: "Invalid credentials" });
-//       }
-  
-//       // Compare passwords
-//       const isPasswordValid = await bcrypt.compare(password, admin.password);
-//       if (!isPasswordValid) {
-//         return res.status(401).json({ message: "Invalid credentials" });
-//       }
-  
-//       // Generate a JWT token
-//       const token = jwt.sign({ adminId: admin._id }, process.env.JWT_SECRET, {
-//         expiresIn: "1d", // Token valid for 1 day
-//       });
-  
-//       res.status(200).json({ token });
-//     } catch (err) {
-//       res.status(500).json({ message: "Server error" });
-//     }
-//   };
+export const login = async (req, res, next) => {
+  try {
+    // Check if admin exists
+    const { email, password } = req.body;
 
-//   export const verifyToken = (req, res, next) => {
-//     const token = req.headers.authorization?.split(" ")[1];
-//     if (!token) {
-//       return res.status(401).json({ message: "Unauthorized" });
-//     }
-  
-//     try {
-//       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-//       req.adminId = decoded.adminId;
-//       next();
-//     } catch (err) {
-//       res.status(401).json({ message: "Unauthorized" });
-//     }
-//   };
+    if (!email || !password) {
+      next(errorHandler(400, "All Fields are required"));
+    }
+
+    const validAdmin = await Admin.findOne({ email });
+
+    if (!validAdmin) {
+      return next(errorHandler(404, "Admin not found"));
+    }
+
+    // Verify password
+    const validPassword = bcrypt.compare(password, validAdmin.password);
+
+    if (!validPassword) {
+      return next(errorHandler(401, "Invalid password"));
+    }
+
+    // Generate JWT
+    const token = jwt.sign({ id: validAdmin._id }, process.env.JWT_SECRET, {expiresIn: '1h'});
+
+    res
+      .status(200)
+      .cookie("access_token", token, {
+        httpOnly: true,
+      })
+      .json({ message: "Login successful", token, adminId: validAdmin._id });
+  } catch (error) {
+    next(errorHandler(500, "Internal Server error"));
+  }
+};
+
+export const logOut = async (req, res, next) => {
+  try {
+    res
+      .clearCookie("access_token", { httpOnly: true })
+      .status(200)
+      .json("User Logout Successfully");
+  } catch (err) {
+    next(errorHandler(500, "Internal Server error"));
+  }
+};
