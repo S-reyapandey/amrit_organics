@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function AnimalFeed() {
   return (
-    <div className="px-4 mb-20">
+    <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
       <Stack spacing={6}>
         {/*Header Section */}
         <div className="relative mb-8">

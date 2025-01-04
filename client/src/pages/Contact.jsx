@@ -73,7 +73,7 @@ function Contact() {
     }
   };
   return (
-    <div className="container mx-auto px-4 mb-16">
+    <div className="container mx-auto md:px-6 mb-20 sm:px-0 lg:px-6">
       <Stack spacing={6}>
         {/*Header Section */}
         <div className="relative mb-8">
