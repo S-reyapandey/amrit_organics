@@ -44,7 +44,11 @@ function AshwagandhaRoot() {
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika" }}
+                style={{
+                  fontFamily: "Signika",
+                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  textAlign: "center",
+                }}
               >
                 Ashwagandha Root
               </h1>
@@ -54,6 +58,12 @@ function AshwagandhaRoot() {
                 sx={{
                   "& .MuiBreadcrumbs-separator": {
                     color: "white",
+                  },
+                  "& .MuiBreadcrumbs-ol": {
+                    justifyContent: "center",
+                  },
+                  "& .MuiBreadcrumbs-li": {
+                    fontSize: "clamp(0.6rem, 2.5vw, 1rem)",
                   },
                 }}
               >
@@ -69,49 +79,62 @@ function AshwagandhaRoot() {
                 >
                   Products
                 </Link>
-                <Typography sx={{ color: "#fff" }}>Ashwagandha Root</Typography>
+                <Typography
+                  sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}
+                >
+                  Ashwagandha Root
+                </Typography>
               </Breadcrumbs>
             </div>
           </div>
         </div>
 
-         {/*description */}
+        {/*description */}
 
-         <div className="container mx-auto px-6 py-5">
-         <div className="flex flex-col md:flex-row items-center gap-12">
-           {/* Image Section */}
-           <div className="w-full md:w-1/2">
-             <img
-               src="/productsImages/ashwagandhaRoot.png"
-               alt="Right side content"
-               className="w-full h-[400px] object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-             />
-           </div>
+        <div className="container mx-auto px-6 py-5">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Image Section */}
+            <div className="w-full md:w-1/2">
+              <img
+                src="/productsImages/ashwagandhaRoot.png"
+                alt="Right side content"
+                className="w-full h-[400px] object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
+            </div>
 
-           {/* Content Section */}
-           <div className="w-full md:w-1/2 space-y-6">
-             <div className="prose prose-gray max-w-none">
-               <p className="font-['Manrope'] text-base leading-relaxed text-gray-700">
-                 <b>
-                   <i>Ashwagandha : The Ancient Herb for Modern Wellness </i>
-                 </b>
-                 , often referred to as Indian Ginseng or Winter Cherry, is one of the most revered herbs in Ayurveda, the ancient Indian system of medicine. Known for its adaptogenic properties, Ashwagandha has been used for over 3,000 years to promote overall wellness, enhance physical strength, and support mental clarity.
-               </p>
+            {/* Content Section */}
+            <div className="w-full md:w-1/2 space-y-6">
+              <div className="prose prose-gray max-w-none">
+                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700">
+                  <b>
+                    <i>Ashwagandha : The Ancient Herb for Modern Wellness </i>
+                  </b>
+                  , often referred to as Indian Ginseng or Winter Cherry, is one
+                  of the most revered herbs in Ayurveda, the ancient Indian
+                  system of medicine. Known for its adaptogenic properties,
+                  Ashwagandha has been used for over 3,000 years to promote
+                  overall wellness, enhance physical strength, and support
+                  mental clarity.
+                </p>
 
-               <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
-               The name "Ashwagandha" translates to "smell of the horse," symbolizing its powerful vitality-boosting qualities and the energy it imparts to the body. This herb is known for its ability to help the body adapt to stress, improve endurance, and enhance overall vitality, making it a staple in natural health and wellness routines.
-               </p>
+                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                  The name "Ashwagandha" translates to "smell of the horse,"
+                  symbolizing its powerful vitality-boosting qualities and the
+                  energy it imparts to the body. This herb is known for its
+                  ability to help the body adapt to stress, improve endurance,
+                  and enhance overall vitality, making it a staple in natural
+                  health and wellness routines.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-             </div>
-           </div>
-         </div>
-       </div>
+        {/* Buy button */}
 
-       {/* Buy button */}
-
-       <div className="flex justify-center mt-8">
-         <button className="btn-grad3">Buy Now</button>
-       </div>
+        <div className="flex justify-center mt-8">
+          <button className="btn-grad3">Buy Now</button>
+        </div>
         {/*Why section */}
 
         <div className="w-full mb-8 px-6">
@@ -133,17 +156,21 @@ function AshwagandhaRoot() {
                 style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
               >
                 <li>
-                  <b>Premium Quality :</b> Sourced directly from trusted, organic farmers to ensure the highest quality and potency.
+                  <b>Premium Quality :</b> Sourced directly from trusted,
+                  organic farmers to ensure the highest quality and potency.
                 </li>
                 <li>
-                  <b>Adaptogenic Power :</b> Known for reducing stress and anxiety while supporting physical and mental resilience.
+                  <b>Adaptogenic Power :</b> Known for reducing stress and
+                  anxiety while supporting physical and mental resilience.
                 </li>
-                
+
                 <li>
-                  <b>Natural Energy & Vitality :</b>Boosts energy levels and improves overall strength and stamina.
+                  <b>Natural Energy & Vitality :</b>Boosts energy levels and
+                  improves overall strength and stamina.
                 </li>
                 <li>
-                  <b>Supports Mental Clarity :</b>Enhances focus, memory, and cognitive function, promoting mental sharpness.
+                  <b>Supports Mental Clarity :</b>Enhances focus, memory, and
+                  cognitive function, promoting mental sharpness.
                 </li>
               </p>
             </div>
@@ -289,7 +316,10 @@ function AshwagandhaRoot() {
 
         <div className="container mx-auto p-10 mb-12">
           <p>
-         <Link to={"/contact"}><b>Contact us </b></Link> today for samples, pricing, or to discuss your specific requirements
+            <Link to={"/contact"}>
+              <b>Contact us </b>
+            </Link>{" "}
+            today for samples, pricing, or to discuss your specific requirements
           </p>
         </div>
       </Stack>

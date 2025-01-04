@@ -40,7 +40,11 @@ function CuminSeedPowder() {
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika" }}
+                style={{
+                  fontFamily: "Signika",
+                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  textAlign: "center",
+                }}
               >
                 Cumin Seed Powder
               </h1>
@@ -50,6 +54,12 @@ function CuminSeedPowder() {
                 sx={{
                   "& .MuiBreadcrumbs-separator": {
                     color: "white",
+                  },
+                  "& .MuiBreadcrumbs-ol": {
+                    justifyContent: "center",
+                  },
+                  "& .MuiBreadcrumbs-li": {
+                    fontSize: "clamp(0.6rem, 2.5vw, 1rem)",
                   },
                 }}
               >
@@ -65,7 +75,9 @@ function CuminSeedPowder() {
                 >
                   Products
                 </Link>
-                <Typography sx={{ color: "#fff" }}>
+                <Typography
+                  sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}
+                >
                   Cumin Seed Powder
                 </Typography>
               </Breadcrumbs>

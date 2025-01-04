@@ -18,7 +18,11 @@ function MoringaPowder() {
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika" }}
+                style={{
+                  fontFamily: "Signika",
+                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  textAlign: "center",
+                }}
               >
                 Moringa Powder
               </h1>
@@ -28,6 +32,12 @@ function MoringaPowder() {
                 sx={{
                   "& .MuiBreadcrumbs-separator": {
                     color: "white",
+                  },
+                  "& .MuiBreadcrumbs-ol": {
+                    justifyContent: "center",
+                  },
+                  "& .MuiBreadcrumbs-li": {
+                    fontSize: "clamp(0.6rem, 2.5vw, 1rem)",
                   },
                 }}
               >
@@ -43,7 +53,11 @@ function MoringaPowder() {
                 >
                   Products
                 </Link>
-                <Typography sx={{ color: "#fff" }}>Moringa Powder</Typography>
+                <Typography
+                  sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}
+                >
+                  Moringa Powder
+                </Typography>
               </Breadcrumbs>
             </div>
           </div>

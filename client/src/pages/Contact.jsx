@@ -34,16 +34,16 @@ function Contact() {
 
   useEffect(() => {
     let timeoutId;
-    if(status.message){
+    if (status.message) {
       timeoutId = setTimeout(() => {
         setStatus({});
       }, 5000);
     }
     return () => {
-      if(timeoutId){
+      if (timeoutId) {
         clearTimeout(timeoutId);
       }
-    } ;
+    };
   }, [status.message]);
 
   const handleSubmit = async (e) => {
@@ -57,16 +57,19 @@ function Contact() {
       body: JSON.stringify(formData),
     });
 
-    if(!response.ok){
+    if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const result = await response.json();
     setButtonText("Send");
     setFormData(formInitialDetails);
-    if(result.code == 200){
-      setStatus({success: true, message: 'Message sent successfully.'});
-    }else{
-      setStatus({success: false, message: result.status || 'Failed to send message.'});
+    if (result.code == 200) {
+      setStatus({ success: true, message: "Message sent successfully." });
+    } else {
+      setStatus({
+        success: false,
+        message: result.status || "Failed to send message.",
+      });
     }
   };
   return (
@@ -84,7 +87,11 @@ function Contact() {
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika" }}
+                style={{
+                  fontFamily: "Signika",
+                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  textAlign: "center",
+                }}
               >
                 Contact Us
               </h1>
@@ -95,6 +102,12 @@ function Contact() {
                   "& .MuiBreadcrumbs-separator": {
                     color: "white",
                   },
+                  "& .MuiBreadcrumbs-ol": {
+                    justifyContent: "center",
+                  },
+                  "& .MuiBreadcrumbs-li": {
+                    fontSize: "clamp(0.6rem, 2.5vw, 1rem)",
+                  },
                 }}
               >
                 <Link
@@ -103,7 +116,7 @@ function Contact() {
                 >
                   Amrit Organics
                 </Link>
-                <Typography sx={{ color: "#fff" }}>Contact Us</Typography>
+                <Typography sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}>Contact Us</Typography>
               </Breadcrumbs>
             </div>
           </div>
@@ -492,7 +505,7 @@ function Contact() {
                   onChange={(e) => onFormUpdate("message", e.target.value)}
                 />
               </div>
-              
+
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-semibold text-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 disabled:opacity-50"
@@ -500,9 +513,13 @@ function Contact() {
                 {buttonText}
               </button>
               {status.message && (
-                <div className={`p-3 rounded-lg ${
-                  status.success === false ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700' 
-                }`}>
+                <div
+                  className={`p-3 rounded-lg ${
+                    status.success === false
+                      ? "bg-red-100 text-red-700"
+                      : "bg-green-100 text-green-700"
+                  }`}
+                >
                   {status.message}
                 </div>
               )}

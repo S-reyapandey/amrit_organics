@@ -18,7 +18,11 @@ function About() {
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika" }}
+                style={{
+                  fontFamily: "Signika",
+                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  textAlign: "center",
+                }}
               >
                 About Us
               </h1>
@@ -29,6 +33,12 @@ function About() {
                   "& .MuiBreadcrumbs-separator": {
                     color: "white",
                   },
+                  "& .MuiBreadcrumbs-ol": {
+                    justifyContent: "center",
+                  },
+                  "& .MuiBreadcrumbs-li": {
+                    fontSize: "clamp(0.6rem, 2.5vw, 1rem)",
+                  },
                 }}
               >
                 <Link
@@ -37,7 +47,11 @@ function About() {
                 >
                   Amrit Organics
                 </Link>
-                <Typography sx={{ color: "#fff" }}>About Us</Typography>
+                <Typography
+                  sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}
+                >
+                  About Us
+                </Typography>
               </Breadcrumbs>
             </div>
           </div>
@@ -130,7 +144,10 @@ function About() {
                 className="text-gray-600"
                 style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
               >
-              We envision a world where organic agriculture is the standard, not the exception. Through innovation, collaboration, and commitment to quality, we strive to be a global leader in the organic industry
+                We envision a world where organic agriculture is the standard,
+                not the exception. Through innovation, collaboration, and
+                commitment to quality, we strive to be a global leader in the
+                organic industry
               </p>
             </div>
 
@@ -146,78 +163,77 @@ function About() {
           </div>
         </div>
 
+        {/* Our Core Values */}
 
-         {/* Our Core Values */}
+        <div className="w-full mb-8">
+          {/* Card Container */}
+          <div className="max-w-full bg-white flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out">
+            {/* Image on Left Side */}
+            <div className="w-full sm:w-1/3 py-2">
+              <img
+                src="/values.png"
+                alt="our vision"
+                className="w-2/3 h-1/3 pl-5 object-cover rounded-lg"
+              />
+            </div>
 
-         <div className="w-full mb-8">
-         {/* Card Container */}
-         <div className="max-w-full bg-white flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out">
-           {/* Image on Left Side */}
-           <div className="w-full sm:w-1/3 py-2">
-             <img
-               src="/values.png"
-               alt="our vision"
-               className="w-2/3 h-1/3 pl-5 object-cover rounded-lg"
-             />
-           </div>
-
-           {/* Content on Right Side */}
-           <div className="w-full sm:w-2/3 py-2">
-             <h3
-               className="text-yellow-400 text-2xl font-semibold mb-4"
-               style={{ fontFamily: "Courgette" }}
-             >
-               Our Core Values
-             </h3>
-             <ul className="space-y-2">
-             <li className="flex items-start gap-3">
-               <span className="text-yellow-400 text-2xl font-bold">•</span>
-               <div>
-                 <h4 className="text-lg font-semibold text-gray-800">
-                   Quality First
-                 </h4>
-                 <p className="text-gray-600 text-sm">
-                   We ensure that every product meets the highest standards.
-                 </p>
-               </div>
-             </li>
-             <li className="flex items-start gap-3">
-               <span className="text-yellow-400 text-2xl font-bold">•</span>
-               <div>
-                 <h4 className="text-lg font-semibold text-gray-800">
-                   Sustainability
-                 </h4>
-                 <p className="text-gray-600 text-sm">
-                   Protecting the environment through eco-friendly practices.
-                 </p>
-               </div>
-             </li>
-             <li className="flex items-start gap-3">
-               <span className="text-yellow-400 text-2xl font-bold">•</span>
-               <div>
-                 <h4 className="text-lg font-semibold text-gray-800">
-                   Integrity
-                 </h4>
-                 <p className="text-gray-600 text-sm">
-                   Honesty and transparency in everything we do.
-                 </p>
-               </div>
-             </li>
-             <li className="flex items-start gap-3">
-               <span className="text-yellow-400 text-2xl font-bold">•</span>
-               <div>
-                 <h4 className="text-lg font-semibold text-gray-800">
-                   Community Impact
-                 </h4>
-                 <p className="text-gray-600 text-sm">
-                   Empowering farmers and local communities.
-                 </p>
-               </div>
-             </li>
-           </ul>
-           </div>
-         </div>
-       </div>
+            {/* Content on Right Side */}
+            <div className="w-full sm:w-2/3 py-2">
+              <h3
+                className="text-yellow-400 text-2xl font-semibold mb-4"
+                style={{ fontFamily: "Courgette" }}
+              >
+                Our Core Values
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-400 text-2xl font-bold">•</span>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      Quality First
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      We ensure that every product meets the highest standards.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-400 text-2xl font-bold">•</span>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      Sustainability
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Protecting the environment through eco-friendly practices.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-400 text-2xl font-bold">•</span>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      Integrity
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Honesty and transparency in everything we do.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-400 text-2xl font-bold">•</span>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      Community Impact
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Empowering farmers and local communities.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </Stack>
     </div>
   );

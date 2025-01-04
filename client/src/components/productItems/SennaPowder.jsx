@@ -43,7 +43,11 @@ function SennaPowder() {
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika" }}
+                style={{
+                  fontFamily: "Signika",
+                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  textAlign: "center",
+                }}
               >
                 Senna Powder
               </h1>
@@ -53,6 +57,12 @@ function SennaPowder() {
                 sx={{
                   "& .MuiBreadcrumbs-separator": {
                     color: "white",
+                  },
+                  "& .MuiBreadcrumbs-ol": {
+                    justifyContent: "center",
+                  },
+                  "& .MuiBreadcrumbs-li": {
+                    fontSize: "clamp(0.6rem, 2.5vw, 1rem)",
                   },
                 }}
               >
@@ -68,7 +78,11 @@ function SennaPowder() {
                 >
                   Products
                 </Link>
-                <Typography sx={{ color: "#fff" }}>Senna Powder</Typography>
+                <Typography
+                  sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}
+                >
+                  Senna Powder
+                </Typography>
               </Breadcrumbs>
             </div>
           </div>
@@ -145,18 +159,21 @@ function SennaPowder() {
                 style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
               >
                 <li>
-                  <b>100% Natural and Organic :</b> Free from synthetic additives, ensuring a pure and safe product.
+                  <b>100% Natural and Organic :</b> Free from synthetic
+                  additives, ensuring a pure and safe product.
                 </li>
                 <li>
-                  <b>High Potency :</b> Carefully processed to preserve the natural laxative properties for maximum effectiveness.
+                  <b>High Potency :</b> Carefully processed to preserve the
+                  natural laxative properties for maximum effectiveness.
                 </li>
 
                 <li>
-                  <b>Global Standards Compliance : </b>Produced under stringent quality control measures to meet international standards.
+                  <b>Global Standards Compliance : </b>Produced under stringent
+                  quality control measures to meet international standards.
                 </li>
                 <li>
-                  <b>Customizable Packaging : </b> Tailored to suit the diverse needs of our clients, ensuring convenience and satisfaction.
-
+                  <b>Customizable Packaging : </b> Tailored to suit the diverse
+                  needs of our clients, ensuring convenience and satisfaction.
                 </li>
               </p>
             </div>

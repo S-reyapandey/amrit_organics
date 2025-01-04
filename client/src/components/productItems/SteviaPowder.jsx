@@ -1,4 +1,11 @@
-import { Box, Breadcrumbs, Card, CardContent, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Breadcrumbs,
+  Card,
+  CardContent,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -18,8 +25,8 @@ function SteviaPowder() {
     },
     {
       id: 4,
-      title: "Sustainability Focus"
-    }
+      title: "Sustainability Focus",
+    },
   ];
   return (
     <div className="px-4 mb-20">
@@ -36,7 +43,11 @@ function SteviaPowder() {
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika" }}
+                style={{
+                  fontFamily: "Signika",
+                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  textAlign: "center",
+                }}
               >
                 Stevia Powder
               </h1>
@@ -46,6 +57,12 @@ function SteviaPowder() {
                 sx={{
                   "& .MuiBreadcrumbs-separator": {
                     color: "white",
+                  },
+                  "& .MuiBreadcrumbs-ol": {
+                    justifyContent: "center",
+                  },
+                  "& .MuiBreadcrumbs-li": {
+                    fontSize: "clamp(0.6rem, 2.5vw, 1rem)",
                   },
                 }}
               >
@@ -61,7 +78,11 @@ function SteviaPowder() {
                 >
                   Products
                 </Link>
-                <Typography sx={{ color: "#fff" }}>Stevia Powder</Typography>
+                <Typography
+                  sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}
+                >
+                  Stevia Powder
+                </Typography>
               </Breadcrumbs>
             </div>
           </div>
@@ -234,7 +255,6 @@ function SteviaPowder() {
             ))}
           </div>
         </div>
-
 
         {/*Get in touch */}
         <div className="container mx-auto p-10 mb-12">

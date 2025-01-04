@@ -20,7 +20,8 @@ function Project() {
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
             <h1
               className="text-white text-6xl font-bold slide-in mb-4"
-              style={{ fontFamily: "Signika" }}
+              style={{ fontFamily: "Signika",  fontSize: "clamp(1.5rem, 5vw, 3rem)",
+                textAlign: "center", }}
             >
               Projects
             </h1>

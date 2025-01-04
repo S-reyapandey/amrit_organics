@@ -40,7 +40,8 @@ function GuarGumPowder() {
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika" }}
+                style={{ fontFamily: "Signika", fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  textAlign: "center", }}
               >
                 Guar Gum Powder
               </h1>
@@ -50,6 +51,12 @@ function GuarGumPowder() {
                 sx={{
                   "& .MuiBreadcrumbs-separator": {
                     color: "white",
+                  },
+                  "& .MuiBreadcrumbs-ol": {
+                    justifyContent: "center",
+                  },
+                  "& .MuiBreadcrumbs-li": {
+                    fontSize: "clamp(0.6rem, 2.5vw, 1rem)",
                   },
                 }}
               >
@@ -65,7 +72,7 @@ function GuarGumPowder() {
                 >
                   Products
                 </Link>
-                <Typography sx={{ color: "#fff" }}>Guar Gum Powder</Typography>
+                <Typography sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}>Guar Gum Powder</Typography>
               </Breadcrumbs>
             </div>
           </div>
