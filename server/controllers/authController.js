@@ -54,7 +54,9 @@ export const login = async (req, res, next) => {
     }
 
     // Generate JWT
-    const token = jwt.sign({ id: validAdmin._id }, process.env.JWT_SECRET, {expiresIn: '1h'});
+    const token = jwt.sign({ id: validAdmin._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     res
       .status(200)
@@ -75,5 +77,25 @@ export const logOut = async (req, res, next) => {
       .json("User Logout Successfully");
   } catch (err) {
     next(errorHandler(500, "Internal Server error"));
+  }
+};
+
+export const verifyToken = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization?.split("")[1];
+
+    if (!token) {
+      return next(errorHandler(401, "No token provided"));
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const admin = await Admin.findById(decoded.id);
+    if (!admin) {
+      return next(errorHandler(401, "Invalid Token"));
+    }
+
+    res.status(200).json({ valid: true });
+  } catch (err) {
+    next(errorHandler(401, "Invalid Tokne"));
   }
 };

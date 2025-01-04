@@ -11,7 +11,8 @@ import {
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {CalendarDays, User} from "lucide-react";
+import { CalendarDays, User } from "lucide-react";
+import DOMPurify from "dompurify";
 
 function Blogdetail() {
   const { id } = useParams();
@@ -22,16 +23,16 @@ function Blogdetail() {
   useEffect(() => {
     const fetchBlogDetail = async () => {
       try {
-        console.log("fetching blogdetails");
+        //console.log("fetching blogdetails");
         const response = await axios.get(`/api/post/getpost/${id}`);
-        console.log("Response: ", response.data);
-        if (response.data.status === 'success') {
+        // console.log("Response: ", response.data);
+        if (response.data.status === "success") {
           setBlog(response.data.blog);
         } else {
           setError(response.data.message || "Failed to fetch blog details");
         }
       } catch (err) {
-        console.log("Error fetching blog details : ", err);
+        //console.log("Error fetching blog details : ", err);
         setError(
           err.response?.data?.message ||
             err.message ||
@@ -42,7 +43,7 @@ function Blogdetail() {
       }
     };
 
-    if(id){
+    if (id) {
       fetchBlogDetail();
     }
   }, [id]);
@@ -136,16 +137,20 @@ function Blogdetail() {
 
         <div className="max-w-4xl mx-auto px-4">
           <div className="space-y-8">
-            
-
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-center leading-tight hover:text-[#5B8C51] transition-colors duration-300" style={{fontFamily: "Signika", }}>
+            <h1
+              className="text-4xl md:text-5xl font-bold text-center leading-tight hover:text-[#5B8C51] transition-colors duration-300"
+              style={{ fontFamily: "Signika" }}
+            >
               {blog.title}
             </h1>
 
             {/* Category Badge */}
             <div className="text-center">
-              <Badge className="bg-emerald-100 text-emerald-900 px-4 py-1 text-sm" style={{borderRadius: 15}}>
+              <Badge
+                className="bg-emerald-100 text-emerald-900 px-4 py-1 text-sm"
+                style={{ borderRadius: 15 }}
+              >
                 {blog.category}
               </Badge>
             </div>
@@ -169,31 +174,39 @@ function Blogdetail() {
 
             {/* Featured Image */}
             <div className="rounded-2xl overflow-hidden">
-            {blog.image?.url || true ? (
-              <img
-                src={blog.image?.url || '/default.png'}
-                alt={blog.title || "Blog Image"}
-                className="w-full h-auto object-cover"
-              />
-            ) : (
-              <p>No image available</p>
-            )}
+              {blog.image?.url || true ? (
+                <img
+                  src={blog.image?.url || "/default.png"}
+                  alt={blog.title || "Blog Image"}
+                  className="w-full h-auto object-cover"
+                />
+              ) : (
+                <p>No image available</p>
+              )}
             </div>
 
             {/* Content */}
             <div className="p-6 space-y-4">
-             <Typography variant="body1" 
-             component="div" 
-             className="text-gray-900 text-lg leading-relaxed"
-             style={{ lineHeight: "1.8" }}>{blog.content}</Typography>
+              <Typography
+                variant="body1"
+                component="div"
+                className="text-gray-900 text-lg leading-relaxed"
+                style={{ lineHeight: "1.8" }}
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(blog.content),
+                }}
+              />
+                
             </div>
-           
 
             {/* Author Card */}
-            <Card className="bg-gradient-to-br from-emerald-100 to-teal-100 border-none" style={{boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)"}}>
-              <CardContent className="p-6 flex items-center gap-4" >
-                <div className="w-16 h-16 rounded-full bg-emerald-400 flex items-center justify-center" >
-                  <User size={36} color="#fff"/>
+            <Card
+              className="bg-gradient-to-br from-emerald-100 to-teal-100 border-none"
+              style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}
+            >
+              <CardContent className="p-6 flex items-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-emerald-400 flex items-center justify-center">
+                  <User size={36} color="#fff" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">{blog.author}</h3>

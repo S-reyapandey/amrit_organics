@@ -6,13 +6,10 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 import dotenv from 'dotenv';
 dotenv.config({ path: '../.env' });
-
-import Blog from "./models/blogModel.js";
-import { adminAuth } from "./controllers/authController.js";
 import authRoutes from "./routes/authRoutes.js"
 import blogRoutes from "./routes/blogRoutes.js"
+import cookieParser from "cookie-parser";
 const router = express.Router();
-
 
 const DB = process.env.DBURI.replace("<PASSWORD>", process.env.DBPASSWORD);
 
@@ -45,118 +42,6 @@ app.use(express.static(path.join(__dirname, 'client/dist')));
 
 app.use("/api/admin", authRoutes);
 app.use("/api/post", blogRoutes);
-
-
-import cloudinary from "cloudinary"
-import {CloudinaryStorage} from 'multer-storage-cloudinary'
-import multer from "multer";
-import cookieParser from "cookie-parser";
-
-
-const cloudinaryV2 = cloudinary.v2;
-
-cloudinaryV2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: "blog_images",
-    allowed_formats: ["jpg", "jpeg", "png", "gif"],
-    transformation: [{ width: 1000, crop: "limit" }],
-  },
-});
-
-const cloudinaryUpload = multer({ storage: storage });
-
-// app.get("/api/blogs/:id", async (req, res) => {
-//   try {
-//     const blog = await Blog.findById(req.params.id);
-//     if (!blog) {
-//       return res.status(404).json({ message: "Blog not found" });
-//     }
-//     res.json(blog);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// });
-
-// app.post(
-//   "/api/admin/blogs",
-//   adminAuth,
-//   cloudinaryUpload.single("image"),
-//   async (req, res) => {
-//     try {
-//       const { title, description, content } = req.body;
-//       const blog = new Blog({
-//         title,
-//         description,
-//         content,
-//         image: {
-//           url: req.file.path,
-//           publicId: req.file.filename,
-//         },
-//       });
-//       await blog.save();
-//       res.status(201).json(blog);
-//     } catch (err) {
-//       res.status(500).json({ message: err.message });
-//     }
-//   }
-// );
-
-// app.put(
-//   "/api/admin/blogs/:id",
-//   adminAuth,
-//   cloudinaryUpload.single("image"),
-//   async (req, res) => {
-//     try {
-//       const { title, description, content } = req.body;
-//       const blog = await Blog.findById(req.params.id);
-//       if (!blog) {
-//         return res.status(404).json({ message: "Blog not found" });
-//       }
-//       const updateData = { title, description, content };
-
-//       if (req.file) {
-//         if (blog.image.publicId) {
-//           await cloudinary.uploader.destroy(blog.image.publicId);
-//         }
-//         updateData.image = {
-//           url: req.file.path,
-//           publicId: req.file.filename,
-//         };
-//       }
-
-//       const updatedBlog = await Blog.findByIdAndUpdate(
-//         req.params.id,
-//         updateData,
-//         { new: true }
-//       );
-//       res.json(updatedBlog);
-//     } catch (err) {
-//       res.status(500).json({ message: err.message });
-//     }
-//   }
-// );
-
-// app.delete("/admin/blogs/:id", adminAuth, async (req, res) => {
-//   try {
-//     const blog = await Blog.findById(req.params.id);
-//     if (!blog) {
-//       return res.status(404).json({ message: "Blog not found" });
-//     }
-//     if (blog.image.publicId) {
-//       await cloudinary.uploader.destroy(blog.image.publicId);
-//     }
-//     res.json({ message: "Blog deleted successfully" });
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// });
 
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
