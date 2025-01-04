@@ -428,8 +428,8 @@ function Contact() {
         </div>
 
         {/*Contact form */}
-        <div className="grid md:grid-cols-2 mt-12 mb-10 max-w-6xl mx-auto">
-          <div className=" flex flex-center justify-center  overflow-hidden shadow-lg h-[740px] hover:shadow-xl transition-shadow duration-300">
+        <div className="grid md:grid-cols-2 gap-8 mt-12 mb-10 max-w-6xl mx-auto">
+          <div className=" flex flex-center justify-center rounded-xl overflow-hidden shadow-lg h-[740px] hover:shadow-xl transition-shadow duration-300">
             <img
               src="/contact.png"
               alt="Contact Map"
@@ -438,7 +438,7 @@ function Contact() {
             />
           </div>
 
-          <div className="bg-white shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <h2 className="text-3xl font-bold mb-8 text-gray-800 border-b pb-4">
               Get in Touch
             </h2>
