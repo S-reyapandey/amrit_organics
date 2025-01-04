@@ -40,8 +40,8 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'client/dist')));
 
-app.use("/api/admin", authRoutes);
-app.use("/api/post", blogRoutes);
+app.use("/", router);
+
 
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
@@ -59,12 +59,19 @@ contactEmail.verify((error) => {
   }
 });
 
-router.post("/contact", (req, res) => {
+router.post("/api/contact", (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
   const subject = req.body.subject;
   const phone = req.body.phone;
   const message = req.body.message;
+
+  if (!name || !email || !message) {
+    return res.status(400).json({
+      code: 400,
+      status: "Missing required fields"
+    });
+  }
   const mail = {
     from: name,
     to: process.env.EMAIL_USER,
@@ -77,12 +84,16 @@ router.post("/contact", (req, res) => {
   };
   contactEmail.sendMail(mail, (error) => {
     if (error) {
-      res.json(error);
+      console.log("Email error : ", error);
+      res.status(500).json({code: 500, status: "Error sending message", error});
     } else {
       res.json({ code: 200, status: "Message Sent" });
     }
   });
 });
+
+app.use("/api/admin", authRoutes);
+app.use("/api/post", blogRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
