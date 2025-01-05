@@ -142,11 +142,6 @@ function PsylliumHuskPowder() {
           </div>
         </div>
 
-        {/* Buy button */}
-
-        <div className="flex justify-center mt-8">
-          <button className="btn-grad3">Buy Now</button>
-        </div>
 
         {/*Available Sizes */}
         <div className="container mx-auto px-16 mb-12">

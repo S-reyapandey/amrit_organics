@@ -14,6 +14,25 @@ import { Share } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 function ProductSec() {
+  const handleShare = async (product) => {
+    const shareData = {
+      title: product.title,
+      text: `Check out this product: ${product.title}`,
+      url: window.location.href,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        console.log("Shared Successfully!");
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
+    } else {
+      alert("Sharing not supported on this browser.");
+    }
+  };
+
   return (
     <div className="container mx-auto px-16 py-10">
       {/* Products Grid */}
@@ -32,7 +51,6 @@ function ProductSec() {
           });
           return (
             <Box
-              key={idx}
               ref={ref}
               sx={{
                 transform: inView
@@ -45,14 +63,13 @@ function ProductSec() {
               <Card
                 sx={{
                   position: "relative",
-                  height: 400,
+                  height: 420,
                   maxWidth: 345,
                   boxShadow: 3,
-                  bgcolor: "transparent",
                   transition: "transform 0.3s, box-shadow 0.3s",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                    boxShadow: 2,
+
+                  "&:hover .product-image": {
+                    transform: "scale(1.1)",
                   },
                 }}
               >
@@ -70,12 +87,14 @@ function ProductSec() {
                   image={product.image}
                   alt={product.title}
                   sx={{
-                    height: 180,
+                    height: 190,
                     objectFit: "cover",
+                    transition: "transform 0.3s ease-in-out",
                   }}
+                  className="product-image"
                 />
                 <CardContent
-                  sx={{ bgcolor: "#545A4D", color: "#fff", height: 155 }}
+                  sx={{ bgcolor: "#545A4D", color: "#fff", height: 165 }}
                 >
                   <Typography
                     gutterBottom
@@ -97,18 +116,17 @@ function ProductSec() {
                       </button>
                     </Link>
 
-                    <a>
-                      <IconButton
-                        className="p-2"
-                        style={{
-                          backgroundColor: "rgba(252, 211, 77, 1)",
-                          borderRadius: "50%",
-                        }}
-                      >
-                        {" "}
-                        <Share sx={{ color: "#000" }} />
-                      </IconButton>
-                    </a>
+                    <IconButton
+                      className="p-2"
+                      style={{
+                        backgroundColor: "rgba(252, 211, 77, 1)",
+                        borderRadius: "50%",
+                      }}
+                      onClick={() => handleShare(product)}
+                    >
+                      {" "}
+                      <Share sx={{ color: "#000" }} />
+                    </IconButton>
                   </div>
                 </CardContent>
               </Card>

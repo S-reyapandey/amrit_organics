@@ -4,13 +4,11 @@ import {
   Button,
   Card,
   CardContent,
-  CardHeader,
   CardMedia,
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useInView } from "react-intersection-observer";
 
 function BlogSec() {
   const [blogs, setBlogs] = useState([]);
@@ -72,8 +70,7 @@ function BlogSec() {
           gap: "30px",
         }}
       >
-        {blogs.map((blog, idx) => {
-        
+        {blogs.map((blog) => {
           return (
             <Link
               to={`/blogs/${blog._id}`}
@@ -81,9 +78,7 @@ function BlogSec() {
               className="no-underline"
               style={{ textDecoration: "none" }}
             >
-              <Box
-                
-              >
+              <Box>
                 <Card
                   sx={{
                     borderRadius: "12px",

@@ -148,11 +148,6 @@ function PsylliumHusk() {
           </div>
         </div>
 
-        {/* Buy button */}
-
-        <div className="flex justify-center mt-8">
-          <button className="btn-grad3">Buy Now</button>
-        </div>
 
         {/*Name section */}
 
