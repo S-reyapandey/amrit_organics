@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css");
 
@@ -8,22 +7,21 @@
   padding: 0px;
 }
 
-body{
-  background-color: #F8F7F0 !important;
+body {
+  background-color: #f8f7f0 !important;
   font-family: "Roboto", sans-serif;
 }
 
-.navbar{
-  backdrop-filter: blur(10px); 
+.navbar {
+  backdrop-filter: blur(10px);
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px 0;
 }
 
- .header1{
-  background-image: #D9D9D9 !important;
+.header1 {
+  background-image: #d9d9d9 !important;
 }
-
 
 .glide__arrow {
   background-color: white;
@@ -36,113 +34,128 @@ body{
   background-color: #9ac0d9;
 }
 
-
-.btn-gradient {background-image: linear-gradient(to right, #DC2424 0%, #4A569D  51%, #DC2424  100%)}
 .btn-gradient {
-   margin: 10px;
-   padding: 15px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;            
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   display: block;
- }
+  background-image: linear-gradient(
+    to right,
+    #dc2424 0%,
+    #4a569d 51%,
+    #dc2424 100%
+  );
+}
+.btn-gradient {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
 
- .btn-gradient:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
- }
+.btn-gradient:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #606c88 0%,
+    #3f4c6b 51%,
+    #606c88 100%
+  );
+}
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
 
- .btn-grad {background-image: linear-gradient(to right, #606c88 0%, #3f4c6b  51%, #606c88  100%)}
- .btn-grad {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
-  }
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 
-  .btn-grad:hover {
-    background-position: right center; /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-  }
- 
+.btn-grad2 {
+  background-image: linear-gradient(
+    to right,
+    #e96443 0%,
+    #904e95 51%,
+    #e96443 100%
+  );
+}
+.btn-grad2 {
+  margin: 8px;
+  padding: 7px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
 
-  
-  .btn-grad2 {background-image: linear-gradient(to right, #e96443 0%, #904e95  51%, #e96443  100%)}
-  .btn-grad2 {
-     margin: 8px;
-     padding: 7px 15px;
-     text-align: center;
-     text-transform: uppercase;
-     transition: 0.5s;
-     background-size: 200% auto;
-     color: white;            
-     box-shadow: 0 0 20px #eee;
-     border-radius: 10px;
-     display: block;
-   }
-
-   .btn-grad2:hover {
-     background-position: right center; 
-     color: #fff;
-     text-decoration: none;
-   }
+.btn-grad2:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
 
 /* Fade + Slide Animation */
 @keyframes fadeSlide {
   0% {
     opacity: 0;
-    transform: translateY(30px); 
+    transform: translateY(30px);
   }
   100% {
-    opacity: 1; 
-    transform: translateY(0); 
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .slide-in {
-  animation: fadeSlide 1s ease-out forwards; 
+  animation: fadeSlide 1s ease-out forwards;
   opacity: 0;
-  transform: translateY(30px); 
+  transform: translateY(30px);
 }
 
-
-
-.btn-grad3 {background-image: linear-gradient(to right, #C04848 0%, #480048  51%, #C04848  100%)}
 .btn-grad3 {
-   margin: 10px;
-   padding: 15px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;            
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   display: block;
- }
+  background-image: linear-gradient(
+    to right,
+    #c04848 0%,
+    #480048 51%,
+    #c04848 100%
+  );
+}
+.btn-grad3 {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
 
- .btn-grad3:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
- }
-
-
-
-
-  
-  
- 
+.btn-grad3:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}

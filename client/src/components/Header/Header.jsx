@@ -92,7 +92,7 @@ function Header({ navLinks = nav_links }) {
           alignItems: "center",
         }}
       >
-        <img src="/logo.png" alt="Logo" style={{ width: "150px" }} />
+        <img src="/logo.png" alt="Logo" style={{ width: "190px" }} />
       </Box>
 
       <List
@@ -170,6 +170,13 @@ function Header({ navLinks = nav_links }) {
           <a target="_blank">
             <IconButton sx={{ color: "#000" }} size="small">
               <Instagram />
+            </IconButton>
+          </a>
+        </div>
+        <div className={styles.circle1}>
+          <a target="_blank" href="https://wa.me/9569501586">
+            <IconButton sx={{ color: "#000" }} size="small">
+              <WhatsApp />
             </IconButton>
           </a>
         </div>
@@ -490,9 +497,9 @@ function Header({ navLinks = nav_links }) {
               top: isSticky ? "0" : "auto",
               transform: isSticky ? "translateY(0)" : "translateY(94px)",
               transformStyle: "flat",
-              transition: "all 0.5s ease",
+              transition: "all 0.2s ease",
               zIndex: 1000,
-              transitionDuration: "0.1s",
+              transitionDuration: "0.2s",
             }}
           >
             <Toolbar>

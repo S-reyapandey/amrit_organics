@@ -29,6 +29,8 @@ import AdminLogin from "./pages/AdminLogin";
 import CreatePost from "./pages/CreatePost";
 import ProtectedRoute from "./ProtectedRoute";
 import { AuthProvider } from "./AuthContext";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -51,6 +53,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/privacyPolicy" element={<PrivacyPolicy/>}/>
+            <Route path="/terms&condition" element={<TermsOfUse/>}/>
             <Route path="/products/psylliumSeed" element={<PsylliumSeed />} />
             <Route path="/products/psylliumHusk" element={<PsylliumHusk />} />
             <Route

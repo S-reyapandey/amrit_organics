@@ -3,18 +3,19 @@ import { Footer } from "flowbite-react";
 import { BsInstagram, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
+
 function FooterCom() {
   return (
     <Footer container className="bg-gray-800 text-white">
-      <div className="w-full max-w-8xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-8 py-8 px-6">
+      <div className="w-full max-w-8xl mx-auto px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 py-8 px-6">
           {/* Logo Section */}
           <div className="flex justify-center sm:justify-start">
             <img src="/logo.png" alt="Logo" style={{ height: 110 }} />
           </div>
 
           {/* Navigation Links */}
-          <div className="grid grid-cols-1 gap-8 sm:col-span-3 sm:grid-cols-3 sm:gap-6 ">
+          <div className="grid grid-cols-1 gap-1 sm:col-span-3 sm:grid-cols-3 sm:gap-2 ">
             <div className="space-y-2">
               <Footer.Title title="Follow us" />
               <Footer.LinkGroup col className="space-y-2">
@@ -32,9 +33,9 @@ function FooterCom() {
             <div className="space-y-2">
               <Footer.Title title="Legal" />
               <Footer.LinkGroup col className="space-y-2">
-                <Footer.Link href="#" className="no-underline"
+                <Footer.Link href="/privacyPolicy" className="no-underline"
                 style={{ textDecoration: "none", color: "inherit" }}>Privacy Policy</Footer.Link>
-                <Footer.Link href="#" className="no-underline"
+                <Footer.Link href="/terms&condition" className="no-underline"
                 style={{ textDecoration: "none", color: "inherit" }}>Terms & Conditions</Footer.Link>
               </Footer.LinkGroup>
             </div>
@@ -63,13 +64,13 @@ function FooterCom() {
                   <FaMapMarkerAlt className="text-white" />
                   <Footer.Link className="no-underline"
                   style={{ textDecoration: "none", color: "inherit" }}
-                    href="https://maps.app.goo.gl/xAAT4BADbVacRKMd9"
+                    href="https://maps.app.goo.gl/3hhroCrdKXdrAwdw8"
                     target="_blank"
                   >
                     <div>
-                      Amrit Organics Plant,
-                      <br /> Baramsar Fanta, Ramgarh Road, <br />
-                      Jaisalmer, Rajasthan
+                      Amrit Organics Plant,<br />
+                      Baramsar Fanta,  Ramgarh Road, 
+                      Jaisalmer-345001, <br />Rajasthan, India
                     </div>
                   </Footer.Link>
                 </div>
