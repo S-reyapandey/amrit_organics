@@ -241,7 +241,7 @@ function Header({ navLinks = nav_links }) {
                     }}
                   >
                     <Link to="/">
-                      <img src="/logo.png" alt="Logo" style={{ height: 65 }} />
+                      <img src="/logo.png" alt="Logo" style={{ height: 74 }} />
                     </Link>
                   </Box>
                   {/* to wrap icons social media handles */}
