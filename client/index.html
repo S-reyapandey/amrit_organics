@@ -1,18 +1,122 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://fontawesome.com/v4/assets/font-awesome/css/font-awesome.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Signika:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Signika:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Signika:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="App.css">
+    <link
+      rel="stylesheet"
+      href="https://fontawesome.com/v4/assets/font-awesome/css/font-awesome.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Signika:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Signika:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Signika:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="App.css" />
     <title>Amrit Organics</title>
+    <style>
+      #translate-wrapper {
+        position: fixed;
+        bottom: 10px;
+        left: 20px;
+        z-index: 5000;
+      }
+      .goog-te-banner-frame {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        z-index: 10000 !important;
+      }
+      /* Style the translation dropdown container */
+      #google_translate_element {
+        position: fixed !important;
+        bottom: 10px;
+        left: 20px;
+        z-index: 9999;
+        background: transparent !important;
+        padding: 5px;
+        border-radius: 4px;
+        color: #fff;
+      }
+      #google_translate_element select {
+        background: transparent !important;
+        border: 1px solid #ddd !important;
+        font-size: 12px !important;
+        padding: 1px;
+        width: 70% !important;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .goog-te-gadget {
+        font-size: 0 !important;
+      }
+
+      .goog-te-gadget > div {
+        display: inline-block !important;
+        transform: scale(0.93);
+        transform-origin: left center;
+      }
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+
+      .translated-ltr {
+        top: 0 !important;
+        padding-top: 0 !important;
+      }
+
+      .translated-rtl {
+        top: 0 !important;
+        padding-top: 0 !important;
+      }
+
+      body {
+        position: relative;
+        min-height: 100vh;
+        top: 0 !important;
+      }
+
+      .goog-logo-link {
+        display: none !important;
+      }
+
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div id="translate-wrapper">
+      <div id="google_translate_element"></div>
+    </div>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

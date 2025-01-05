@@ -1,107 +1,146 @@
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-.topLine{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 4px;
-    width: 100%;
-    border-radius: 3px;
-    transition: all 0.3s ease;
+.topLine {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 4px;
+  width: 100%;
+  border-radius: 3px;
+  transition: all 0.3s ease;
 }
 
 .topLineItem {
-    height: 100%;
-    border-radius: 0px;
-    transition: background-color 0.3s ease;
+  height: 100%;
+  border-radius: 0px;
+  transition: background-color 0.3s ease;
 }
 
-.topLineItem:nth-child(1){
-    background-color: #4BAF47;
+.topLineItem:nth-child(1) {
+  background-color: #4baf47;
 }
 
-.topLineItem:nth-child(2){
-    background-color: #C5CE38;
+.topLineItem:nth-child(2) {
+  background-color: #c5ce38;
 }
 
-.topLineItem:nth-child(3){
-    background-color: #EEC044;
+.topLineItem:nth-child(3) {
+  background-color: #eec044;
 }
 
-.appbar1{
-    position: relative !important;
-  /*  background-color: #D9D9D9 !important;*/
-  background-color: #fff !important;
-    height: 80px !important;
-    padding: 10px !important;
-    border-radius: 5px !important;
+.appbar1 {
+  position: relative !important;
+  background-color: #e6fba137 !important;
+  height: 90px !important;
+  padding: 10px !important;
+  border-radius: 0 !important;
 }
 
-.appbar2{
-    top: 0px !important;
-    left: 0px !important;
-    padding: 7px 3px !important;
-    position: fixed !important;
-    display: flex !important;
-    background-color: rgba(84, 90, 77, 0.7) !important;
-    box-shadow: 3px 3px 8px -3px #ddd;
-    line-height: 80px;
-    backdrop-filter: blur(5px);
-    border-bottom: 1px blur rgba(255, 255, 255, 0.3);
-    z-index: 1000 !important;
-    width: 100%;
-    border-radius: 2px;
+.appbar2 {
+  top: 0px !important;
+  left: 0px !important;
+  padding: 7px 3px !important;
+  position: fixed !important;
+  display: flex !important;
+  background-color: rgba(84, 90, 77, 0.692) !important;
+  box-shadow: 3px 3px 8px -3px #ddd;
+  line-height: 90px;
+  backdrop-filter: blur(4px);
+  border-bottom: 1px blur rgba(255, 255, 255, 0.3);
+  z-index: 1000 !important;
+  width: 100%;
+  border-radius: 2px;
 }
 .circle {
-    width: 40px;              
-    height: 40px;           
-    border-radius: 50%;   
-    background-color: #eeede1;
-    display: flex;             
-    justify-content: center;  
-    align-items: center;      
-    overflow: hidden;        
-    border: 2px solid #fff; 
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid #fff;
 }
 
-.circle:hover{
-    background-color: #57c851dd;
-    transform: scaleX(-1);
-    transition:cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
+.circle:hover {
+  background-color: #57c851dd;
+  transform: scaleX(-1);
+  transition: cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
 }
 
 .circle1 {
-    width: 40px;              
-    height: 40px;           
-    border-radius: 50%;   
-    background-color: #d9d7c2;
-    display: flex;             
-    justify-content: center;  
-    align-items: center;      
-    overflow: hidden;        
-    border: 2px solid #d9d7c2; 
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d9d7c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid #d9d7c2;
 }
 
-.circle1:hover{
-    background-color: #57c851dd;
-    transform: scaleX(-1);
-    transition:cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
+.circle1:hover {
+  background-color: #57c851dd;
+  transform: scaleX(-1);
+  transition: cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
 }
 
-.iconB:hover{
-    transform: scaleX(-1);
-    transition:cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
+.iconB:hover {
+  transform: scaleX(-1);
+  transition: cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
 }
 
-.logo{
-    position: relative;
-    margin-left: 80px !important;
+.logo {
+  position: relative;
+  margin-left: 80px !important;
 }
 
-.drawerLogo{
-    position: relative;
-    top: 38px;
-    padding: 30px ;
+.drawerLogo {
+  position: relative;
+  top: 38px;
+  padding: 30px;
 }
+
+.navlink {
+  transition: color 0.3s ease;
+  display: inline-block;
+  background: transparent;
+}
+
+.navlink:hover {
+  color: #e1c16e;
+  background: transparent !important;
+}
+
+.navlink2 {
+  position: absolute;
+  top: 87%;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: #e1c16e;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.navlink:hover .navlink2 {
+  transform: scaleX(1);
+}
+
+.navlink::before,
+.navlink::after {
+  display: none !important;
+}
+
+.navlink:hover,
+.navlink:focus,
+.navlink:active {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
