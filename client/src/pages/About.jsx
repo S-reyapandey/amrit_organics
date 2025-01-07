@@ -148,7 +148,7 @@ function About() {
         {/* Card Container */}
         <div
           className="max-w-full flex flex-col sm:flex-row items-center p-5 border rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-          style={{ backgroundColor: "#4BAF47", opacity: "0.8" }}
+          style={{ backgroundColor: "#4BAF47", opacity: "0.84" }}
         >
           {/* Image on Left Side */}
           <div className="w-full sm:w-1/3 py-2">
@@ -186,7 +186,7 @@ function About() {
         {/* Card Container */}
         <div
           className="max-w-full flex flex-col sm:flex-row items-center p-5 border rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-          style={{ backgroundColor: "#C5CE38", opacity: "0.8" }}
+          style={{ backgroundColor: "#C5CE38", opacity: "0.84" }}
         >
           {/* Content on left Side */}
           <div className="w-full sm:w-3/4 py-2 sm:pr-8 pl-5">
@@ -225,7 +225,7 @@ function About() {
         {/* Card Container */}
         <div
           className="max-w-full flex flex-col sm:flex-row items-center p-5 border rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-          style={{ backgroundColor: "#EEC044", opacity: "0.8" }}
+          style={{ backgroundColor: "#EEC044", opacity: "0.84" }}
         >
           {/* Image on Left Side */}
           <div className="w-full sm:w-1/3 py-2">
