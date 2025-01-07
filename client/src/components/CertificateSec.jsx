@@ -98,7 +98,7 @@ function CertificateSec() {
                 setModalOpen(true);
               }}
             >
-              <div className="h-48 overflow-hidden rounded-xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300">
+              <div className="h-48 overflow-hidden rounded-xl bg-transparent duration-500">
                 <div
                   style={{
                     transform: hoveredCert === cert.id 

@@ -45,16 +45,20 @@ function PsylliumSeed() {
           {/*Image Container */}
           <div className="relative">
             <img
-              src="/productProfile.png"
+              src="/productsImages/psylliumSeed.png"
               alt="headerImage"
-              className="w-full h-auto object-cover"
+              className="w-full object-cover"
+              style={{
+                height: "500px",
+                objectFit: "cover"
+              }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
                 style={{
                   fontFamily: "Signika",
-                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  fontSize: "clamp(2.2rem, 6vw, 4rem)",
                   textAlign: "center",
                 }}
               >
@@ -113,7 +117,7 @@ function PsylliumSeed() {
             {/* Content Section */}
             <div className="w-full md:w-1/2 space-y-6">
               <div className="prose prose-gray max-w-none">
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-700">
                   Psyllium seeds are small, brown seeds derived from the
                   Plantago ovata plant. They contain high levels of soluble
                   fiber (10-30%) and swell significantly when mixed with water
@@ -122,7 +126,7 @@ function PsylliumSeed() {
                   farms across India.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-700 mt-4">
                   Psyllium seeds is an agri-farm product of dried ripe seeds of
                   plantago ovata forks (farm. Plantaginancae) and our seeds has
                   been undergo through cleaning and processing to remove all
@@ -130,7 +134,7 @@ function PsylliumSeed() {
                   particles, ensuring the highest quality product.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-700 mt-4">
                   These exceptional seeds contain 40% Linoleic Acid (LA), an
                   essential polyunsaturated fatty acid vital for human health.
                   This omega-6 fatty acid plays a crucial role in maintaining

@@ -29,7 +29,7 @@ const productData = [
     },
     {
         id: "5",
-        title: "Cumin Seed Powder",
+        title: "Cumin Seed",
         description: "Freshly ground cumin seeds with a warm, earthy flavor, perfect for seasoning. It also offers digestive and antioxidant benefits.",
         image: "/productsImages/cuminSeedPowder.png",
         path: "/products/cuminSeedPowder"

@@ -46,7 +46,7 @@ function CuminSeedPowder() {
                   textAlign: "center",
                 }}
               >
-                Cumin Seed Powder
+                Cumin Seed
               </h1>
               <Breadcrumbs
                 className="slide-in"
@@ -78,7 +78,7 @@ function CuminSeedPowder() {
                 <Typography
                   sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}
                 >
-                  Cumin Seed Powder
+                  Cumin Seed 
                 </Typography>
               </Breadcrumbs>
             </div>
