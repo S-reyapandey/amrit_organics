@@ -3,10 +3,11 @@ import {
   Breadcrumbs,
   Card,
   CardContent,
+  Divider,
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function CuminSeedPowder() {
@@ -14,16 +15,38 @@ function CuminSeedPowder() {
     {
       id: 1,
       title: "100% Organic",
+      description: "Grown naturally without harmful chemicals or pesticides."
     },
     {
       id: 2,
       title: "Premium Quality",
+      description: "Hand-selected seeds processed to perfection."
     },
     {
       id: 3,
       title: "Globally Trusted",
+      description: "Used by chefs and home cooks worldwide."
     },
   ];
+
+  useEffect(() => {
+        const observerOptions = {
+          threshold: 0.2 
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, observerOptions);
+    
+        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right')
+          .forEach(element => observer.observe(element));
+    
+        return () => observer.disconnect();
+      }, []);
 
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
@@ -33,16 +56,20 @@ function CuminSeedPowder() {
           {/*Image Container */}
           <div className="relative">
             <img
-              src="/productProfile.png"
+              src="/productsImages/cuminSeedPowder.png"
               alt="headerImage"
-              className="w-full h-auto object-cover"
+              className="w-full object-cover"
+              style={{
+                height: "500px",
+                objectFit: "cover"
+              }}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
                 style={{
                   fontFamily: "Signika",
-                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  fontSize: "clamp(2.2rem, 6vw, 4rem)",
                   textAlign: "center",
                 }}
               >
@@ -87,24 +114,16 @@ function CuminSeedPowder() {
 
         {/*description */}
 
-        <div className="container mx-auto px-6 py-5">
+        <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <img
-                src="/productsImages/cuminSeedPowder.png"
-                alt="Right side content"
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-              />
-            </div>
 
             {/* Content Section */}
-            <div className="w-full md:w-1/2 space-y-6">
+            <div className="w-full space-y-6 px-10 py-3 scroll-reveal-left">
               <div className="prose prose-gray max-w-none">
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700">
-                  <b>
-                    <i>Cumin: The Spice of Flavor and Wellness</i>
-                  </b>
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
+                  <b className="text-2xl text-[#5B8C51]">
+                    <i>Cumin: The Spice of Flavor and Wellness {" "}</i>
+                  </b>{" "}
                   also known as Jeera, is a beloved spice that has earned its
                   place in kitchens worldwide. Renowned for its warm, earthy
                   flavor and aromatic richness, cumin adds a distinct depth to a
@@ -114,7 +133,7 @@ function CuminSeedPowder() {
                   particularly for digestive health and boosting immunity.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
                   At Amrit Organics, we provide premium, 100% organic cumin that
                   is grown with care in natural, sustainable conditions. Our
                   cumin seeds are hand-picked at the peak of their maturity to
@@ -124,7 +143,7 @@ function CuminSeedPowder() {
                   that is as pure and natural as nature intended.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
                   Whether used in savory dishes, aromatic spice blends, or
                   wellness remedies, our organic cumin is the perfect way to
                   elevate your culinary creations and support your health.
@@ -282,19 +301,19 @@ function CuminSeedPowder() {
           {/* Card Container */}
           <div
             className="max-w-full flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: "#DBD2" }}
+            style={{ backgroundColor: "#F7C35F" }}
           >
             {/* Content on Right Side */}
-            <div className="w-full sm:w-full">
+            <div className="w-full scroll-reveal">
               <h3
-                className="text-yellow-400 text-2xl font-semibold mb-2"
+                className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
                 Why Choose Our Organic Cumin ?
               </h3>
               <p
-                className="text-gray-600"
-                style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
+                className="text-gray-700 text-lg"
+                style={{ lineHeight: "1.6"}}
               >
                 <li>
                   <b>100% Organic :</b> Grown without synthetic pesticides or
@@ -320,7 +339,7 @@ function CuminSeedPowder() {
 
         {/*Features */}
 
-        <div className="container mx-auto px-6 mb-12">
+        <div className="container mx-auto px-6 py-4 mb-12 scroll-reveal">
           <div
             style={{
               display: "grid",
@@ -332,7 +351,7 @@ function CuminSeedPowder() {
               <Card
                 key={idx}
                 sx={{
-                  bgcolor: "#C3B59C",
+                  bgcolor: "#49A760",
                   borderRadius: "8px",
                   color: "#000",
                   height: "100%",
@@ -373,16 +392,41 @@ function CuminSeedPowder() {
                       component="div"
                       gutterBottom
                       sx={{
-                        fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.25rem" },
+                        fontSize: { xs: "1.3rem", sm: "1.4rem", md: "1.45rem" },
                         marginBottom: 1.4,
                         fontWeight: 530,
                         fontFamily: "Signika",
-                        color: "#000",
+                        color: "#fff",
                       }}
                     >
                       {fea.title}
                     </Typography>
                   </Box>
+                  <Divider
+                  sx={{
+                    width: "100%",
+                    marginBottom: 2,
+                    bgcolor: "#fff",
+                    height: "0.1rem",
+                    color: "#EEF2EC",
+                  }}
+                />
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: {
+                      xs: "1.130rem",
+                      sm: "1.140rem",
+                      md: "1.180rem",
+                      lg: "1.195rem",
+                    },
+                    fontFamily: "Roboto",
+                    lineHeight: "1.6",
+                    color: "#fff",
+                  }}
+                >
+                  {fea.description}
+                </Typography>
                 </CardContent>
               </Card>
             ))}
@@ -391,14 +435,14 @@ function CuminSeedPowder() {
 
         {/*Packaging */}
 
-        <div className="w-full mb-8 px-6">
+        <div className="w-full mb-8 px-6 py-4">
           {/* Card Container */}
           <div
             className="max-w-full flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: "#4BAF47" }}
+            style={{ backgroundColor: "#51624F" }}
           >
             {/* Content on Right Side */}
-            <div className="w-full sm:w-full">
+            <div className="w-full scroll-reveal">
               <h3
                 className="text-white text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
@@ -406,8 +450,8 @@ function CuminSeedPowder() {
                 Packaging and Availability
               </h3>
               <p
-                className="text-white"
-                style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
+                className="text-white text-lg"
+                style={{ lineHeight: "1.6"}}
               >
                 <li>
                   <b>Packaging Options :</b> Available in variety of sizes –
@@ -429,24 +473,23 @@ function CuminSeedPowder() {
 
         {/*Nutritional Value */}
 
-        <div className="container mx-auto p-10 mb-12">
+        <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
           <h2
             style={{
               fontFamily: "Signika",
-              fontSize: "1.1rem",
               fontWeight: "600",
             }}
-            className="mb-3"
+            className="mb-3 text-2xl"
           >
             Looking for a trusted supplier of high-quality Cumin Seeds Powder?
           </h2>
-          <p>
+          <p className="text-lg">
             At Amrit Organics, we partner with trusted 20,000+ farmers who
             practice eco-friendly and sustainable agriculture. Each batch of
             cumin undergoes rigorous quality checks to ensure it meets our high
             standards of purity and authenticity.
             <br />
-            Get in touch today for product samples, pricing, or to discuss your
+            <Link to="/contact" style={{fontWeight: 900}}>Get in touch</Link> today for product samples, pricing, or to discuss your
             specific requirements.
           </p>
         </div>

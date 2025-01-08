@@ -7,7 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function PsylliumHuskPowder() {
@@ -38,6 +38,28 @@ function PsylliumHuskPowder() {
     },
   ];
 
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    document
+      .querySelectorAll(
+        ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right"
+      )
+      .forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
       <Stack spacing={6}>
@@ -46,16 +68,20 @@ function PsylliumHuskPowder() {
           {/*Image Container */}
           <div className="relative">
             <img
-              src="/productProfile.png"
+              src="/productsImages/psylliumHuskPowder.png"
               alt="headerImage"
-              className="w-full h-auto object-cover"
+              className="w-full object-cover"
+              style={{
+                height: "500px",
+                objectFit: "cover",
+              }}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
                 style={{
                   fontFamily: "Signika",
-                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  fontSize: "clamp(2.2rem, 6vw, 4rem)",
                   textAlign: "center",
                 }}
               >
@@ -100,24 +126,15 @@ function PsylliumHuskPowder() {
 
         {/*description */}
 
-        <div className="container mx-auto px-6 py-5">
+        <div className="container mx-auto px-6 ">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <img
-                src="/productsImages/psylliumHuskPowder.png"
-                alt="Right side content"
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-              />
-            </div>
-
             {/* Content Section */}
-            <div className="w-full md:w-1/2 space-y-6">
+            <div className="w-full space-y-6 px-10 py-3 scroll-reveal-left">
               <div className="prose prose-gray max-w-none">
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700">
-                  <b>
-                    <i>Psyllium Husk Powder: A High-Quality Natural Fibre </i>
-                  </b>
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
+                  <b className="text-2xl text-[#5B8C51]">
+                    <i>Psyllium Husk Powder: A High-Quality Natural Fibre {" "} </i>
+                  </b>{" "}
                   is a finely ground form of the husk derived from the seeds of
                   the Plantago ovata plant. Rich in dietary fiber, it is a
                   natural and versatile ingredient known for its ability to
@@ -125,13 +142,13 @@ function PsylliumHuskPowder() {
                   management.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
                   Widely used in the food, nutraceutical, pharmaceutical, and
                   wellness industries, psyllium husk powder is valued for its
                   health benefits and adaptability in various applications.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
                   At Amrit Organics, we offer premium-quality psyllium husk
                   powder, meticulously processed to retain its natural
                   properties while adhering to the highest global standards of
@@ -141,7 +158,6 @@ function PsylliumHuskPowder() {
             </div>
           </div>
         </div>
-
 
         {/*Available Sizes */}
         <div className="container mx-auto px-16 mb-12">
@@ -164,19 +180,19 @@ function PsylliumHuskPowder() {
           {/* Card Container */}
           <div
             className="max-w-full flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: "#DBD2" }}
+            style={{ backgroundColor: "#F7C35F" }}
           >
             {/* Content on Right Side */}
-            <div className="w-full sm:w-2/3">
+            <div className="w-full scroll-reveal">
               <h3
-                className="text-yellow-400 text-2xl font-semibold mb-2"
+                className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
                 Why Choose Psyllium Husk Powder ?
               </h3>
               <p
-                className="text-gray-600"
-                style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
+                className="text-gray-700 text-lg"
+                style={{ lineHeight: "1.6" }}
               >
                 Psyllium husk powder is a natural, plant-based fiber with
                 unmatched benefits:
@@ -203,7 +219,7 @@ function PsylliumHuskPowder() {
 
         {/*Features */}
 
-        <div className="container mx-auto px-4 mb-12">
+        <div className="container mx-auto px-4 mb-12 scroll-reveal">
           <div
             style={{
               display: "grid",
@@ -215,7 +231,7 @@ function PsylliumHuskPowder() {
               <Card
                 key={idx}
                 sx={{
-                  bgcolor: "#C3B59C",
+                  bgcolor: "#49A760",
                   borderRadius: "8px",
                   color: "#000",
                   height: "100%",
@@ -256,11 +272,11 @@ function PsylliumHuskPowder() {
                       component="div"
                       gutterBottom
                       sx={{
-                        fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.25rem" },
+                        fontSize: { xs: "1.3rem", sm: "1.4rem", md: "1.45rem" },
                         marginBottom: 1.4,
                         fontWeight: 530,
                         fontFamily: "Signika",
-                        color: "#000",
+                        color: "#fff",
                       }}
                     >
                       {fea.title}
@@ -270,8 +286,8 @@ function PsylliumHuskPowder() {
                     sx={{
                       width: "100%",
                       marginBottom: 2,
-                      bgcolor: "#4E574A",
-                      height: "0.06rem",
+                      bgcolor: "#fff",
+                      height: "0.1rem",
                       color: "#EEF2EC",
                     }}
                   />
@@ -279,13 +295,14 @@ function PsylliumHuskPowder() {
                     variant="body2"
                     sx={{
                       fontSize: {
-                        xs: "0.830rem",
-                        sm: "0.840rem",
-                        md: "0.880rem",
-                        lg: "0.895rem",
+                        xs: "1.130rem",
+                        sm: "1.140rem",
+                        md: "1.180rem",
+                        lg: "1.195rem",
                       },
                       fontFamily: "Roboto",
                       lineHeight: "1.6",
+                      color: "#fff",
                     }}
                   >
                     {fea.description}
@@ -298,16 +315,16 @@ function PsylliumHuskPowder() {
 
         {/*Why partner with us ? */}
 
-        <div className="w-full sm:w-2/3 px-10">
+        <div className="w-full px-12 scroll-reveal-right">
           <h3
-            className="text-green-500 text-2xl font-semibold mb-2"
+            className="text-green-500 text-3xl py-4 font-semibold mb-2"
             style={{ fontFamily: "Signika" }}
           >
             Why Partner with Us ?
           </h3>
           <p
-            className="text-gray-600"
-            style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
+            className="text-gray-700 text-lg"
+            style={{ lineHeight: "1.6" }}
           >
             <li>
               <b>Experienced Exporter :</b> Trusted supplier to North America,
@@ -322,30 +339,30 @@ function PsylliumHuskPowder() {
               processing methods.
             </li>
             <li>
-              <b>Reliable Logistics </b>
+              <b>Reliable Logistics :</b> Efficient logistics to ensure your shipment arrives on schedule.
             </li>
           </p>
         </div>
 
-        {/*Contacting us */}
-
-        <div className="container mx-auto px-10 mb-12">
+        {/*Contacting */}
+        <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
           <h2
             style={{
               fontFamily: "Signika",
-              fontSize: "1.1rem",
               fontWeight: "600",
             }}
-            className="mb-3"
+            className="mb-3 text-2xl"
           >
-            Looking for a trusted supplier of Psyllium Husk Powder?
+            Looking for a trusted supplier of high-quality psyllium seeds?
           </h2>
-          <p>
-            At Amrit Organics, we are committed to meeting your needs with
-            premium products and exceptional service.
-            <br />
-            Reach out to us today for samples, quotes, or to discuss your
-            specific requirements.
+          <p className="text-lg">
+            At Amrit Organics, we are dedicated to meeting your needs with
+            excellence.{" "}
+            <Link to="/contact" style={{ fontWeight: 900 }}>
+              Get in touch
+            </Link>{" "}
+            today to request a quote, product samples, or learn more about our
+            offerings.
           </p>
         </div>
       </Stack>

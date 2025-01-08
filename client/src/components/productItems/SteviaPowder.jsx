@@ -3,10 +3,11 @@ import {
   Breadcrumbs,
   Card,
   CardContent,
+  Divider,
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function SteviaPowder() {
@@ -14,20 +15,49 @@ function SteviaPowder() {
     {
       id: 1,
       title: "Global Reach",
+      description: "Delivering Stevia Powder to clients worldwide.",
     },
     {
       id: 2,
       title: "Compliance & Certifications",
+      description: "Adherence to international quality and safety standards.",
     },
     {
       id: 3,
       title: "Efficient Logistics",
+      description:
+        "Reliable and timely delivery with optimized supply chain management.",
     },
     {
       id: 4,
       title: "Sustainability Focus",
+      description:
+        "Partnering with eco-friendly farms to support environmental stewardship.",
     },
   ];
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    document
+      .querySelectorAll(
+        ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right"
+      )
+      .forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
       <Stack spacing={6}>
@@ -36,16 +66,20 @@ function SteviaPowder() {
           {/*Image Container */}
           <div className="relative">
             <img
-              src="/productProfile.png"
+              src="/productsImages/steviaPowder.png"
               alt="headerImage"
-              className="w-full h-auto object-cover"
+              className="w-full object-cover"
+              style={{
+                height: "500px",
+                objectFit: "cover",
+              }}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
                 style={{
                   fontFamily: "Signika",
-                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  fontSize: "clamp(2.2rem, 6vw, 4rem)",
                   textAlign: "center",
                 }}
               >
@@ -92,19 +126,10 @@ function SteviaPowder() {
 
         <div className="container mx-auto px-6 py-5">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <img
-                src="/productsImages/steviaPowder.png"
-                alt="Right side content"
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-              />
-            </div>
-
             {/* Content Section */}
-            <div className="w-full md:w-1/2 space-y-6">
+            <div className="w-full space-y-6 px-10 py-3 scroll-reveal-left">
               <div className="prose prose-gray max-w-none">
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
                   <b>
                     <i>
                       Stevia Powder : The Natural Sweetener for a Healthier
@@ -121,7 +146,7 @@ function SteviaPowder() {
                   food and beverages.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
                   At Amrit Organics, we offer premium-quality, organically
                   produced Stevia powder, ensuring that every batch is sourced
                   from the finest Stevia plants. Our Stevia powder is carefully
@@ -141,19 +166,19 @@ function SteviaPowder() {
           {/* Card Container */}
           <div
             className="max-w-full flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: "#DBD2" }}
+            style={{ backgroundColor: "#F7C35F" }}
           >
             {/* Content on Right Side */}
-            <div className="w-full sm:w-full">
+            <div className="w-full scroll-reveal">
               <h3
-                className="text-yellow-400 text-2xl font-semibold mb-2"
+                className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
                 Why Choose Our Stevia Powder ?
               </h3>
               <p
-                className="text-gray-600"
-                style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
+                className="text-gray-700 text-lg"
+                style={{ lineHeight: "1.6" }}
               >
                 <li>
                   <b>Natural & Zero Calories :</b> A healthy, all-natural
@@ -181,19 +206,19 @@ function SteviaPowder() {
 
         {/*Features */}
 
-        <div className="container mx-auto px-6 mb-12">
+        <div className="container mx-auto px-6 py-4 mb-12 scroll-reveal">
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-              gap: "30px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+              gap: "60px",
             }}
           >
             {feature.map((fea, idx) => (
               <Card
                 key={idx}
                 sx={{
-                  bgcolor: "#C3B59C",
+                  bgcolor: "#49A760",
                   borderRadius: "8px",
                   color: "#000",
                   height: "100%",
@@ -234,29 +259,66 @@ function SteviaPowder() {
                       component="div"
                       gutterBottom
                       sx={{
-                        fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.25rem" },
+                        fontSize: { xs: "1.3rem", sm: "1.4rem", md: "1.45rem" },
                         marginBottom: 1.4,
                         fontWeight: 530,
                         fontFamily: "Signika",
-                        color: "#000",
+                        color: "#fff",
                       }}
                     >
                       {fea.title}
                     </Typography>
                   </Box>
+                  <Divider
+                    sx={{
+                      width: "100%",
+                      marginBottom: 2,
+                      bgcolor: "#fff",
+                      height: "0.1rem",
+                      color: "#EEF2EC",
+                    }}
+                  />
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontSize: {
+                        xs: "1.130rem",
+                        sm: "1.140rem",
+                        md: "1.180rem",
+                        lg: "1.195rem",
+                      },
+                      fontFamily: "Roboto",
+                      lineHeight: "1.6",
+                      color: "#fff",
+                    }}
+                  >
+                    {fea.description}
+                  </Typography>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
 
-        {/*Get in touch */}
-        <div className="container mx-auto p-10 mb-12">
-          <p>
-            <Link to={"/contact"}>
-              <b>Get in touch </b>
+        {/*Contacting */}
+        <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
+          <h2
+            style={{
+              fontFamily: "Signika",
+              fontWeight: "600",
+            }}
+            className="mb-3 text-2xl"
+          >
+            Looking for a trusted supplier of high-quality psyllium seeds?
+          </h2>
+          <p className="text-lg">
+            At Amrit Organics, we are dedicated to meeting your needs with
+            excellence.{" "}
+            <Link to="/contact" style={{ fontWeight: 900 }}>
+              Get in touch
             </Link>{" "}
-            today for samples, pricing, or to discuss your specific requirements
+            today to request a quote, product samples, or learn more about our
+            offerings.
           </p>
         </div>
       </Stack>

@@ -1,8 +1,30 @@
 import { Breadcrumbs, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function AnimalFeed() {
+
+  useEffect(() => {
+        const observerOptions = {
+          threshold: 0.2 // Trigger when 20% of element is visible
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, observerOptions);
+    
+        // Observe all elements with scroll-reveal classes
+        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right')
+          .forEach(element => observer.observe(element));
+    
+        return () => observer.disconnect();
+      }, []);
+
+
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
       <Stack spacing={6}>
@@ -11,16 +33,20 @@ function AnimalFeed() {
           {/*Image Container */}
           <div className="relative">
             <img
-              src="/productProfile.png"
+              src="/productsImages/animalFeed.png"
               alt="headerImage"
-              className="w-full h-auto object-cover"
+              className="w-full object-cover"
+              style={{
+                height: "500px",
+                objectFit: "cover"
+              }}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
                 style={{
                   fontFamily: "Signika",
-                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  fontSize: "clamp(2.2rem, 6vw, 4rem)",
                   textAlign: "center",
                 }}
               >
@@ -67,20 +93,12 @@ function AnimalFeed() {
 
         <div className="container mx-auto px-6 py-5">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <img
-                src="/productsImages/animalFeed.png"
-                alt="Right side content"
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-              />
-            </div>
 
             {/* Content Section */}
-            <div className="w-full md:w-1/2 space-y-6">
+            <div className="w-full space-y-6 px-10 py-3 scroll-reveal-left">
               <div className="prose prose-gray max-w-none">
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700">
-                  <b>
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
+                  <b className="text-2xl text-[#5B8C51]">
                     <i>
                       Psyllium Animal Feed: A Natural Fiber Solution for
                       Livestock Health{" "}
@@ -90,7 +108,7 @@ function AnimalFeed() {
                   processing it is also known as Kha Kha Powder.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
                   It is a rich, fibrous powder commonly used as a key ingredient
                   in animal feed, particularly for dairy cattle. Known for its
                   excellent digestive benefits, psyllium Kha Kha powder promotes
@@ -111,19 +129,19 @@ function AnimalFeed() {
           {/* Card Container */}
           <div
             className="max-w-full flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: "#DBD2" }}
+            style={{ backgroundColor: "#F7C35F" }}
           >
             {/* Content on Right Side */}
-            <div className="w-full sm:w-full">
+            <div className="w-full sm:w-full scroll-reveal">
               <h3
-                className="text-yellow-400 text-2xl font-semibold mb-2"
+                className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
                 Why Choose Psyllium Kha Kha Powder for Animal Feed ?
               </h3>
               <p
-                className="text-gray-600"
-                style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
+                className="text-gray-700 text-lg"
+                style={{ lineHeight: "1.6"}}
               >
                 <li>
                   <b>Rich in Fiber : </b> It is a natural source of fiber,
@@ -147,21 +165,20 @@ function AnimalFeed() {
 
         {/*Contacting us */}
 
-        <div className="container mx-auto px-10 mb-12">
+        <div className="container mx-auto px-10 mb-12 scroll-reveal-left">
           <h2
             style={{
               fontFamily: "Signika",
-              fontSize: "1.1rem",
               fontWeight: "600",
             }}
-            className="mb-3"
+            className="mb-3 text-2xl"
           >
             Looking for a dependable supplier of Psyllium Animal Feed?
           </h2>
-          <p>
+          <p className="text-lg">
             At Amrit Organics, we are dedicated to delivering quality products
             that support animal health and meet your business needs. <br />
-            Contact us today to request samples, get a quote, or discuss your
+            <Link to="/contact" style={{fontWeight: 900}}>Contact us</Link> today to request samples, get a quote, or discuss your
             specific requirements.
           </p>
         </div>

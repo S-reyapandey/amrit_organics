@@ -80,16 +80,16 @@ function Contact() {
           {/*Image Container */}
           <div className="relative">
             <img
-              src="/other.png"
+              src="/productProfile.png"
               alt="headerImage"
               className="w-full h-auto object-cover"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
                 style={{
                   fontFamily: "Signika",
-                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  fontSize: "clamp(2.2rem, 6vw, 4rem)",
                   textAlign: "center",
                 }}
               >

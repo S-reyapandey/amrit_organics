@@ -1,8 +1,30 @@
 import { Breadcrumbs, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function CorianderPowder() {
+
+
+  useEffect(() => {
+        const observerOptions = {
+          threshold: 0.2 // Trigger when 20% of element is visible
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, observerOptions);
+    
+        // Observe all elements with scroll-reveal classes
+        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right')
+          .forEach(element => observer.observe(element));
+    
+        return () => observer.disconnect();
+      }, []);
+
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
       <Stack spacing={6}>
@@ -11,20 +33,24 @@ function CorianderPowder() {
           {/*Image Container */}
           <div className="relative">
             <img
-              src="/productProfile.png"
+              src="/productsImages/corianderSeed.png"
               alt="headerImage"
-              className="w-full h-auto object-cover"
+              className="w-full object-cover"
+              style={{
+                height: "500px",
+                objectFit: "cover"
+              }}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
                 style={{
                   fontFamily: "Signika",
-                  fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                  fontSize: "clamp(2.2rem, 6vw, 4rem)",
                   textAlign: "center",
                 }}
               >
-                Coriander Powder
+                Coriander Seeds
               </h1>
               <Breadcrumbs
                 className="slide-in"
@@ -56,7 +82,7 @@ function CorianderPowder() {
                 <Typography
                   sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}
                 >
-                  Coriander Powder
+                  Coriander Seeds
                 </Typography>
               </Breadcrumbs>
             </div>
@@ -67,22 +93,14 @@ function CorianderPowder() {
 
         <div className="container mx-auto px-6 py-5">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <img
-                src="/productsImages/sennaPowder.png"
-                alt="Right side content"
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-              />
-            </div>
 
             {/* Content Section */}
-            <div className="w-full md:w-1/2 space-y-6">
+            <div className="w-full space-y-6 px-10 py-3 scroll-reveal-left">
               <div className="prose prose-gray max-w-none">
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700">
-                  <b>
-                    <i>Coriander Seeds : A Spice of Flavor and Wellness </i>
-                  </b>
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
+                  <b className="text-2xl text-[#5B8C51]">
+                    <i>Coriander Seeds : A Spice of Flavor and Wellness {" "}</i>
+                  </b>{" "}
                   derived from plant Coriander sativum, cherished for their
                   warm, citrusy flavor and aroma, are a staple ingredient in
                   kitchens and traditional remedies around the globe. Beyond
@@ -92,7 +110,7 @@ function CorianderPowder() {
                   well-being.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
                   At Amrit Organics, we are dedicated to providing the
                   finest-quality coriander seeds, grown organically and
                   processed with utmost care to preserve their natural flavor,
@@ -107,23 +125,23 @@ function CorianderPowder() {
 
         {/*Why section */}
 
-        <div className="w-full mb-8 px-6">
+        <div className="w-full mb-8 px-6 py-3">
           {/* Card Container */}
           <div
             className="max-w-full flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: "#DBD2" }}
+            style={{ backgroundColor: "#F7C35F" }}
           >
             {/* Content on Right Side */}
-            <div className="w-full sm:w-full">
+            <div className="w-full scroll-reveal">
               <h3
-                className="text-yellow-400 text-2xl font-semibold mb-2"
+                className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
                 Why Choose Our Senna Powder ?
               </h3>
               <p
-                className="text-gray-600"
-                style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
+                className="text-gray-700 text-lg"
+                style={{ lineHeight: "1.6"}}
               >
                 <li>
                   <b>Pure & Natural :</b>Free from additives, preservatives, and
@@ -151,14 +169,14 @@ function CorianderPowder() {
 
         {/*partner with us */}
 
-        <div className="w-full mb-8 px-6">
+        <div className="w-full mb-8 px-6 py-3">
           {/* Card Container */}
           <div
             className="max-w-full flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: "#C5CE38" }}
+            style={{ backgroundColor: "#51624F" }}
           >
             {/* Content on Right Side */}
-            <div className="w-full sm:w-full">
+            <div className="w-full scroll-reveal">
               <h3
                 className="text-white text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
@@ -166,8 +184,8 @@ function CorianderPowder() {
                 Our Export Offering
               </h3>
               <p
-                className="text-white"
-                style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
+                className="text-white text-lg"
+                style={{ lineHeight: "1.6"}}
               >
                 <li>
                   <b>Global Export Expertise : </b>Seamless export solutions to
@@ -190,15 +208,23 @@ function CorianderPowder() {
           </div>
         </div>
 
-        {/*Get in touch */}
-        <div className="container mx-auto p-10 mb-12">
-          <p>
-            <Link to={"/contact"}>
-              <b>Get in touch </b>
-            </Link>{" "}
-            today for samples, pricing, or to discuss your specific requirements
-          </p>
-        </div>
+        {/*Contacting */}
+                <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
+                  <h2
+                    style={{
+                      fontFamily: "Signika",
+                      fontWeight: "600",
+                    }}
+                    className="mb-3 text-2xl"
+                  >
+                    Looking for a trusted supplier of high-quality psyllium seeds?
+                  </h2>
+                  <p className="text-lg"> 
+                    At Amrit Organics, we are dedicated to meeting your needs with
+                    excellence. <Link to="/contact" style={{fontWeight: 900}}>Get in touch</Link> today to request a quote, product samples,
+                    or learn more about our offerings.
+                  </p>
+                </div>
       </Stack>
     </div>
   );

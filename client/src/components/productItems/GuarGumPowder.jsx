@@ -3,10 +3,11 @@ import {
   Breadcrumbs,
   Card,
   CardContent,
+  Divider,
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function GuarGumPowder() {
@@ -14,16 +15,45 @@ function GuarGumPowder() {
     {
       id: 1,
       title: "100% Organic",
+      description: "Sourced directly from premium-quality guar seeds without additives or harmful chemicals." 
     },
     {
       id: 2,
       title: "Premium Quality",
+      description: "Carefully processed to ensure consistent performance and purity."
     },
     {
       id: 3,
       title: "Sustainably Sourced",
+      description: "Our guar gum powder is sourced from environmentally responsible suppliers to minimize our carbon footprint."
     },
+    {
+      id: 4,
+      title: "Cost Effective",
+      description: "An economical alternative to other thickeners and stabilizers without compromising effectiveness."
+    }
   ];
+
+  useEffect(() => {
+        const observerOptions = {
+          threshold: 0.2 // Trigger when 20% of element is visible
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, observerOptions);
+    
+        // Observe all elements with scroll-reveal classes
+        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right')
+          .forEach(element => observer.observe(element));
+    
+        return () => observer.disconnect();
+      }, []);
+  
 
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
@@ -33,14 +63,18 @@ function GuarGumPowder() {
           {/*Image Container */}
           <div className="relative">
             <img
-              src="/productProfile.png"
+              src="/productsImages/guarGumPowder.png"
               alt="headerImage"
-              className="w-full h-auto object-cover"
+              className="w-full object-cover"
+              style={{
+                height: "500px",
+                objectFit: "cover"
+              }}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika", fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                style={{ fontFamily: "Signika", fontSize: "clamp(2.2rem, 6vw, 4rem)",
                   textAlign: "center", }}
               >
                 Guar Gum Powder
@@ -80,23 +114,14 @@ function GuarGumPowder() {
 
         {/*description */}
 
-        <div className="container mx-auto px-6 py-5">
+        <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <img
-                src="/productsImages/guarGumPowder.png"
-                alt="Right side content"
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-              />
-            </div>
-
             {/* Content Section */}
-            <div className="w-full md:w-1/2 space-y-6">
+            <div className="w-full space-y-6 px-10 py-3 scroll-reveal-left">
               <div className="prose prose-gray max-w-none">
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700">
-                  <b>
-                    <i>Guar Gum : A Versatile Natural Thickening Agent</i>
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
+                  <b className="text-2xl text-[#5B8C51]">
+                    <i>Guar Gum : A Versatile Natural Thickening Agent {" "}</i>
                   </b>{" "}
                   is a natural, plant-based ingredient derived from the seeds of
                   the Guar plant (Cyamopsis tetragonoloba). Known for its
@@ -105,7 +130,7 @@ function GuarGumPowder() {
                   industries, including food, cosmetics, and manufacturing.
                 </p>
 
-                <p className="font-['Manrope'] text-base leading-relaxed text-gray-700 mt-4">
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
                   This versatile polysaccharide is made up of high levels of
                   galactose and mannose, which contribute to its unique ability
                   to bind, thicken, and stabilize various products. Guar gum is
@@ -124,19 +149,19 @@ function GuarGumPowder() {
           {/* Card Container */}
           <div
             className="max-w-full flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: "#DBD2" }}
+            style={{ backgroundColor: "#F7C35F" }}
           >
             {/* Content on Right Side */}
-            <div className="w-full sm:w-full">
+            <div className="w-full scroll-reveal">
               <h3
-                className="text-yellow-400 text-2xl font-semibold mb-2"
+                className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
                 Why Choose Our Guar Gum Powder ?
               </h3>
               <p
-                className="text-gray-600"
-                style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
+                className="text-gray-700 text-lg"
+                style={{ lineHeight: "1.6"}}
               >
                 <li>
                   <b>Effective Thickening & Stabilizing :</b> Acts as a powerful
@@ -165,19 +190,19 @@ function GuarGumPowder() {
 
         {/*Features */}
 
-        <div className="container mx-auto px-6 mb-12">
+        <div className="container mx-auto px-6 mb-12 scroll-reveal">
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "30px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+              gap: "60px",
             }}
           >
             {feature.map((fea, idx) => (
               <Card
                 key={idx}
                 sx={{
-                  bgcolor: "#C3B59C",
+                  bgcolor: "#49A760",
                   borderRadius: "8px",
                   color: "#000",
                   height: "100%",
@@ -218,16 +243,41 @@ function GuarGumPowder() {
                       component="div"
                       gutterBottom
                       sx={{
-                        fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.25rem" },
+                        fontSize: { xs: "1.3rem", sm: "1.4rem", md: "1.45rem" },
                         marginBottom: 1.4,
                         fontWeight: 530,
                         fontFamily: "Signika",
-                        color: "#000",
+                        color: "#fff",
                       }}
                     >
                       {fea.title}
                     </Typography>
                   </Box>
+                  <Divider
+                    sx={{
+                      width: "100%",
+                      marginBottom: 2,
+                      bgcolor: "#fff",
+                      height: "0.1rem",
+                      color: "#EEF2EC",
+                    }}
+                  />
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontSize: {
+                        xs: "1.130rem",
+                        sm: "1.140rem",
+                        md: "1.180rem",
+                        lg: "1.195rem",
+                      },
+                      fontFamily: "Roboto",
+                      lineHeight: "1.6",
+                      color: "#fff",
+                    }}
+                  >
+                    {fea.description}
+                  </Typography>
                 </CardContent>
               </Card>
             ))}
@@ -236,18 +286,17 @@ function GuarGumPowder() {
 
         {/*Nutritional Value */}
 
-        <div className="container mx-auto p-10 mb-12">
+        <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
           <h2
             style={{
               fontFamily: "Signika",
-              fontSize: "1.1rem",
               fontWeight: "600",
             }}
-            className="mb-3"
+            className="mb-3 text-2xl"
           >
             Looking for a trusted supplier of high-quality Guar Gum Powder?
           </h2>
-          <p>At Amrit Organics, we are dedicated to meeting your needs with excellence. Get in touch today for product samples, pricing, or to discuss your
+          <p className="text-lg">At Amrit Organics, we are dedicated to meeting your needs with excellence. <Link to="/contact" style={{fontWeight: 900}}>Get in touch</Link> today for product samples, pricing, or to discuss your
             specific requirements.
           </p>
         </div>
