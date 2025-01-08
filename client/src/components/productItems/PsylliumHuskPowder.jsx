@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Sizes from "../Sizes";
 
 function PsylliumHuskPowder() {
   const feature = [
@@ -160,23 +161,12 @@ function PsylliumHuskPowder() {
         </div>
 
         {/*Available Sizes */}
-        <div className="container mx-auto px-16 mb-12">
-          <h2
-            style={{
-              fontFamily: "Signika",
-              fontSize: "1.1rem",
-              fontWeight: "600",
-            }}
-            className="mb-3"
-          >
-            Avaiable Sizes :
-          </h2>
-          <p> 100 Mesh, 80 Mesh, 70 Mesh, 60 Mesh, 40 Mesh </p>
-        </div>
+        
+        <Sizes/>
 
         {/*Why section */}
 
-        <div className="w-full mb-8 px-6">
+        <div className="w-full mb-8 px-6 py-8">
           {/* Card Container */}
           <div
             className="max-w-full flex flex-col sm:flex-row items-center p-5 border border-gray-400 rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out"
@@ -219,7 +209,7 @@ function PsylliumHuskPowder() {
 
         {/*Features */}
 
-        <div className="container mx-auto px-4 mb-12 scroll-reveal">
+        <div className="container mx-auto px-4 mb-12 scroll-reveal py-6">
           <div
             style={{
               display: "grid",
@@ -315,7 +305,7 @@ function PsylliumHuskPowder() {
 
         {/*Why partner with us ? */}
 
-        <div className="w-full px-12 scroll-reveal-right">
+        <div className="w-full px-12 py-6 scroll-reveal-right">
           <h3
             className="text-green-500 text-3xl py-4 font-semibold mb-2"
             style={{ fontFamily: "Signika" }}
