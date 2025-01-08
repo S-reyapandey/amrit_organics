@@ -49,7 +49,7 @@ const Varities = () => {
     if (!isPaused) {
       const interval = setInterval(() => {
         nextSlide();
-      }, 1800);
+      }, 1700);
       return () => clearInterval(interval);
     }
   }, [isPaused, activeIndex]);
