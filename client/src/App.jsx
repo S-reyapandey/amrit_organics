@@ -6,9 +6,7 @@ import Header from "./components/Header/Header";
 import FooterCom from "./components/Footer/FooterCom";
 import About from "./pages/About";
 import Products from "./pages/Products";
-import Project from "./pages/Project";
 import Blog from "./pages/Blog";
-import Projectdetail from "./pages/Projectdetail";
 import PsylliumSeed from "./components/productItems/PsylliumSeed";
 import PsylliumHusk from "./components/productItems/PsylliumHusk";
 import AnimalFeed from "./components/productItems/AnimalFeed";
@@ -31,6 +29,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import { AuthProvider } from "./AuthContext";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
+import PsylliumBenefit from "./pages/PsylliumBenefit";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -73,8 +72,7 @@ function App() {
             <Route path="/products/steviaPowder" element={<SteviaPowder />} />
             <Route path="/products/sennaPowder" element={<SennaPowder />} />
             <Route path="/products/coriander" element={<CorianderPowder />} />
-            <Route path="/projects" element={<Project />} />
-            <Route path="/project/:projectId" element={<Projectdetail />} />
+            <Route path="/psylliumBenefit" element={<PsylliumBenefit/>}/>
             <Route path="/blogs" element={<Blog />} />
             <Route path="/blogs/:id" element={<Blogdetail />} />
             <Route path="/contact" element={<Contact />} />

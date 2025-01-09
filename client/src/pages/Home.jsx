@@ -18,7 +18,6 @@ function Home() {
         <Feature />
         <Introduction />
         <OurProducts />
-        <ExploreProject />
         <CertificateSec/>
         <Gallery/>
         <BlogSection/>

@@ -59,13 +59,13 @@ function OurProducts() {
       {/*Header Section */}
       <div className="text-center mb-3">
         <h3
-          className="text-yellow-400 text-2xl mb-2"
+          className="text-yellow-400 text-6xl mb-3"
           style={{ fontFamily: "Courgette" }}
         >
           Our Products
         </h3>
         <h2
-          className="text-2xl md:text-3xl font-extrabold mb-2"
+          className="text-3xl md:text-4xl font-extrabold mb-2"
           style={{ fontFamily: "Manrope" }}
         >
           What we Offer
@@ -139,7 +139,6 @@ function OurProducts() {
                   hoverCard === idx ? "scale-100 shadow-md z-100" : ""
                 }`}
                 style={{
-                  transform: hoverCard === idx ? "translateY(-8px)" : "none",
                   height: 510,
                 }}
               >
@@ -153,7 +152,7 @@ function OurProducts() {
 
                 <h3
                   className="text-xl font-semibold mb-2"
-                  style={{ fontFamily: "Signika", textDecoration: 'none' }}
+                  style={{ fontFamily: "Signika", textDecoration: "none" }}
                 >
                   {product.title}
                 </h3>
@@ -207,150 +206,3 @@ function OurProducts() {
 }
 
 export default OurProducts;
-
-// import React, { useState } from "react";
-// import Slider from "react-slick";
-// import { Card, CardContent, CardMedia, CardActions } from '@/components/ui/card';
-// import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-// import { Button } from '@/components/ui/button';
-// import { Check, Copy, Facebook, Twitter, WhatsApp, Link as LinkIcon } from 'lucide-react';
-// import products from "../../utils/productData";
-
-// function OurProducts() {
-//   const [copied, setCopied] = useState(false);
-
-//   const settings = {
-//     dots: false,
-//     infinite: true,
-//     speed: 1000,
-//     slidesToShow: 3,
-//     slidesToScroll: 1,
-//     arrows: true,
-//     autoplay: true,
-//     responsive: [
-//       {
-//         breakpoint: 1024,
-//         settings: {
-//           slidesToShow: 2,
-//         },
-//       },
-//       {
-//         breakpoint: 768,
-//         settings: {
-//           slidesToShow: 1,
-//         },
-//       },
-//     ],
-//   };
-
-//   const copyToClipboard = (productId) => {
-//     const url = `${window.location.origin}/product/${productId}`;
-//     navigator.clipboard.writeText(url);
-//     setCopied(true);
-//     setTimeout(() => setCopied(false), 2000);
-//   };
-
-//   const shareProduct = (platform, productId) => {
-//     const url = encodeURIComponent(`${window.location.origin}/product/${productId}`);
-//     const text = encodeURIComponent("Check out this amazing product!");
-
-//     const shareUrls = {
-//       facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-//       twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
-//       whatsapp: `https://wa.me/?text=${text}%20${url}`
-//     };
-
-//     window.open(shareUrls[platform], '_blank');
-//   };
-
-//   return (
-//     <div className="py-16 px-8">
-//       {/* Header Section */}
-//       <div className="text-center mb-12">
-//         <h3 className="text-orange-400 text-2xl font-semibold">Our Products</h3>
-//         <h2 className="text-4xl font-bold text-gray-800">What we Offer</h2>
-//       </div>
-
-//       {/* Products Carousel */}
-//       <Slider {...settings}>
-//         {products.map((product) => (
-//           <div key={product.id} className="px-3">
-//             <Card className="bg-[#e6e0d8] rounded-3xl overflow-hidden">
-//               <CardMedia>
-//                 <img
-//                   src={product.image}
-//                   alt={product.title}
-//                   className="w-full h-64 object-cover"
-//                 />
-//               </CardMedia>
-
-//               <CardContent className="p-6">
-//                 <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
-//                 <p className="text-gray-600">{product.description}</p>
-//               </CardContent>
-
-//               <CardActions className="flex justify-between items-center p-6 pt-0">
-//                 <button className="text-blue-600 font-medium">
-//                   Learn More
-//                 </button>
-
-//                 <Popover>
-//                   <PopoverTrigger asChild>
-//                     <Button className="p-2 bg-yellow-300 rounded-full hover:bg-yellow-400">
-//                       <LinkIcon className="h-5 w-5" />
-//                     </Button>
-//                   </PopoverTrigger>
-//                   <PopoverContent className="w-56" align="end">
-//                     <div className="space-y-2">
-//                       <h4 className="font-medium mb-2">Share Product</h4>
-
-//                       {/* Copy Link Button */}
-//                       <Button
-//                         variant="outline"
-//                         className="w-full justify-start gap-2"
-//                         onClick={() => copyToClipboard(product.id)}
-//                       >
-//                         {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-//                         {copied ? 'Copied!' : 'Copy Link'}
-//                       </Button>
-
-//                       {/* Social Share Buttons */}
-//                       <Button
-//                         variant="outline"
-//                         className="w-full justify-start gap-2"
-//                         onClick={() => shareProduct('facebook', product.id)}
-//                       >
-//                         <Facebook className="h-4 w-4" />
-//                         Facebook
-//                       </Button>
-
-//                       <Button
-//                         variant="outline"
-//                         className="w-full justify-start gap-2"
-//                         onClick={() => shareProduct('twitter', product.id)}
-//                       >
-//                         <Twitter className="h-4 w-4" />
-//                         Twitter
-//                       </Button>
-
-//                       <Button
-//                         variant="outline"
-//                         className="w-full justify-start gap-2"
-//                         onClick={() => shareProduct('whatsapp', product.id)}
-//                       >
-//                         <WhatsApp className="h-4 w-4" />
-//                         WhatsApp
-//                       </Button>
-//                     </div>
-//                   </PopoverContent>
-//                 </Popover>
-//               </CardActions>
-//             </Card>
-//           </div>
-//         ))}
-//       </Slider>
-//     </div>
-//   );
-// }
-
-// export default OurProducts;

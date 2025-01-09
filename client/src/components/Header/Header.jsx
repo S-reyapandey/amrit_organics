@@ -40,9 +40,9 @@ const nav_links = [
     display: "Products",
   },
   {
-    id: "projects",
-    path: "/projects",
-    display: "Projects",
+    id: "psylliumBenefit",
+    path: "/psylliumBenefit",
+    display: "Psyllium Benefits",
   },
   {
     id: "blogs",

@@ -8,7 +8,7 @@ const Introduction = () => {
   };
 
   return (
-    <div className="w-full px-24 py-12">
+    <div className="w-full px-4 py-12">
       <div className="container mx-auto px-6 lg:px-20">
         <motion.div
           className="flex flex-col md:flex-row items-center gap-12"
@@ -24,7 +24,7 @@ const Introduction = () => {
           >
             <div className="relative">
               {/* Main large circular image */}
-              <div className="w-[360px] h-[360px] rounded-full overflow-hidden">
+              <div className="w-[520px] h-[520px] rounded-full overflow-hidden">
                 <img
                   className="w-full h-full object-cover"
                   src="/imagesIntro/bottom.png"
@@ -33,7 +33,7 @@ const Introduction = () => {
               </div>
 
               {/* Small circular image positioned on the left */}
-              <div className="absolute -left-4 -bottom-1 transform -translate-x-10 translate-y-10 w-44 h-44 rounded-full overflow-hidden border-8 border-white bg-white">
+              <div className="absolute -left-4 -bottom-1 transform -translate-x-10 translate-y-10 w-56 h-56 rounded-full overflow-hidden border-8 border-white bg-white">
                 <img
                   className="w-full h-full object-cover"
                   src="/imagesIntro/upper.png"
@@ -51,27 +51,27 @@ const Introduction = () => {
           >
             <div className="text-left">
               <h3
-                className="text-yellow-400 text-2xl mb-2"
+                className="text-yellow-400 text-5xl mb-3"
                 style={{ fontFamily: "Courgette" }}
               >
                 Our Introductions
               </h3>
               <h2
-                className="text-2xl md:text-3xl font-extrabold mb-3 slide-in"
+                className="text-3xl md:text-4xl font-extrabold mb-3 slide-in"
                 style={{ fontFamily: "Manrope" }}
               >
                 Agriculture & Organic Product Farm
               </h2>
               <div
-                className=" text-md font-bold mb-3 slide-in"
+                className=" text-xl font-bold mb-3 slide-in"
                 style={{ fontFamily: "Manrope", color: "#4BAF47" }}
               >
                 Amrit Organics is the emerging organisation for sustainable
                 farming
               </div>
               <p
-                className="text-gray-600 text-sm  mx-auto mb-6 slide-in"
-                style={{ lineHeight: "1.6", fontSize: "0.8rem" }}
+                className="text-gray-600 text-lg  mx-auto mb-6 slide-in"
+                style={{ lineHeight: "1.6" }}
               >
                 There are many variations of passages of lorem ipsum available
                 but the majority have suffered alteration in some form by
@@ -92,12 +92,12 @@ const Introduction = () => {
                     </div>
                   </div>
                   <div className="gap-3">
-                    <h4 className="font-semibold text-sm mb-1.5">
+                    <h4 className="font-semibold text-lg mb-1.5">
                       Growing fruits vegetables
                     </h4>
                     <p
-                      className="text-xs text-gray-600"
-                      style={{ lineHeight: "1.2", fontSize: "0.7rem" }}
+                      className="text-md text-gray-600"
+                      style={{ lineHeight: "1.4" }}
                     >
                       Lorem ipsum is not simply random text.
                     </p>
@@ -116,12 +116,12 @@ const Introduction = () => {
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm mb-1.5">
+                    <h4 className="font-semibold text-lg mb-1.5">
                       Tips for ripening your fruits
                     </h4>
                     <p
-                      className="text-xs text-gray-600"
-                      style={{ lineHeight: "1.2", fontSize: "0.7rem" }}
+                      className="text-md text-gray-600"
+                      style={{ lineHeight: "1.4" }}
                     >
                       Making this the first true generator on the internet.
                     </p>

@@ -1,18 +1,20 @@
-import React, { useRef, useState } from "react";
-import blogs from "../utils/blogData";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import {
+  Box,
   Button,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function BlogSection() {
-  const [hoverCard, setHoverCard] = useState(null);
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const sliderRef = useRef(null);
   var settings = {
@@ -50,28 +52,63 @@ function BlogSection() {
     sliderRef.current.slickNext();
   };
 
-  const handleMouseEnter = (idx) => {
-    sliderRef.current.slickPause();
-    setHoverCard(idx);
-  };
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get("/api/post/getposts");
 
-  const handelMouseLeave = () => {
-    sliderRef.current.slickPlay();
-    setHoverCard(null);
+        if (response.data.status === "success") {
+          setBlogs(response.data.blogs);
+        } else {
+          setError(response.data.message);
+          setBlogs([]);
+        }
+      } catch (err) {
+        console.log("Error fetching blogs : ", err);
+        setBlogs(err.response?.data?.message || "Failed to fetch blogs");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div className="text-center mt-10 text-red-500">{error}</div>;
+  }
+
+  if (!blogs || blogs.length === 0) {
+    return <div className="text-center mt-10">No blogs found</div>;
+  }
+
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
   };
 
   return (
-    <div className="container mx-auto px-16 py-10">
+    <div className="container mx-auto px-8 py-10">
       {/*Header Section */}
       <div className="text-center mb-8">
         <h3
-          className="text-yellow-400 text-2xl mb-2"
+          className="text-yellow-400 text-6xl mb-3"
           style={{ fontFamily: "Courgette" }}
         >
           From the Blogs
         </h3>
         <h2
-          className="text-2xl md:text-3xl font-extrabold mb-2"
+          className="text-3xl md:text-4xl font-extrabold mb-2"
           style={{ fontFamily: "Manrope" }}
         >
           Latest & Blogs
@@ -122,78 +159,98 @@ function BlogSection() {
       </div>
 
       {/* Blogs Grid */}
-      <div className="p-3 ml-4">
+      <div className="p-3 ml-4" style={{ overflow: "hidden"}}>
         <Slider {...settings} ref={sliderRef}>
-          {blogs.map((blog) => (
-            <Link>
-              <Card
-                sx={{
-                  height: 450,
-                  maxWidth: 345,
-                  borderRadius: 3,
-                  boxShadow: 3,
-                  bgcolor: "transparent",
-                  transition: "transform 0.3s, box-shadow 0.3s",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                    boxShadow: 2,
-                  },
-                }}
+          {blogs.map((blog) => {
+            return (
+              <Link
+                to={`/blogs/${blog._id}`}
+                key={blog._id}
+                className="no-underline"
+                style={{ textDecoration: "none" }}
               >
-                <CardMedia
-                  component="img"
-                  alt="Blog Image"
-                  image={blog.image}
-                  sx={{
-                    height: 250,
-                    borderTopLeftRadius: "12px",
-                    borderTopRightRadius: "12px",
-                    objectFit: "cover",
-                  }}
-                />
-                <CardContent sx={{ padding: "16px 18px 8px" }}>
-                  <Typography
-                    gutterBottom
-                    variant="h6"
-                    component="div"
+                <Box sx={{
+                  padding: "0 20px",
+                }}>
+                  <Card
                     sx={{
-                      fontFamily: "Manrope, sans-serif",
-                      fontWeight: "bold",
-                      fontSize: "1.25rem",
-                      color: "text.primary",
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      position: "relative",
+                      transition: "all 0.3s",
+                      "&:hover .blog-image": {
+                        transform: "scale(1.1)",
+                      },
+                      "&:hover .blog-text": {
+                        color: "#5B8C51",
+                      },
+                      height: 400,
+                      bgcolor: "#C3F5C1",
+                      backgroundImage: `url("/back2.png"), linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.1))`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundBlendMode: "screen",
                     }}
                   >
-                    {blog.title.slice(0, 25)}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{
-                      fontFamily: "Signika, sans-serif",
-                      fontSize: "0.9rem",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {blog.description.slice(0, 90)}
-                  </Typography>
-                </CardContent>
+                    <CardMedia
+                      component="img"
+                      image={blog.image?.url || "/default.png"}
+                      alt={blog.title || "Blog Image"}
+                      sx={{
+                        height: 200,
+                        objectFit: "cover",
+                        transition: "transform 0.3s ease-in-out",
+                      }}
+                      className="blog-image"
+                    />
+                    <CardContent sx={{ padding: "20px" }}>
+                      <Typography
+                        variant="h6"
+                        className="blog-text"
+                        sx={{
+                          fontWeight: "bold",
+                          fontSize: "1.2rem",
+                          marginBottom: "10px",
+                          color: "#333",
+                          transition: "color 0.3s ease-in-out",
+                        }}
+                      >
+                        {blog.title.length > 50
+                          ? `${blog.title.slice(0, 50)}...`
+                          : blog.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: "0.9rem",
+                          color: "#555",
+                          marginBottom: "15px",
+                        }}
+                      >
+                        {`By ${blog.author} • ${formatDate(blog.createdAt)}`}
+                      </Typography>
 
-                <CardActions
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    px: 2,
-                    pb: 2,
-                  }}
-                >
-                  <button className="px-6 py-2 text-white rounded-lg btn-grad2">
-                    View Post
-                  </button>
-                </CardActions>
-              </Card>
-            </Link>
-          ))}
+                      <Button
+                        variant="contained"
+                        sx={{
+                          backgroundColor: "#4CAF50",
+                          color: "#fff",
+                          textTransform: "none",
+                          "&:hover": {
+                            backgroundColor: "#45a049",
+                          },
+                        }}
+                        component={Link}
+                        to={`/blogs/${blog._id}`}
+                      >
+                        Read More
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </Box>
+              </Link>
+            );
+          })}
         </Slider>
       </div>
     </div>

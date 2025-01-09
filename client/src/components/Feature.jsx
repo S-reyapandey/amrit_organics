@@ -1,159 +1,87 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { Divider } from "@mui/material";
-import { FaRegMap } from "react-icons/fa";
-import { Agriculture, LocalFlorist, VerifiedUser } from "@mui/icons-material";
+import React from 'react';
+import { Leaf, Computer, Lightbulb } from 'lucide-react';
+import { Card, CardContent } from '@mui/material';
+import { TrackChanges } from '@mui/icons-material';
 
-function Feature() {
+const Feature = () => {
   const features = [
     {
-      title: "Professional Farmers",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      icon: <FaRegMap />,
+      title: "Sustainability and Eco-Friendly",
+      description: "Eco-friendly practices for a greener future.",
+      icon: Leaf
     },
     {
-      title: "Fresh Vegetables",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      icon: <LocalFlorist />,
+      title: "Tech Driven",
+      description: "Innovating with advanced technology.",
+      icon: Computer
     },
     {
-      title: "Agriculture Products",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      icon: <Agriculture />,
+      title: "E2C Traceability",
+      description: "Complete transparency in supply chains.",
+      icon: TrackChanges
     },
     {
-      title: "100% Guaranteed",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      icon: <VerifiedUser />,
-    },
+      title: "Tradition and Innovation",
+      description: "Merging heritage with modern ideas.",
+      icon:Lightbulb
+    }
   ];
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        maxWidth: "1400px",
-        margin: "0 auto",
-        padding: { xs: "15px", sm: "25px", md: "35px" },
-      }}
-    >
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: {
-            xs: "1fr",
-            sm: "repeat(2, 1fr)",
-            md: "repeat(4, minmax(0, 1fr))",
-          },
-          gap: { xs: "20px", sm: "25px", md: "30px" },
-          width: "100%",
-        }}
-      >
-        {features.map((feature, index) => (
-          <Card
-            key={index}
-            sx={{
-              bgcolor: "#73796C",
-              borderRadius: "8px",
-              color: "white",
-              height: "100%",
-              transition:
-                "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-              "&:hover": {
-                transform: "translateY(-5px)",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-              },
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <CardContent
+    <div className="w-full max-w-full mx-auto p-2 sm:p-6 md:p-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+        {features.map((feature, index) => {
+          const Icon = feature.icon;
+          return (
+            <Card 
+              key={index}
               sx={{
+                bgcolor: "#73796C",
+                borderRadius: "8px",
+                color: "white",
+                height: "100%",
+                transition:
+                  "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "translateY(-5px)",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                },
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <CardContent sx={{
                 flex: 1,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: { xs: "20px", sm: "25px", md: "28px" },
+                padding: { xs: "18px", sm: "23px", md: "26px" },
                 "&:last-child": {
                   paddingBottom: { xs: "20px", sm: "25px", md: "28px" },
                 },
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1.7,
-                  justifyContent: "center",
-                  width: "100%",
-                }}
-              >
-                {/* Icon aligned with the title */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    backgroundColor: "#EDDD5E",
-                    color: "#000",
-                    fontSize: "1.1rem",
-                    marginBottom: "9px",
-                  }}
-                >
-                  {feature.icon}
-                </Box>
-                <Typography
-                  variant="h2"
-                  component="div"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.25rem" },
-                    marginBottom: 1.4,
-                    fontWeight: 530,
-                    fontFamily: "Signika",
-                    color: "#000",
-                  }}
-                >
-                  {feature.title}
-                </Typography>
-              </Box>
-              <Divider
-                sx={{
-                  width: "100%",
-                  marginBottom: 2,
-                  bgcolor: "#4E574A",
-                  height: "0.06rem",
-                  color: "#EEF2EC",
-                }}
-              />
-              <Typography
-                variant="body2"
-                sx={{
-                  fontSize: {
-                    xs: "0.830rem",
-                    sm: "0.840rem",
-                    md: "0.880rem",
-                    lg: "0.895rem",
-                  },
-                  fontFamily: "Roboto",
-                  lineHeight: "1.6",
-                }}
-              >
-                {feature.description}
-              </Typography>
-            </CardContent>
-          </Card>
-        ))}
-      </Box>
-    </Box>
+              }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#EDDD5E]">
+                    <Icon className="w-5 h-5 text-black" />
+                  </div>
+                  <h3 className="text-2xl sm:text-2xl font-semibold font-['Signika'] text-black">
+                    {feature.title}
+                  </h3>
+                </div>
+                
+                <div className="w-full h-px bg-[#252b22] mb-4" />
+                
+                <p className="text-lg font-['Roboto'] leading-relaxed">
+                  {feature.description}
+                </p>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
   );
-}
+};
 
 export default Feature;
