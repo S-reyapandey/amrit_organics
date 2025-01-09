@@ -4,7 +4,6 @@ import Coroussel from "../components/Coroussel";
 import Feature from "../components/Feature";
 import Introduction from "../components/Introduction";
 import OurProducts from "../components/OurProducts";
-import ExploreProject from "../components/ExploreProject";
 import MapComponent from "../components/MapComponent";
 import Gallery from "../components/Gallery";
 import CertificateSec from "../components/CertificateSec";

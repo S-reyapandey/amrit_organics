@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Varieties from "../Varieties";
+import NutritionalValues from "../NutrionalValues";
 
 function CuminSeedPowder() {
   const feature = [
@@ -156,144 +158,8 @@ function CuminSeedPowder() {
         </div>
 
         {/*Varities*/}
-
-        <div className="container mx-auto px-6 mb-12">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
-              gap: "60px",
-            }}
-          >
-            <Card
-              sx={{
-                bgcolor: "#C5CE38",
-                borderRadius: "8px",
-                color: "#000",
-                height: "100%",
-                transition:
-                  "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                "&:hover": {
-                  transform: "translateY(-5px)",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-                },
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <CardContent
-                sx={{
-                  flex: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: { xs: "20px", sm: "25px", md: "28px" },
-                  "&:last-child": {
-                    paddingBottom: { xs: "20px", sm: "25px", md: "28px" },
-                  },
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1.7,
-                    justifyContent: "center",
-                    width: "100%",
-                  }}
-                >
-                  <Typography
-                    variant="h2"
-                    component="div"
-                    gutterBottom
-                    sx={{
-                      fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.25rem" },
-                      marginBottom: 1.4,
-                      fontWeight: 530,
-                      fontFamily: "Signika",
-                      color: "#000",
-                    }}
-                  >
-                    Variety Available :
-                  </Typography>
-                </Box>
-                <p
-                  className="text-black"
-                  style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
-                >
-                  <li>IPM Cumin</li>
-                  <li>Organic Cumin</li>
-                  <li>Conventional Cumin</li>
-                </p>
-              </CardContent>
-            </Card>
-            <Card
-              sx={{
-                bgcolor: "#C5CE38",
-                borderRadius: "8px",
-                color: "#000",
-                height: "100%",
-                transition:
-                  "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                "&:hover": {
-                  transform: "translateY(-5px)",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-                },
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <CardContent
-                sx={{
-                  flex: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: { xs: "20px", sm: "25px", md: "28px" },
-                  "&:last-child": {
-                    paddingBottom: { xs: "20px", sm: "25px", md: "28px" },
-                  },
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1.7,
-                    justifyContent: "center",
-                    width: "100%",
-                  }}
-                >
-                  <Typography
-                    variant="h2"
-                    component="div"
-                    gutterBottom
-                    sx={{
-                      fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.25rem" },
-                      marginBottom: 1.4,
-                      fontWeight: 530,
-                      fontFamily: "Signika",
-                      color: "#000",
-                    }}
-                  >
-                    Nutritional Values :
-                  </Typography>
-                </Box>
-                <p
-                  className="text-black"
-                  style={{ lineHeight: "1.6", fontSize: "0.9rem" }}
-                >
-                  Cumin seeds are a powerhouse of nutrition, offering :
-                  <li>Essential Oils</li>
-                  <li>Antioxidants</li>
-                  <li>Vitamins and Minerals</li>
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+        <Varieties/>
+        
 
         {/*Why section */}
 
@@ -432,6 +298,8 @@ function CuminSeedPowder() {
             ))}
           </div>
         </div>
+
+        <NutritionalValues/>
 
         {/*Packaging */}
 

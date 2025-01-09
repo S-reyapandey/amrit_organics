@@ -55,7 +55,7 @@ function OurProducts() {
   };
 
   return (
-    <div className="container mx-auto px-16 py-10">
+    <div className="container mx-auto px-8 py-10">
       {/*Header Section */}
       <div className="text-center mb-3">
         <h3
@@ -123,7 +123,7 @@ function OurProducts() {
             key={product.id}
             className={`px-3 transition-all duration-300 ${
               hoverCard !== null && hoverCard !== idx
-                ? "opacity-97 blur-sm"
+                ? "opacity-99 blur-sm"
                 : ""
             }`}
             onMouseEnter={() => handleMouseEnter(idx)}
@@ -135,23 +135,25 @@ function OurProducts() {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div
-                className={`bg-[#C3B59C] rounded-3xl p-4 transition-all duration-300 ${
-                  hoverCard === idx ? "scale-100 shadow-md z-100" : ""
-                }`}
+                className={`bg-[#C3B59C] rounded-3xl p-4 transition-all duration-300`}
                 style={{
-                  height: 510,
+                  height: 530,
                 }}
               >
-                <div className="mb-3">
+                <div className="mb-3 overflow-hidden rounded-2xl">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="rounded-2xl w-full h-64 object-cover"
+                    className={`w-full h-64 object-cover transition-transform duration-500 ${
+                      hoverCard === idx ? "scale-110" : "scale-100"
+                    }`}
                   />
                 </div>
 
                 <h3
-                  className="text-xl font-semibold mb-2"
+                className={`text-2xl font-semibold mb-2 transition-colors duration-300 ${
+                  hoverCard === idx ? "text-emerald-800" : "text-black"
+                }`}
                   style={{ fontFamily: "Signika", textDecoration: "none" }}
                 >
                   {product.title}
@@ -161,12 +163,14 @@ function OurProducts() {
                     width: "100%",
                     marginBottom: 2,
                     bgcolor: "#4E574A",
-                    height: "0.05rem",
+                    height: "0.08rem",
                     color: "#EEF2EC",
                   }}
                 />
                 <p
-                  className="text-gray-700 mb-6 text-sm"
+                  className={`text-gray-700 mb-6 text-md transition-colors duration-300 ${
+                    hoverCard === idx ? "text-gray-900" : "text-gray-700"
+                  }`}
                   style={{ fontFamily: "Signika" }}
                 >
                   {product.description}
@@ -176,7 +180,7 @@ function OurProducts() {
                 <div className="flex justify-between items-center">
                   <Link to={product.path}>
                     <button
-                      className="text-yellow-600 font-medium"
+                      className="text-yellow-600 text-lg"
                       style={{ fontFamily: "Signika" }}
                     >
                       Learn More
