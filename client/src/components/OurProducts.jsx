@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import products from "../utils/productData";
 import Slider from "react-slick";
 import { Divider, IconButton } from "@mui/material";
-import { ArrowLeft, ArrowRight, Share } from "@mui/icons-material";
+import { Share } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 function OurProducts() {
@@ -52,6 +52,25 @@ function OurProducts() {
   const handelMouseLeave = () => {
     sliderRef.current.slickPlay();
     setHoverCard(null);
+  };
+
+  const handleShare = async (product) => {
+    const shareData = {
+      title: product.title,
+      text: `Check out this product: ${product.title}`,
+      url: window.location.href,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        console.log("Shared Successfully!");
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
+    } else {
+      alert("Sharing not supported on this browser.");
+    }
   };
 
   return (
@@ -129,11 +148,7 @@ function OurProducts() {
             onMouseEnter={() => handleMouseEnter(idx)}
             onMouseLeave={handelMouseLeave}
           >
-            <Link
-              to={product.path}
-              className="no-underline"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
+           
               <div
                 className={`bg-[#C3B59C] rounded-3xl p-4 transition-all duration-300`}
                 style={{
@@ -194,6 +209,7 @@ function OurProducts() {
                         backgroundColor: "rgba(252, 211, 77, 1)",
                         borderRadius: "50%",
                       }}
+                      onClick={() => handleShare(product)}
                     >
                       {" "}
                       <Share sx={{ color: "#000" }} />
@@ -201,7 +217,7 @@ function OurProducts() {
                   </a>
                 </div>
               </div>
-            </Link>
+            
           </div>
         ))}
       </Slider>

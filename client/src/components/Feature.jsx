@@ -6,7 +6,7 @@ import { TrackChanges } from '@mui/icons-material';
 const Feature = () => {
   const features = [
     {
-      title: "Sustainability and Eco-Friendly",
+      title: "Sustainability & Eco-Friendly",
       description: "Eco-friendly practices for a greener future.",
       icon: Leaf
     },
@@ -21,7 +21,7 @@ const Feature = () => {
       icon: TrackChanges
     },
     {
-      title: "Tradition and Innovation",
+      title: "Tradition & Innovation",
       description: "Merging heritage with modern ideas.",
       icon:Lightbulb
     }
