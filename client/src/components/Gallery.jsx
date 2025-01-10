@@ -47,7 +47,7 @@ const Gallery = () => {
           {[...Array(8)].map((_, i) => (
             <div
               key={i}
-              className="absolute bg-black/15 rounded-full"
+              className="absolute bg-black/5 rounded-full"
               style={{
                 width: `${Math.max(100, Math.random() * 200)}px`,
                 height: `${Math.max(100, Math.random() * 200)}px`,

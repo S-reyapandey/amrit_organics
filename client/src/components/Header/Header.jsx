@@ -167,7 +167,7 @@ function Header({ navLinks = nav_links }) {
           </a>
         </div>
         <div className={styles.circle1}>
-          <a target="_blank">
+          <a target="_blank" href="https://www.instagram.com/amrit_organics?igsh=YXN0NHZhM3VrZGY3">
             <IconButton sx={{ color: "#000" }} size="small">
               <Instagram />
             </IconButton>
@@ -279,7 +279,7 @@ function Header({ navLinks = nav_links }) {
                         </a>
                       </div>
                       <div className={styles.circle}>
-                        <a target="_blank">
+                        <a target="_blank" href="https://www.instagram.com/amrit_organics?igsh=YXN0NHZhM3VrZGY3">
                           <IconButton sx={{ color: "#000" }} size="small">
                             <Instagram style={{ fontSize: "1.2rem" }} />
                           </IconButton>

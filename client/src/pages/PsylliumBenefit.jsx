@@ -1,6 +1,7 @@
 import { Breadcrumbs, Stack, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import Benefit from "../components/Benfit";
 
 function PsylliumBenefit() {
   return (
@@ -53,7 +54,7 @@ function PsylliumBenefit() {
           </div>
         </div>
 
-        
+        <Benefit/>
 
       </Stack>
     </div>

@@ -68,7 +68,7 @@
 .circle:hover {
   background-color: #57c851dd;
   transform: scaleX(-1);
-  transition: cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
+  transition: cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
 }
 
 .circle1 {
@@ -86,7 +86,7 @@
 .circle1:hover {
   background-color: #57c851dd;
   transform: scaleX(-1);
-  transition: cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
+  transition: cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
 }
 
 .iconB:hover {
