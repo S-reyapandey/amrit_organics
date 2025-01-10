@@ -16,7 +16,7 @@ const Introduction = () => {
   const leafVibrateVariant = {
     initial: { y: 0 },
     animate: {
-      y: [0, -5, 0, 5, 0],
+      y: [0, -6, 0, 6, 0],
       transition: {
         duration: 2,
         repeat: Infinity,
@@ -64,7 +64,7 @@ const Introduction = () => {
               >
                 <img
                   className="w-full h-full object-cover"
-                  src="/imagesIntro/upper.jpg"
+                  src="/imagesIntro/upper.png"
                   alt="Hands holding produce"
                 />
               </motion.div>
