@@ -104,7 +104,7 @@ function About() {
               opacity: "0.3",
             }}
           >
-            <source src="/video1.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dqmieig0r/video/upload/v1736514784/video1_uq91bv.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

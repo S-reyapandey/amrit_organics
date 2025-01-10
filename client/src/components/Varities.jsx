@@ -66,7 +66,7 @@ const Varities = () => {
         className="absolute inset-0 w-full h-full object-cover z-0"
         style={{ filter: 'brightness(0.3)' }}
       >
-        <source src="/video2.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dqmieig0r/video/upload/v1736514171/video2_qbs6iy.mp4" type="video/mp4" />
       </video>
 
       {/* Main Content */}
