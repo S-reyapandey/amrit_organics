@@ -78,7 +78,7 @@ function OurProducts() {
       {/*Header Section */}
       <div className="text-center mb-3">
         <h3
-          className="text-yellow-400 text-6xl mb-3"
+          className="text-yellow-400 text-5xl sm:text-6xl mb-3"
           style={{ fontFamily: "Courgette" }}
         >
           Our Products
@@ -153,6 +153,7 @@ function OurProducts() {
                 className={`bg-[#C3B59C] rounded-3xl p-4 transition-all duration-300`}
                 style={{
                   height: 530,
+                  ...(window.innerWidth < 640 ? { height: 580 } : {}),
                 }}
               >
                 <div className="mb-3 overflow-hidden rounded-2xl">

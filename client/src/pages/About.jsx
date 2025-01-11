@@ -33,7 +33,7 @@ function About() {
   }, []);
 
   return (
-    <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
+    <div className="md:px-6 mb-20 sm:px-0 lg:px-3">
       <Stack spacing={6}>
         {/*Header Section */}
         <div className="relative mb-8 bg-white">
@@ -42,7 +42,7 @@ function About() {
             <img
               src="/productProfile.png"
               alt="headerImage"
-              className="w-full h-auto object-cover"
+              className="w-full h-[55vh] sm:h-[70vh] lg:h-[85vh] object-cover"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1
@@ -88,7 +88,7 @@ function About() {
 
         <div className="p-10">
           {/*About 1*/}
-        <div className="container mx-auto px-4 mb-16">
+        <div className="container mx-auto px-2 mb-16">
         {/* Fixed Background Video */}
         <div className="fixed top-60 left-0 w-full h-full -z-10 overflow-hidden">
           <video

@@ -92,12 +92,15 @@ function BlogSec() {
                     "&:hover .blog-text": {
                       color: "#5B8C51",
                     },
-                    height: 400,
                     bgcolor: "#C3F5C1",
                     backgroundImage: `url("/back2.png"), linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.1))`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundBlendMode: "screen",
+                  }}
+                  style={{
+                    height: 400,
+                    ...(window.innerWidth < 440 ? { height: 450 } : {}),
                   }}
                 >
                   <CardMedia

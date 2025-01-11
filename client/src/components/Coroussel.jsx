@@ -63,7 +63,7 @@ const Coroussel = () => {
 
   return (
     <div 
-      className="relative w-full h-screen overflow-hidden"
+      className="relative w-full sm:h-[85vh] h-[60vh] overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -85,7 +85,7 @@ const Coroussel = () => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover "
               />
               <div className="absolute inset-0 bg-black/30" />
               
@@ -94,7 +94,7 @@ const Coroussel = () => {
               
               {/* Content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                <h2 className={`text-6xl md:text-8xl font-bold mb-4 transition-all duration-700 delay-100
+                <h2 className={`text-6xl md:text-8xl font-bold mb-4 transition-all duration-700 delay-100 text-center
                   ${index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{fontFamily: "Courgette"}}>
                   {slide.title}
                 </h2>

@@ -24,13 +24,13 @@ const Introduction = () => {
         ease: "easeInOut",
       },
     },
-  }
+  };
 
   return (
-    <div className="w-full px-4 py-12">
+    <div className="w-full px-4 py-8 md:py-12">
       <div className="container mx-auto px-6 lg:px-20">
         <motion.div
-          className="flex flex-col md:flex-row items-center gap-12"
+          className="flex flex-col md:flex-row gap-8 items-center md:gap-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -38,13 +38,13 @@ const Introduction = () => {
         >
           {/* Left side with images */}
           <motion.div
-            className="relative w-full md:w-1/2 flex justify-center"
+            className="relative w-full md:w-1/2 flex justify-center py-10"
             variants={slideFadeVariant}
           >
             <div className="relative">
               {/* Main large circular image */}
               <motion.div
-                className="w-[520px] h-[520px] rounded-full overflow-hidden"
+                className="w-[360px] h-[360px] sm:w-[400px] sm:h-[400px] md:w-[520px] md:h-[520px] rounded-full overflow-hidden"
                 variants={imageFadeVariant}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
@@ -57,7 +57,10 @@ const Introduction = () => {
 
               {/* Small circular image positioned on the left */}
               <motion.div
-                className="absolute -left-12 -bottom-10 transform -translate-x-10 translate-y-10 w-56 h-56 rounded-full overflow-hidden border-8 border-white bg-white"
+                className="absolute -left-4 -bottom-4 sm:-left-8 sm:-bottom-8 md:-left-12 md:-bottom-10 
+                           transform -translate-x-4 translate-y-4 sm:-translate-x-8 sm:translate-y-8 md:-translate-x-10 md:translate-y-10 
+                           w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 
+                           rounded-full overflow-hidden border-4 sm:border-6 md:border-8 border-white bg-white"
                 variants={leafVibrateVariant}
                 initial="initial"
                 animate="animate"
@@ -79,13 +82,13 @@ const Introduction = () => {
           >
             <div className="text-left">
               <h3
-                className="text-yellow-400 text-5xl mb-3"
+                className="text-yellow-400 text-4xl sm:text-5xl mb-3"
                 style={{ fontFamily: "Courgette" }}
               >
                 Our Introductions
               </h3>
               <h2
-                className="text-3xl md:text-4xl font-extrabold mb-3 slide-in"
+                className="text-3xl md:text-4xl font-extrabold mb-2 slide-in"
                 style={{ fontFamily: "Manrope" }}
               >
                 Welcome to Amrit Organics

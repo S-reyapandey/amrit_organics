@@ -56,11 +56,10 @@ const nav_links = [
   },
 ];
 
-const drawerWidth = 400;
+const drawerWidth = 350;
 
 function Header({ navLinks = nav_links }) {
   const [isSticky, setIsSticky] = useState(false);
-
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -73,21 +72,22 @@ function Header({ navLinks = nav_links }) {
       role="presentation"
       sx={{
         textAlign: "center",
-        bgcolor: "#F8F7F0",
+        bgcolor: "#94bbe9",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         height: "auto",
-        padding: "0 2.5rem 1rem",
-        margin: "0.8rem",
+        padding: "2rem 3rem",
+        margin: "0.9rem",
       }}
+      className="btn-grad4"
     >
       <Box
         sx={{
           display: "flex",
           justifyContent: "flex-end",
           marginTop: "4rem",
-          marginBottom: "1.5rem",
+          marginBottom: "1.0rem",
           padding: "10px",
           alignItems: "center",
         }}
@@ -101,13 +101,13 @@ function Header({ navLinks = nav_links }) {
           "& .MuiListItemButton-root": {
             justifyContent: "flex-start",
             padding: "10px 0",
-            fontSize: "1.5rem",
-            color: "#888",
+            fontSize: "1.8rem",
+            color: "#777",
             transition: "all 0.3s ease",
             transformOrigin: "left",
             "&:hover": {
               color: "#1C3917",
-              fontSize: "2.2rem",
+              fontSize: "2.4rem",
               transform: "scale(1.1)",
               backgroundColor: "transparent",
             },
@@ -137,9 +137,9 @@ function Header({ navLinks = nav_links }) {
               variant="fullWidth"
               sx={{
                 width: "100%",
-                borderColor: "rgba(85, 87, 81, 0.5)",
-                marginBottom: "0.8rem",
-                marginTop: "0.5em",
+                borderColor: "rgba(85, 87, 81, 0.7)",
+                marginBottom: "0.9rem",
+                marginTop: "0.2em",
               }}
             />
           </React.Fragment>
@@ -192,21 +192,15 @@ function Header({ navLinks = nav_links }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const handleScroll = () => {
-      // Get the height of the first AppBar
       const firstAppBar = document.querySelector(`.${styles.appbar1}`);
       const firstAppBarHeight = firstAppBar ? firstAppBar.offsetHeight : 75;
-
-      // Check if scroll position is beyond the first AppBar height
       setIsSticky(window.scrollY > firstAppBarHeight);
     };
 
-    // Add scroll event listener
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Initial check
     handleScroll();
 
-    // Cleanup
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

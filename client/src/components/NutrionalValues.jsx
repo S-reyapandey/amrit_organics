@@ -85,7 +85,7 @@ const NutritionalValues = () => {
                         <div className={`${activeItem.color} p-1.5 rounded-lg mt-0.5`}>
                           <Plus className="w-3 h-3 text-white" />
                         </div>
-                        <span className="text-gray-700 font-medium text-sm">{benefit}</span>
+                        <span className="text-gray-700 font-medium text-sm ">{benefit}</span>
                       </div>
                     </div>
                   ))}

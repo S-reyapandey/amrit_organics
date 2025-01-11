@@ -14,7 +14,7 @@ function Blog() {
             <img
               src="/productProfile.png"
               alt="headerImage"
-              className="w-full h-auto object-cover "
+              className="w-full h-[55vh] sm:h-[70vh] lg:h-[85vh] object-cover "
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1

@@ -73,7 +73,7 @@ function CertificateSec() {
     <div className="w-full py-10 overflow-hidden">
     <div className="text-center mb-12">
     <h3
-      className="text-yellow-400 text-6xl mb-2"
+      className="text-yellow-400 text-5xl sm:text-6xl mb-2"
       style={{ fontFamily: "Courgette" }}
     >
       Certifications

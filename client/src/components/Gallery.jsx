@@ -69,7 +69,8 @@ const Gallery = () => {
         {/*Header Section */}
         <div className="text-center mb-5">
           <h3
-            className="text-yellow-400 text-6xl mb-3"
+            className="text-yellow-400 
+            text-5xl sm:text-6xl mb-3"
             style={{ fontFamily: "Courgette" }}
           >
             Gallery
@@ -87,7 +88,7 @@ const Gallery = () => {
                       ${
                         idx === activeSlide
                           ? "scale-110"
-                          : "scale-95 opacity-80"
+                          : "scale-100 opacity-70"
                       }
                       hover:scale-105 hover:opacity-100`}
                   >

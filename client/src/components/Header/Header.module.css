@@ -45,14 +45,15 @@
   position: fixed !important;
   display: flex !important;
   background-color: rgba(84, 90, 77, 0.692) !important;
-  box-shadow: 3px 3px 8px -3px #ddd;
+  box-shadow: 1px 1px 4px -5px #ddd;
   line-height: 90px;
   backdrop-filter: blur(4px);
   border-bottom: 1px blur rgba(255, 255, 255, 0.3);
   z-index: 1000 !important;
-  width: 100%;
+  width: 100vw !important;
   border-radius: 2px;
 }
+
 .circle {
   width: 40px;
   height: 40px;

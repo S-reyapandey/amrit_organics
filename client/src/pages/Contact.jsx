@@ -73,7 +73,7 @@ function Contact() {
     }
   };
   return (
-    <div className="container mx-auto md:px-6 mb-20 sm:px-0 lg:px-6">
+    <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
       <Stack spacing={6}>
         {/*Header Section */}
         <div className="relative mb-8">
@@ -82,7 +82,7 @@ function Contact() {
             <img
               src="/productProfile.png"
               alt="headerImage"
-              className="w-full h-auto object-cover"
+              className="w-full h-[55vh] sm:h-[70vh] lg:h-[85vh] object-cover"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1

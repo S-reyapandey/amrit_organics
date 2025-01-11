@@ -210,7 +210,7 @@ function SteviaPowder() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(370px, 1fr))",
               gap: "60px",
             }}
           >

@@ -1,27 +1,33 @@
 const certiData = [
     {
         id: "1",
-        title: "c1",
-        image: "/certi/c1.png",
-        doc : "/certi/certifi1.png"
+        title: "Halal",
+        image: "/certi/Halal.png",
+        doc : "/certi/Halalc.jpg"
     },
     {
         id: "2",
-        title: "c2",
-        image: "/certi/c2.png",
-        doc : "/certi/certifi1.png"
+        title: "Fda",
+        image: "/certi/Fda.png",
+        doc : "/certi/fdac.jpg"
     },
     {
         id: "3",
-        title: "c3",
-        image: "/certi/c3.png",
-        doc : "/certi/certifi1.png"
+        title: "Kosher",
+        image: "/certi/Kosher.png",
+        doc : "/certi/Kosherc.jpg"
     },
     {
         id: "4",
-        title: "c4",
-        image: "/certi/c4.png",
-        doc : "/certi/certifi1.png"
+        title: "Fssai",
+        image: "/certi/Fssai.png",
+        doc : ""
+    },
+    {
+        id: "5",
+        title: "Iec",
+        image: "/certi/Iec.png",
+        doc : "/certi/iecc.jpg"
     }
 ];
 
