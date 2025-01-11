@@ -102,6 +102,4 @@ app.get("*", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-app.listen(5000, '0.0.0.0', () => {
-  console.log('Backend running on http://0.0.0.0:5000');
-});
+
