@@ -115,22 +115,23 @@ function About() {
             <div className="flex flex-col md:flex-row items-center gap-8">
               {/* Content Section */}
               <div className="w-full md:w-1/2 p-6 scroll-reveal-left">
-                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 max-w-prose">
-                  At Amrit Organics we specialize in premium organic agriculture
-                  products. With sustainability at the heart of our operations,
-                  we are committed to delivering products that are pure,
-                  ethically sourced, and globally certified.
-                  <br />
-                  With a vision to revolutionize organic farming, we have grown
-                  into a trusted manufacturer and supplier for customers across
-                  India and worldwide. Our products are not just about quality
-                  but also about fostering a healthier planet through
-                  sustainable farming practices.
-                  <br />
-                  We uphold the highest standards in every step of our process.
-                  By working closely with 20,000+ farmers, ensuring
-                  traceability, and adhering to strict quality controls, we
-                  bring you the best of nature—untouched and uncompromised.
+                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 font-semibold max-w-prose">
+                  At Amrit Organics, we specialize in premium organic & natural
+                  agricultural products, with a strong focus on sustainability.
+                  Our commitment is to deliver pure, ethically sourced, and
+                  globally certified products.  Driven by a vision to transform
+                  organic farming, we have established ourselves as a trusted
+                  manufacturer and supplier, serving customers across India and
+                  internationally. Our offerings represent not only superior
+                  quality but also a dedication to fostering a healthier planet
+                  through responsible farming practices. We maintain the highest
+                  standards throughout every stage of our operations. <br/> Located in
+                  the Jaisalmer District of Rajasthan—an area renowned for its
+                  Psyllium, Cumin, Guar, and other Spices & Herbs—our
+                  manufacturing unit works closely with over 20,000 farmers. By
+                  ensuring traceability and adhering to stringent quality
+                  controls, we deliver the finest products of nature, untouched
+                  and uncompromised.
                 </p>
               </div>
 

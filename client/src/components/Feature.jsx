@@ -16,7 +16,7 @@ const Feature = () => {
       icon: Computer
     },
     {
-      title: "E2C Traceability",
+      title: "E2E Traceability",
       description: "Complete transparency in supply chains.",
       icon: TrackChanges
     },

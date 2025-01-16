@@ -51,7 +51,7 @@ function MoringaPowder() {
                   textAlign: "center",
                 }}
               >
-                Moringa Powder
+                Moringa Powder & Leaves
               </h1>
               <Breadcrumbs
                 className="slide-in"
@@ -139,7 +139,7 @@ function MoringaPowder() {
                 className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
-                Why Choose Our Organic Moringa Powder ?
+                Why Choose Our Organic Moringa ?
               </h3>
               <p
                 className="text-gray-600 text-lg"

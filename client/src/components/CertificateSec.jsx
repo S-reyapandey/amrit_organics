@@ -122,25 +122,7 @@ function CertificateSec() {
         </div>
       </div>
 
-      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="max-w-4xl relative">
-          {selectedCert && (
-            <div className="relative p-8">
-              <button
-                onClick={() => setModalOpen(false)}
-                className="absolute right-1 top-1 hover:bg-red-500 p-2 rounded-full"
-              >
-                <Close className="w-6 h-6 flex-end justify-end" />
-              </button>
-              <img
-                src={selectedCert.doc}
-                alt={selectedCert.name}
-                className="w-full rounded-lg object-contain max-h-[80vh]"
-              />
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+      
     </div>
   );
 };

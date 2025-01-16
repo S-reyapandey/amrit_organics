@@ -83,7 +83,7 @@ function SteviaPowder() {
                   textAlign: "center",
                 }}
               >
-                Stevia Powder
+                Stevia Powder & Leaves
               </h1>
               <Breadcrumbs
                 className="slide-in"
@@ -132,7 +132,7 @@ function SteviaPowder() {
                 <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
                   <b>
                     <i>
-                      Stevia Powder : The Natural Sweetener for a Healthier
+                      Stevia : The Natural Sweetener for a Healthier
                       World{" "}
                     </i>
                   </b>{" "}
@@ -174,7 +174,7 @@ function SteviaPowder() {
                 className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
-                Why Choose Our Stevia Powder ?
+                Why Choose Our Stevia ?
               </h3>
               <p
                 className="text-gray-700 text-lg"

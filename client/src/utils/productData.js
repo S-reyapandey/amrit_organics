@@ -29,7 +29,7 @@ const productData = [
     },
     {
         id: "5",
-        title: "Cumin Seed",
+        title: "Cumin Seeds & Powder",
         description: "Freshly ground cumin seeds with a warm, earthy flavor, perfect for seasoning. It also offers digestive and antioxidant benefits.",
         image: "/productsImages/cuminSeedPowder.png",
         path: "/products/cuminSeedPowder"
@@ -43,14 +43,14 @@ const productData = [
     },
     {
         id: "7",
-        title: "Ashwagandha Root",
+        title: "Ashwagandha Roots & Extract",
         description: "An adaptogenic herb powder known to reduce stress, improve focus, and boost energy. Sourced from high-quality Withania somnifera roots.",
         image: "/productsImages/ashwagandhaRoot.png",
         path: "/products/ashwagandha"
     },
     {
         id: "8",
-        title: "Moringa Powder",
+        title: "Moringa Powder & Leaves",
         description: "A nutrient-dense superfood made from dried moringa leaves, rich in vitamins, minerals, and antioxidants. Known to boost immunity and improve energy levels.",
         image: "/productsImages/moringaPowder.png",
         path: "/products/moringaPowder"
@@ -64,14 +64,14 @@ const productData = [
     },
     {
         id: "10",
-        title: "Stevia Powder",
+        title: "Stevia Powder & Leaves",
         description: "A natural sweetener derived from stevia leaves, providing a zero-calorie sugar alternative for health-conscious consumers.",
         image: "/productsImages/steviaPowder.png",
         path: "/products/steviaPowder"
     },
     {
         id: "11",
-        title: "Senna Powder",
+        title: "Senna Powder & Leaves",
         description: "A natural laxative made from dried senna leaves, commonly used to support digestive health and relieve constipation",
         image: "/productsImages/sennaPowder.png",
         path: "/products/sennaPowder"

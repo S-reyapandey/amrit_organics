@@ -84,7 +84,7 @@ function AshwagandhaRoot() {
                   textAlign: "center",
                 }}
               >
-                Ashwagandha Root
+                Ashwagandha Roots & Extract
               </h1>
               <Breadcrumbs
                 className="slide-in"
@@ -169,7 +169,7 @@ function AshwagandhaRoot() {
                 className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
-                Why Choose Our Organic Ashwagandha Root ?
+                Why Choose Our Organic Ashwagandha ?
               </h3>
               <p
                 className="text-gray-700 text-lg"

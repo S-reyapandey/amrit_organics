@@ -82,7 +82,7 @@ function SennaPowder() {
                   textAlign: "center",
                 }}
               >
-                Senna Powder
+                Senna Powder & Leaves
               </h1>
               <Breadcrumbs
                 className="slide-in"
@@ -131,7 +131,7 @@ function SennaPowder() {
                 <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
                   <b className="text-2xl text-[#5B8C51]">
                     <i>
-                      Senna Powder : A Natural Solution for Digestive Wellness{" "}
+                      Senna : A Natural Solution for Digestive Wellness{" "}
                     </i>
                   </b>{" "}
                   derived from the dried leaves or pods of the Senna plant
@@ -170,7 +170,7 @@ function SennaPowder() {
                 className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
-                Why Choose Our Senna Powder ?
+                Why Choose Our Senna ?
               </h3>
               <p
                 className="text-gray-700 text-lg"

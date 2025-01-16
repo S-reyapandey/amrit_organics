@@ -75,7 +75,7 @@ function CuminSeedPowder() {
                   textAlign: "center",
                 }}
               >
-                Cumin Seed
+                Cumin Seeds & Powder
               </h1>
               <Breadcrumbs
                 className="slide-in"

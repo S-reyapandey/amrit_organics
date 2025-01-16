@@ -157,7 +157,7 @@ function GuarGumPowder() {
                 className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
-                Why Choose Our Guar Gum Powder ?
+                Why Choose Our Guar Gum ?
               </h3>
               <p
                 className="text-gray-700 text-lg"

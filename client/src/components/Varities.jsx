@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Monitor, Package, Award, Factory } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Monitor, Package, Award, Factory, Star } from 'lucide-react';
 
 const Varities = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   
   const varieties = [
+    {
+      purity: "99.5%",
+      title: "Ultra Premium Grade",
+      description: "Exceptional purity for critical pharmaceutical and research applications",
+      icon: Star,
+      color: "from-emerald-300 to-emerald-500"
+    },
     {
       purity: "99%",
       title: "Premium Grade",

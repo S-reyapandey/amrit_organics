@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLeaf, FaSeedling } from "react-icons/fa";
+import { FaDollarSign, FaLeaf, FaSeedling, FaShip } from "react-icons/fa";
 
 const Introduction = () => {
   const slideFadeVariant = {
@@ -85,7 +85,7 @@ const Introduction = () => {
                 className="text-yellow-400 text-4xl sm:text-5xl mb-3"
                 style={{ fontFamily: "Courgette" }}
               >
-                Our Introductions
+                Who are we?
               </h3>
               <h2
                 className="text-3xl md:text-4xl font-extrabold mb-2 slide-in"
@@ -105,9 +105,7 @@ const Introduction = () => {
               >
                 At Amrit Organics, we are committed to delivering the finest
                 natural and organic products, nurtured with care and rooted in
-                sustainable farming practices. From premium Psyllium Husk to
-                superfoods like Moringa Powder and Stevia, we aim to inspire
-                healthier living while protecting our planet.
+                sustainable farming practices. From premium Psyllium products to Guar, Spices, Herbs & Superfoods, we aim to inspire healthier living while protecting our planet.
               </p>
 
               {/* Feature items */}
@@ -158,6 +156,52 @@ const Introduction = () => {
                     >
                       Sustainable farming methods for a greener, healthier
                       future.
+                    </p>
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="flex items-start gap-4"
+                  variants={slideFadeVariant}
+                  transition={{ delay: 0.4 }}
+                >
+                  <div className="p-2 bg-yellow-100 rounded-lg">
+                    <div className="w-10 h-10 flex items-center justify-center">
+                      {/* Icon placeholder */}
+                      <FaShip className="text-yellow-400 text-2xl" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-1.5">
+                      Efficient Supply Chain & Global Reach
+                    </h4>
+                    <p
+                      className="text-md text-gray-600"
+                      style={{ lineHeight: "1.3" }}
+                    >
+                    Ensuring timely worldwide delivery of premium products.
+                    </p>
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="flex items-start gap-4"
+                  variants={slideFadeVariant}
+                  transition={{ delay: 0.4 }}
+                >
+                  <div className="p-2 bg-yellow-100 rounded-lg">
+                    <div className="w-10 h-10 flex items-center justify-center">
+                      {/* Icon placeholder */}
+                      <FaDollarSign className="text-yellow-400 text-2xl" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-1.5">
+                      Competitive Prices
+                    </h4>
+                    <p
+                      className="text-md text-gray-600"
+                      style={{ lineHeight: "1.3" }}
+                    >
+                    Offering competitive prices without compromising on quality, making premium products.
                     </p>
                   </div>
                 </motion.div>

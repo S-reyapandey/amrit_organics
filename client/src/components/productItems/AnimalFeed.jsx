@@ -105,13 +105,13 @@ function AnimalFeed() {
                     </i>
                   </b>{" "}
                   is the by-product of Psyllium Husk from Psyllium Seeds while
-                  processing it is also known as Kha Kha Powder.
+                  processing.
                 </p>
 
                 <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
                   It is a rich, fibrous powder commonly used as a key ingredient
                   in animal feed, particularly for dairy cattle. Known for its
-                  excellent digestive benefits, psyllium Kha Kha powder promotes
+                  excellent digestive benefits, animal feed promotes
                   healthy digestion and nutrient absorption in livestock.
                   Produced under strict hygiene standards, this organic feed
                   ingredient is an ideal choice for improving the overall
@@ -137,7 +137,7 @@ function AnimalFeed() {
                 className="text-gray-800 text-2xl font-semibold mb-2"
                 style={{ fontFamily: "Signika" }}
               >
-                Why Choose Psyllium Kha Kha Powder for Animal Feed ?
+                Why Choose Animal Feed ?
               </h3>
               <p
                 className="text-gray-700 text-lg"
