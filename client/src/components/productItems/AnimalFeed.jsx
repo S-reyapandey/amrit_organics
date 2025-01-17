@@ -1,6 +1,7 @@
 import { Breadcrumbs, Stack, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LazyImage from "../Loading/LazyImage";
 
 function AnimalFeed() {
 
@@ -32,7 +33,7 @@ function AnimalFeed() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/animalFeed.png"
               alt="headerImage"
               className="w-full object-cover"

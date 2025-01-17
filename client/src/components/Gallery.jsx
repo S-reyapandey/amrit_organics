@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import gallery from "../utils/galleryData";
+import LazyImage from "./Loading/LazyImage";
 
 const Gallery = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -94,7 +95,7 @@ const Gallery = () => {
                   >
                     {/* Image */}
                     <div className="aspect-[4/3] overflow-hidden">
-                      <img
+                      <LazyImage
                         src={item.image}
                         alt={item.title}
                         className="w-full h-full object-cover transform transition-transform duration-700 

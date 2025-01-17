@@ -11,6 +11,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Varieties from "../Varieties";
 import NutritionalValues from "../NutrionalValues";
+import LazyImage from "../Loading/LazyImage";
 
 function CuminSeedPowder() {
   const feature = [
@@ -57,7 +58,7 @@ function CuminSeedPowder() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/cuminSeedPowder.png"
               alt="headerImage"
               className="w-full object-cover"

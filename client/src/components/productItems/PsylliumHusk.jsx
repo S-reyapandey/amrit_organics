@@ -11,6 +11,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Varities from "../Varities";
 import Names from "../Names";
+import LazyImage from "../Loading/LazyImage";
 
 function PsylliumHusk() {
   const feature = [
@@ -69,7 +70,7 @@ function PsylliumHusk() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/psylliumHusk.png"
               alt="headerImage"
               className="w-full object-cover"
@@ -170,10 +171,10 @@ function PsylliumHusk() {
 
         {/*Name section */}
 
-        <Names/>
+        <Names />
 
         {/*Available Sizes */}
-        <Varities/>
+        <Varities />
 
         {/*Why section */}
 

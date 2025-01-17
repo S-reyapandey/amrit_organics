@@ -1,30 +1,30 @@
 import { Breadcrumbs, Stack, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LazyImage from "../Loading/LazyImage";
 
 function MoringaPowder() {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+    };
 
-   useEffect(() => {
-      const observerOptions = {
-        threshold: 0.2,
-      };
-  
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      }, observerOptions);
-  
-      document
-        .querySelectorAll(
-          ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right"
-        )
-        .forEach((element) => observer.observe(element));
-  
-      return () => observer.disconnect();
-    }, []);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    document
+      .querySelectorAll(
+        ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right"
+      )
+      .forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
@@ -33,7 +33,7 @@ function MoringaPowder() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/moringaPowder.png"
               alt="headerImage"
               className="w-full object-cover"
@@ -94,15 +94,14 @@ function MoringaPowder() {
 
         <div className="container mx-auto px-6 py-5">
           <div className="flex flex-col md:flex-row items-center gap-12">
-
             {/* Content Section */}
             <div className="w-full px-10 py-3 scroll-reveal-left space-y-6">
               <div className="prose prose-gray max-w-none">
                 <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
                   <b className="text-2xl text-[#5B8C51]">
-                    <i>Moringa : The Superfood for Health and Wellness {" "}</i>
+                    <i>Moringa : The Superfood for Health and Wellness </i>
                   </b>
-                  ,  also known as the "Drumstick Tree" or the "Tree of Life," is
+                  , also known as the "Drumstick Tree" or the "Tree of Life," is
                   a remarkable plant celebrated for its exceptional nutritional
                   profile and health benefits. Revered for centuries, Moringa is
                   often considered one of the most nutritious plants on earth,
@@ -123,7 +122,6 @@ function MoringaPowder() {
             </div>
           </div>
         </div>
-
 
         {/*Why section */}
 
@@ -183,10 +181,7 @@ function MoringaPowder() {
               >
                 Packaging and Availability
               </h3>
-              <p
-                className="text-white text-lg"
-                style={{ lineHeight: "1.6"}}
-              >
+              <p className="text-white text-lg" style={{ lineHeight: "1.6" }}>
                 <li>
                   <b>Consumer Options :</b> Available in 100g, 250g, and 500g,
                   1kg sizes
@@ -205,26 +200,26 @@ function MoringaPowder() {
         </div>
 
         {/*Contacting */}
-                <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
-                  <h2
-                    style={{
-                      fontFamily: "Signika",
-                      fontWeight: "600",
-                    }}
-                    className="mb-3 text-2xl"
-                  >
-                    Looking for a trusted supplier of high-quality psyllium seeds?
-                  </h2>
-                  <p className="text-lg">
-                    At Amrit Organics, we are dedicated to meeting your needs with
-                    excellence.{" "}
-                    <Link to="/contact" style={{ fontWeight: 900 }}>
-                      Get in touch
-                    </Link>{" "}
-                    today to request a quote, product samples, or learn more about our
-                    offerings.
-                  </p>
-                </div>
+        <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
+          <h2
+            style={{
+              fontFamily: "Signika",
+              fontWeight: "600",
+            }}
+            className="mb-3 text-2xl"
+          >
+            Looking for a trusted supplier of high-quality psyllium seeds?
+          </h2>
+          <p className="text-lg">
+            At Amrit Organics, we are dedicated to meeting your needs with
+            excellence.{" "}
+            <Link to="/contact" style={{ fontWeight: 900 }}>
+              Get in touch
+            </Link>{" "}
+            today to request a quote, product samples, or learn more about our
+            offerings.
+          </p>
+        </div>
       </Stack>
     </div>
   );

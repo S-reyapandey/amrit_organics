@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LazyImage from "../Loading/LazyImage";
 
 function SteviaPowder() {
   const feature = [
@@ -65,7 +66,7 @@ function SteviaPowder() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/steviaPowder.png"
               alt="headerImage"
               className="w-full object-cover"

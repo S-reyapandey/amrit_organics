@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaDollarSign, FaLeaf, FaSeedling, FaShip } from "react-icons/fa";
+import LazyImage from "./Loading/LazyImage";
 
 const Introduction = () => {
   const slideFadeVariant = {
@@ -48,7 +49,7 @@ const Introduction = () => {
                 variants={imageFadeVariant}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <img
+                <LazyImage
                   className="w-full h-full object-cover"
                   src="/imagesIntro/bottom.png"
                   alt="Farm machinery in field at sunset"
@@ -65,7 +66,7 @@ const Introduction = () => {
                 initial="initial"
                 animate="animate"
               >
-                <img
+                <LazyImage
                   className="w-full h-full object-cover"
                   src="/imagesIntro/upper.png"
                   alt="Hands holding produce"

@@ -64,8 +64,6 @@ export const createPost = async (req, res) => {
       return res.status(400).json({ message: "Please fill in all fields." });
     }
 
-    // const sanitizedContent = DOMPurify.sanitize(content);
-
     const imageData = req.file ? {
       url: req.file.path,
       publicId: req.file.filename

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  Weight, Apple, Coffee,
-  ShieldCheck, Leaf, Plus, Minus,
+  Weight, Apple, Coffee, Leaf, Plus, Minus,
   HeartPulse,
   Scale,
   GlassWater,

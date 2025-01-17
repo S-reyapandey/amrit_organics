@@ -9,51 +9,58 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LazyImage from "../Loading/LazyImage";
 
 function GuarGumPowder() {
   const feature = [
     {
       id: 1,
       title: "100% Organic",
-      description: "Sourced directly from premium-quality guar seeds without additives or harmful chemicals." 
+      description:
+        "Sourced directly from premium-quality guar seeds without additives or harmful chemicals.",
     },
     {
       id: 2,
       title: "Premium Quality",
-      description: "Carefully processed to ensure consistent performance and purity."
+      description:
+        "Carefully processed to ensure consistent performance and purity.",
     },
     {
       id: 3,
       title: "Sustainably Sourced",
-      description: "Our guar gum powder is sourced from environmentally responsible suppliers to minimize our carbon footprint."
+      description:
+        "Our guar gum powder is sourced from environmentally responsible suppliers to minimize our carbon footprint.",
     },
     {
       id: 4,
       title: "Cost Effective",
-      description: "An economical alternative to other thickeners and stabilizers without compromising effectiveness."
-    }
+      description:
+        "An economical alternative to other thickeners and stabilizers without compromising effectiveness.",
+    },
   ];
 
   useEffect(() => {
-        const observerOptions = {
-          threshold: 0.2 // Trigger when 20% of element is visible
-        };
-    
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-            }
-          });
-        }, observerOptions);
-    
-        // Observe all elements with scroll-reveal classes
-        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right')
-          .forEach(element => observer.observe(element));
-    
-        return () => observer.disconnect();
-      }, []);
-  
+    const observerOptions = {
+      threshold: 0.2, // Trigger when 20% of element is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with scroll-reveal classes
+    document
+      .querySelectorAll(
+        ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right"
+      )
+      .forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
@@ -62,20 +69,23 @@ function GuarGumPowder() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/guarGumPowder.png"
               alt="headerImage"
               className="w-full object-cover"
               style={{
                 height: "500px",
-                objectFit: "cover"
+                objectFit: "cover",
               }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
               <h1
                 className="text-white text-6xl font-bold slide-in mb-4"
-                style={{ fontFamily: "Signika", fontSize: "clamp(2.2rem, 6vw, 4rem)",
-                  textAlign: "center", }}
+                style={{
+                  fontFamily: "Signika",
+                  fontSize: "clamp(2.2rem, 6vw, 4rem)",
+                  textAlign: "center",
+                }}
               >
                 Guar Gum Powder
               </h1>
@@ -106,7 +116,11 @@ function GuarGumPowder() {
                 >
                   Products
                 </Link>
-                <Typography sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}>Guar Gum Powder</Typography>
+                <Typography
+                  sx={{ color: "#fff", fontSize: "clamp(0.6rem, 2.5vw, 1rem)" }}
+                >
+                  Guar Gum Powder
+                </Typography>
               </Breadcrumbs>
             </div>
           </div>
@@ -121,7 +135,7 @@ function GuarGumPowder() {
               <div className="prose prose-gray max-w-none">
                 <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
                   <b className="text-2xl text-[#5B8C51]">
-                    <i>Guar Gum : A Versatile Natural Thickening Agent {" "}</i>
+                    <i>Guar Gum : A Versatile Natural Thickening Agent </i>
                   </b>{" "}
                   is a natural, plant-based ingredient derived from the seeds of
                   the Guar plant (Cyamopsis tetragonoloba). Known for its
@@ -161,7 +175,7 @@ function GuarGumPowder() {
               </h3>
               <p
                 className="text-gray-700 text-lg"
-                style={{ lineHeight: "1.6"}}
+                style={{ lineHeight: "1.6" }}
               >
                 <li>
                   <b>Effective Thickening & Stabilizing :</b> Acts as a powerful
@@ -296,8 +310,14 @@ function GuarGumPowder() {
           >
             Looking for a trusted supplier of high-quality Guar Gum Powder?
           </h2>
-          <p className="text-lg">At Amrit Organics, we are dedicated to meeting your needs with excellence. <Link to="/contact" style={{fontWeight: 900}}>Get in touch</Link> today for product samples, pricing, or to discuss your
-            specific requirements.
+          <p className="text-lg">
+            At Amrit Organics, we are dedicated to meeting your needs with
+            excellence.{" "}
+            <Link to="/contact" style={{ fontWeight: 900 }}>
+              Get in touch
+            </Link>{" "}
+            today for product samples, pricing, or to discuss your specific
+            requirements.
           </p>
         </div>
       </Stack>

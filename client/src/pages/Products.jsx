@@ -2,6 +2,7 @@ import { Breadcrumbs, Stack, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductSec from "../components/ProductSec";
+import LazyImage from "../components/Loading/LazyImage";
 
 function Products() {
   return (
@@ -11,7 +12,7 @@ function Products() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productProfile.png"
               alt="headerImage"
               className="w-full h-[55vh] sm:h-[70vh] lg:h-[85vh] object-cover"

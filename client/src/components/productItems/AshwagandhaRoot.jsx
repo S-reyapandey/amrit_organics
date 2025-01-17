@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LazyImage from "../Loading/LazyImage";
 
 function AshwagandhaRoot() {
   const feature = [
@@ -66,7 +67,7 @@ function AshwagandhaRoot() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/ashwagandhaRoot.png"
               alt="headerImage"
               className="w-full object-cover"
@@ -345,26 +346,26 @@ function AshwagandhaRoot() {
         </div>
 
         {/*Contacting */}
-                <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
-                  <h2
-                    style={{
-                      fontFamily: "Signika",
-                      fontWeight: "600",
-                    }}
-                    className="mb-3 text-2xl"
-                  >
-                    Looking for a trusted supplier of high-quality psyllium seeds?
-                  </h2>
-                  <p className="text-lg">
-                    At Amrit Organics, we are dedicated to meeting your needs with
-                    excellence.{" "}
-                    <Link to="/contact" style={{ fontWeight: 900 }}>
-                      Get in touch
-                    </Link>{" "}
-                    today to request a quote, product samples, or learn more about our
-                    offerings.
-                  </p>
-                </div>
+        <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
+          <h2
+            style={{
+              fontFamily: "Signika",
+              fontWeight: "600",
+            }}
+            className="mb-3 text-2xl"
+          >
+            Looking for a trusted supplier of high-quality psyllium seeds?
+          </h2>
+          <p className="text-lg">
+            At Amrit Organics, we are dedicated to meeting your needs with
+            excellence.{" "}
+            <Link to="/contact" style={{ fontWeight: 900 }}>
+              Get in touch
+            </Link>{" "}
+            today to request a quote, product samples, or learn more about our
+            offerings.
+          </p>
+        </div>
       </Stack>
     </div>
   );

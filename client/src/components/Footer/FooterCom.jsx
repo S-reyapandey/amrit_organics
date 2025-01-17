@@ -2,6 +2,7 @@ import React from "react";
 import { Footer } from "flowbite-react";
 import { BsInstagram, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import LazyImage from "../Loading/LazyImage";
 
 
 function FooterCom() {
@@ -11,7 +12,7 @@ function FooterCom() {
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 py-8 px-6 mb-10">
           {/* Logo Section */}
           <div className="flex justify-center sm:justify-start">
-            <img src="/logo.png" alt="Logo" style={{ height: 110 }} />
+            <LazyImage src="/logo.png" alt="Logo" style={{ height: 110 }} />
           </div>
 
           {/* Navigation Links */}

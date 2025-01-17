@@ -9,28 +9,31 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LazyImage from "../Loading/LazyImage";
 
 function SennaPowder() {
   const feature = [
     {
       id: 1,
       title: "Global Reach",
-      description: "Free from harmful additives, ensuring purity and safety."
+      description: "Free from harmful additives, ensuring purity and safety.",
     },
     {
       id: 2,
       title: "Compliance & Certifications",
-      description: "Compliant with international standards and regulations."
+      description: "Compliant with international standards and regulations.",
     },
     {
       id: 3,
       title: "Efficient Logistics",
-      description: "Timely delivery and efficient logistics for your business needs."
+      description:
+        "Timely delivery and efficient logistics for your business needs.",
     },
     {
       id: 4,
       title: "Sustainability Focus",
-      description: "Our commitment to sustainable practices and eco-friendly packaging."
+      description:
+        "Our commitment to sustainable practices and eco-friendly packaging.",
     },
   ];
 
@@ -64,7 +67,7 @@ function SennaPowder() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/sennaPowder.png"
               alt="headerImage"
               className="w-full object-cover"
@@ -130,9 +133,7 @@ function SennaPowder() {
               <div className="prose prose-gray max-w-none">
                 <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
                   <b className="text-2xl text-[#5B8C51]">
-                    <i>
-                      Senna : A Natural Solution for Digestive Wellness{" "}
-                    </i>
+                    <i>Senna : A Natural Solution for Digestive Wellness </i>
                   </b>{" "}
                   derived from the dried leaves or pods of the Senna plant
                   (Cassia angustifolia), is a highly regarded herb known for its

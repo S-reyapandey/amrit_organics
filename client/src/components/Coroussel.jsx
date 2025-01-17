@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import LazyImage from './Loading/LazyImage';
 
 const Coroussel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -82,7 +83,7 @@ const Coroussel = () => {
           >
             {/* Image with overlay */}
             <div className="relative w-full h-full">
-              <img
+              <LazyImage
                 src={slide.image}
                 alt={slide.title}
                 className="w-full h-full object-cover "

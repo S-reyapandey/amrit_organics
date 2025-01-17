@@ -10,6 +10,7 @@ import {
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Sizes from "../Sizes";
+import LazyImage from "../Loading/LazyImage";
 
 function PsylliumHuskPowder() {
   const feature = [
@@ -68,7 +69,7 @@ function PsylliumHuskPowder() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/psylliumHuskPowder.png"
               alt="headerImage"
               className="w-full object-cover"
@@ -134,7 +135,7 @@ function PsylliumHuskPowder() {
               <div className="prose prose-gray max-w-none">
                 <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
                   <b className="text-2xl text-[#5B8C51]">
-                    <i>Psyllium Husk Powder: A High-Quality Natural Fibre {" "} </i>
+                    <i>Psyllium Husk Powder: A High-Quality Natural Fibre </i>
                   </b>{" "}
                   is a finely ground form of the husk derived from the seeds of
                   the Plantago ovata plant. Rich in dietary fiber, it is a
@@ -161,8 +162,8 @@ function PsylliumHuskPowder() {
         </div>
 
         {/*Available Sizes */}
-        
-        <Sizes/>
+
+        <Sizes />
 
         {/*Why section */}
 
@@ -312,10 +313,7 @@ function PsylliumHuskPowder() {
           >
             Why Partner with Us ?
           </h3>
-          <p
-            className="text-gray-700 text-lg"
-            style={{ lineHeight: "1.6" }}
-          >
+          <p className="text-gray-700 text-lg" style={{ lineHeight: "1.6" }}>
             <li>
               <b>Experienced Exporter :</b> Trusted supplier to North America,
               Europe, Asia, and the Middle East.
@@ -329,7 +327,8 @@ function PsylliumHuskPowder() {
               processing methods.
             </li>
             <li>
-              <b>Reliable Logistics :</b> Efficient logistics to ensure your shipment arrives on schedule.
+              <b>Reliable Logistics :</b> Efficient logistics to ensure your
+              shipment arrives on schedule.
             </li>
           </p>
         </div>

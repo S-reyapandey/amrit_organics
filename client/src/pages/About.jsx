@@ -1,6 +1,7 @@
 import { Breadcrumbs, CardContent, Stack, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LazyImage from "../components/Loading/LazyImage";
 
 function About() {
   useEffect(() => {
@@ -40,8 +41,8 @@ function About() {
         <div className="relative mb-8 bg-white">
           {/*Image Container */}
           <div className="relative">
-            <img
-              src="/productProfile.png"
+            <LazyImage
+              src="/profile1.png"
               alt="headerImage"
               className="w-full h-[55vh] sm:h-[70vh] lg:h-[85vh] object-cover"
             />
@@ -137,7 +138,7 @@ function About() {
 
               {/* Image Section */}
               <div className="w-full md:w-1/2 scroll-reveal-right">
-                <img
+                <LazyImage
                   src="/rightSide.png"
                   alt="Right side content"
                   className="w-full h-full object-cover rounded-lg shadow-md"

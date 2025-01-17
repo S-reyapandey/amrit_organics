@@ -22,7 +22,7 @@ const migrateBlogData = async () => {
       if (!blog.author) updates.author = 'Anonymous';
       if (!blog.image || typeof blog.image === 'string') {
         updates.image = {
-          url: blog.image || 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fclimate.copernicus.eu%2Fglobal-agriculture-project&psig=AOvVaw0R9F6k_xR2y7IfqyCRZrZm&ust=1735921866007000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOj69YO714oDFQAAAAAdAAAAABAE',
+          url: blog.image,
           publicId: 'default_public_id'
         };
       }

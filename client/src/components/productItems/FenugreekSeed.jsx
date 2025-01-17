@@ -1,29 +1,31 @@
 import { Breadcrumbs, Stack, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LazyImage from "../Loading/LazyImage";
 
 function FenugreekSeed() {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2, // Trigger when 20% of element is visible
+    };
 
-   useEffect(() => {
-         const observerOptions = {
-           threshold: 0.2 // Trigger when 20% of element is visible
-         };
-     
-         const observer = new IntersectionObserver((entries) => {
-           entries.forEach(entry => {
-             if (entry.isIntersecting) {
-               entry.target.classList.add('active');
-             }
-           });
-         }, observerOptions);
-     
-         // Observe all elements with scroll-reveal classes
-         document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right')
-           .forEach(element => observer.observe(element));
-     
-         return () => observer.disconnect();
-       }, []);
-   
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with scroll-reveal classes
+    document
+      .querySelectorAll(
+        ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right"
+      )
+      .forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
@@ -32,13 +34,13 @@ function FenugreekSeed() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/fenugreekSeed.png"
               alt="headerImage"
               className="w-full object-cover"
               style={{
                 height: "500px",
-                objectFit: "cover"
+                objectFit: "cover",
               }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
@@ -93,7 +95,6 @@ function FenugreekSeed() {
 
         <div className="container mx-auto px-6 py-3">
           <div className="flex flex-col md:flex-row items-center gap-12">
-
             {/* Content Section */}
             <div className="w-full px-10 py-3 scroll-reveal-left space-y-6">
               <div className="prose prose-gray max-w-none">
@@ -150,7 +151,7 @@ function FenugreekSeed() {
               </h3>
               <p
                 className="text-gray-700 text-lg"
-                style={{ lineHeight: "1.6"}}
+                style={{ lineHeight: "1.6" }}
               >
                 <li>
                   <b>100% Organic :</b> Free from pesticides, chemicals, and
@@ -190,10 +191,7 @@ function FenugreekSeed() {
               >
                 Packaging and Availability
               </h3>
-              <p
-                className="text-white text-lg"
-                style={{ lineHeight: "1.6" }}
-              >
+              <p className="text-white text-lg" style={{ lineHeight: "1.6" }}>
                 <li>
                   <b>Consumer Packs :</b> 100g, 250g, and 500g sizes.
                 </li>
@@ -226,10 +224,7 @@ function FenugreekSeed() {
               >
                 Our Export Offering
               </h3>
-              <p
-                className="text-white text-lg"
-                style={{ lineHeight: "1.6"}}
-              >
+              <p className="text-white text-lg" style={{ lineHeight: "1.6" }}>
                 <li>
                   <b>Products : </b>Whole fenugreek seeds and fenugreek powder.
                 </li>
@@ -252,22 +247,26 @@ function FenugreekSeed() {
         </div>
 
         {/*Contacting */}
-                <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
-                  <h2
-                    style={{
-                      fontFamily: "Signika",
-                      fontWeight: "600",
-                    }}
-                    className="mb-3 text-2xl"
-                  >
-                    Looking for a trusted supplier of high-quality psyllium seeds?
-                  </h2>
-                  <p className="text-lg"> 
-                    At Amrit Organics, we are dedicated to meeting your needs with
-                    excellence. <Link to="/contact" style={{fontWeight: 900}}>Get in touch</Link> today to request a quote, product samples,
-                    or learn more about our offerings.
-                  </p>
-                </div>
+        <div className="container mx-auto p-10 mb-12 scroll-reveal-left">
+          <h2
+            style={{
+              fontFamily: "Signika",
+              fontWeight: "600",
+            }}
+            className="mb-3 text-2xl"
+          >
+            Looking for a trusted supplier of high-quality psyllium seeds?
+          </h2>
+          <p className="text-lg">
+            At Amrit Organics, we are dedicated to meeting your needs with
+            excellence.{" "}
+            <Link to="/contact" style={{ fontWeight: 900 }}>
+              Get in touch
+            </Link>{" "}
+            today to request a quote, product samples, or learn more about our
+            offerings.
+          </p>
+        </div>
       </Stack>
     </div>
   );

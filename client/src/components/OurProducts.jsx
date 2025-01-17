@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { Divider, IconButton } from "@mui/material";
 import { Share } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import LazyImage from "./Loading/LazyImage";
 
 function OurProducts() {
   const [hoverCard, setHoverCard] = useState(null);
@@ -157,7 +158,7 @@ function OurProducts() {
                 }}
               >
                 <div className="mb-3 overflow-hidden rounded-2xl">
-                  <img
+                  <LazyImage
                     src={product.image}
                     alt={product.title}
                     className={`w-full h-64 object-cover transition-transform duration-500 ${

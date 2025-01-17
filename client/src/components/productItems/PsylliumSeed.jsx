@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import BotanicalNames from "../BotanicalNames";
+import LazyImage from "../Loading/LazyImage";
 
 function PsylliumSeed() {
   const feature = [
@@ -39,24 +40,27 @@ function PsylliumSeed() {
   ];
 
   useEffect(() => {
-      const observerOptions = {
-        threshold: 0.2 // Trigger when 20% of element is visible
-      };
-  
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      }, observerOptions);
-  
-      // Observe all elements with scroll-reveal classes
-      document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right')
-        .forEach(element => observer.observe(element));
-  
-      return () => observer.disconnect();
-    }, []);
+    const observerOptions = {
+      threshold: 0.2, // Trigger when 20% of element is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with scroll-reveal classes
+    document
+      .querySelectorAll(
+        ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right"
+      )
+      .forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="md:px-6 mb-20 sm:px-0 lg:px-6">
@@ -65,13 +69,13 @@ function PsylliumSeed() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productsImages/psylliumSeed.png"
               alt="headerImage"
               className="w-full object-cover"
               style={{
                 height: "500px",
-                objectFit: "cover"
+                objectFit: "cover",
               }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
@@ -126,46 +130,43 @@ function PsylliumSeed() {
 
         <div className="container mx-auto px-6  ">
           <div className="flex flex-col md:flex-row items-center gap-12 ">
-
             {/* Content Section */}
             <div className="w-full space-y-6 px-10 py-3 scroll-reveal-left">
-             
-                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
-                  <b className="text-2xl text-[#5B8C51]">Psyllium seeds</b> are small, brown seeds derived from the
-                  Plantago ovata plant. They contain high levels of soluble
-                  fiber (10-30%) and swell significantly when mixed with water
-                  to form a gel-like substance. They are the premium natural
-                  supplements harvested from meticulously maintained tropical
-                  farms across India.
-                </p>
+              <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900">
+                <b className="text-2xl text-[#5B8C51]">Psyllium seeds</b> are
+                small, brown seeds derived from the Plantago ovata plant. They
+                contain high levels of soluble fiber (10-30%) and swell
+                significantly when mixed with water to form a gel-like
+                substance. They are the premium natural supplements harvested
+                from meticulously maintained tropical farms across India.
+              </p>
 
-                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
-                  Psyllium seeds is an agri-farm product of dried ripe seeds of
-                  plantago ovata forks (farm. Plantaginancae) and our seeds has
-                  been undergo through cleaning and processing to remove all
-                  impurities, including dust, waste materials, stones, and iron
-                  particles, ensuring the highest quality product.
-                </p>
+              <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
+                Psyllium seeds is an agri-farm product of dried ripe seeds of
+                plantago ovata forks (farm. Plantaginancae) and our seeds has
+                been undergo through cleaning and processing to remove all
+                impurities, including dust, waste materials, stones, and iron
+                particles, ensuring the highest quality product.
+              </p>
 
-                <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
-                  These exceptional seeds contain 40% Linoleic Acid (LA), an
-                  essential polyunsaturated fatty acid vital for human health.
-                  This omega-6 fatty acid plays a crucial role in maintaining
-                  heart health, supporting cellular function, and promoting
-                  overall wellness. Our sustainably sourced Psyllium seeds offer
-                  a natural solution for digestive health while delivering
-                  essential nutrients for your daily wellness routine. Each
-                  batch is carefully tested to meet strict quality standards,
-                  providing you with a pure, potent, and reliable supplement for
-                  your health needs.
-                </p>
-              
+              <p className="font-['Manrope'] text-lg leading-relaxed text-gray-900 mt-4">
+                These exceptional seeds contain 40% Linoleic Acid (LA), an
+                essential polyunsaturated fatty acid vital for human health.
+                This omega-6 fatty acid plays a crucial role in maintaining
+                heart health, supporting cellular function, and promoting
+                overall wellness. Our sustainably sourced Psyllium seeds offer a
+                natural solution for digestive health while delivering essential
+                nutrients for your daily wellness routine. Each batch is
+                carefully tested to meet strict quality standards, providing you
+                with a pure, potent, and reliable supplement for your health
+                needs.
+              </p>
             </div>
           </div>
         </div>
 
         {/*Name section */}
-        <BotanicalNames/>
+        <BotanicalNames />
 
         {/*Health benefits */}
 
@@ -303,10 +304,14 @@ function PsylliumSeed() {
           >
             Looking for a trusted supplier of high-quality psyllium seeds?
           </h2>
-          <p className="text-lg"> 
+          <p className="text-lg">
             At Amrit Organics, we are dedicated to meeting your needs with
-            excellence. <Link to="/contact" style={{fontWeight: 900}}>Get in touch</Link> today to request a quote, product samples,
-            or learn more about our offerings.
+            excellence.{" "}
+            <Link to="/contact" style={{ fontWeight: 900 }}>
+              Get in touch
+            </Link>{" "}
+            today to request a quote, product samples, or learn more about our
+            offerings.
           </p>
         </div>
       </Stack>

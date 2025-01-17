@@ -13,6 +13,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { CalendarDays, User } from "lucide-react";
 import DOMPurify from "dompurify";
+import LazyImage from "../components/Loading/LazyImage";
 
 function Blogdetail() {
   const { id } = useParams();
@@ -102,8 +103,8 @@ function Blogdetail() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
-              src="/other.png"
+            <LazyImage
+              src="/productProfile.png"
               alt="headerImage"
               className="w-full h-[55vh] sm:h-[70vh] lg:h-[85vh] object-cover"
             />
@@ -182,7 +183,7 @@ function Blogdetail() {
             {/* Featured Image */}
             <div className="rounded-2xl overflow-hidden">
               {blog.image?.url || true ? (
-                <img
+                <LazyImage
                   src={blog.image?.url || "/default.png"}
                   alt={blog.title || "Blog Image"}
                   className="w-full h-auto object-cover"

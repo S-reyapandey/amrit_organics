@@ -22,6 +22,7 @@ import { Instagram, LinkedIn, Menu, WhatsApp } from "@mui/icons-material";
 import { LuPhoneCall } from "react-icons/lu";
 import { RiMailSendFill } from "react-icons/ri";
 import { GrMapLocation } from "react-icons/gr";
+import LazyImage from "../Loading/LazyImage";
 
 const nav_links = [
   {
@@ -92,7 +93,7 @@ function Header({ navLinks = nav_links }) {
           alignItems: "center",
         }}
       >
-        <img src="/logo.png" alt="Logo" style={{ width: "190px" }} />
+        <LazyImage src="/logo.png" alt="Logo" style={{ width: "190px" }} />
       </Box>
 
       <List
@@ -242,7 +243,7 @@ function Header({ navLinks = nav_links }) {
                     }}
                   >
                     <Link to="/">
-                      <img src="/logo.png" alt="Logo" style={{ height: 74 }} />
+                      <LazyImage src="/logo.png" alt="Logo" style={{ height: 74 }} />
                     </Link>
                   </Box>
                   {/* to wrap icons social media handles */}

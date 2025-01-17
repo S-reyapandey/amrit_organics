@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LazyImage from "../components/Loading/LazyImage";
 
 function Contact() {
   const formInitialDetails = {
@@ -79,7 +80,7 @@ function Contact() {
         <div className="relative mb-8">
           {/*Image Container */}
           <div className="relative">
-            <img
+            <LazyImage
               src="/productProfile.png"
               alt="headerImage"
               className="w-full h-[55vh] sm:h-[70vh] lg:h-[85vh] object-cover"
@@ -443,7 +444,7 @@ function Contact() {
         {/*Contact form */}
         <div className="grid md:grid-cols-2 gap-8 mt-12 mb-10 max-w-6xl mx-auto">
           <div className=" flex flex-center justify-center rounded-xl overflow-hidden shadow-lg h-[740px] hover:shadow-xl transition-shadow duration-300">
-            <img
+            <LazyImage
               src="/contact.png"
               alt="Contact Map"
               className="w-full h-full object-cover"
