@@ -27,16 +27,6 @@ const Coroussel = () => {
       image: "/images/img4.png",
       title: "Traditional Methods",
       subtitle: "Preserving our heritage"
-    },
-    {
-      image: "/images/img5.png",
-      title: "Traditional Methods",
-      subtitle: "Preserving our heritage"
-    },
-    {
-      image: "/images/img6.png",
-      title: "Traditional Methods",
-      subtitle: "Preserving our heritage"
     }
   ];
 

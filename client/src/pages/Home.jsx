@@ -8,18 +8,24 @@ import MapComponent from "../components/MapComponent";
 import Gallery from "../components/Gallery";
 import CertificateSec from "../components/CertificateSec";
 import BlogSection from "../components/BlogSection";
+import HeroSection from "../components/Hero";
 
 function Home() {
   return (
     <div>
+      <div className="relative">
+        <HeroSection />
+        {/* Make Feature overlap Hero */}
+        <div className="relative -mt-[7rem] z-10 mb-10">
+          <Feature />
+        </div>
+      </div>
       <Stack spacing={6}>
-        <Coroussel />
-        <Feature />
         <Introduction />
         <OurProducts />
-        <CertificateSec/>
-        <Gallery/>
-        <BlogSection/>
+        <CertificateSec />
+        <Gallery />
+        <BlogSection />
         <MapComponent />
       </Stack>
     </div>

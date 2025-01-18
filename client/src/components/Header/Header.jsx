@@ -206,6 +206,7 @@ function Header({ navLinks = nav_links }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
 
   return (
     <React.Fragment>
@@ -491,7 +492,7 @@ function Header({ navLinks = nav_links }) {
               position: "fixed",
               top: isSticky ? "0" : "auto",
               transform: isSticky ? "translateY(0)" : "translateY(94px)",
-              transformStyle: "flat",
+              transformStyle: "inherit",
               transition: "all 0.2s ease",
               zIndex: 1000,
               transitionDuration: "0.2s",
