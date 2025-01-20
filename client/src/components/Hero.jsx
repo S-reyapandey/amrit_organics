@@ -19,18 +19,18 @@ const HeroSection = () => {
         playsInline
         className="absolute w-full h-full object-cover scale-100"
       >
-        <source src="https://res.cloudinary.com/dqmieig0r/video/upload/v1737226669/518068_Flower_Agriculture_3840x2160_-_Trim_mmjmxj.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dqmieig0r/video/upload/v1737358780/AdobeStock_289943177_Video_HD_Preview_online-video-cutter.com_ba4yqq.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       {/* Enhanced gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30" />
 
       {/* Main Content */}
       <div className="absolute inset-0 container mx-auto px-4">
         <div className="h-full flex flex-col items-center justify-center">
           {/* Main Title Section with enhanced typography */}
-          <div className="text-center space-y-8 transform translate-y-[-26%]">
+          <div className="text-center space-y-8 transform translate-y-[16%]">
             {/* Primary Heading */}
             <div className="space-y-2">
               <h1 
@@ -59,9 +59,9 @@ const HeroSection = () => {
             </div>
 
             {/* Discover Products Text */}
-            <div className="transform translate-y-20">
+            <div className="transform translate-y-5">
               <p 
-                className="text-3xl md:text-4xl text-white/90 italic
+                className="text-4xl md:text-5xl text-white/90 italic
                           transition-all duration-700 delay-500"
                 style={{
                   fontFamily: 'Caveat',
