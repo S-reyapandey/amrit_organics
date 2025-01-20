@@ -323,8 +323,8 @@ function Contact() {
                       sales@amritorganics.in
                     </a>
                     <br />
-                    <a href="mailto:aman@amritorganics.in" target="_blank">
-                      aman@amritorganics.in
+                    <a href="mailto:giriraj.n@amritorganics.in" target="_blank">
+                      giriraj.n@amritorganics.in
                     </a>
                   </Typography>
                 </CardContent>
