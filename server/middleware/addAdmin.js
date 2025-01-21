@@ -22,6 +22,7 @@ const addAdmins = async () => {
     const admins = [
       { email: process.env.EMAIL1, password: process.env.PASSWORD1 },
       { email: process.env.EMAIL2, password: process.env.PASSWORD2 },
+      { email: process.env.EMAIL3, password: process.env.PASSWORD3 },
     ];
 
     for (const admin of admins) {

@@ -97,7 +97,7 @@ const Gallery = () => {
                     <div className="aspect-[4/3] overflow-hidden">
                       <LazyImage
                         src={item.image}
-                        alt={item.title}
+                        
                         className="w-full h-full object-cover transform transition-transform duration-700 
                           group-hover:scale-110"
                       />
