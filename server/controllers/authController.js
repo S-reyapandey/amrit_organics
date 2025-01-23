@@ -33,7 +33,6 @@ export const adminAuth = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
   try {
-    // Check if admin exists
     const { email, password } = req.body;
 
     if (!email || !password) {
