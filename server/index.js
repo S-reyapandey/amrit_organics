@@ -4,10 +4,10 @@ import "dotenv/config";
 import path from "path";
 import cors from "cors";
 import nodemailer from "nodemailer";
-import dotenv from 'dotenv';
-dotenv.config({ path: '../.env' });
-import authRoutes from "./routes/authRoutes.js"
-import blogRoutes from "./routes/blogRoutes.js"
+import dotenv from "dotenv";
+dotenv.config({ path: "../.env" });
+import authRoutes from "./routes/authRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
 import cookieParser from "cookie-parser";
 const router = express.Router();
 
@@ -38,10 +38,9 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, 'client/dist')));
+app.use(express.static(path.join(__dirname, "client/dist")));
 
 app.use("/", router);
-
 
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
@@ -69,13 +68,14 @@ router.post("/api/contact", (req, res) => {
   if (!name || !email || !message) {
     return res.status(400).json({
       code: 400,
-      status: "Missing required fields"
+      status: "Missing required fields",
     });
   }
   const mail = {
-    from: name,
+    from: `"Amrit Organics Contact Form" <sales@amritorganics.in>`,
     to: process.env.EMAIL_USER,
-    subject: "Contact From Submission - Amrit Organics",
+    replyTo: `"${name}" <${email}>`,
+    subject: `Contact From Submission - Amrit Organics`,
     html: `<p>Name: ${name}</p>
            <p>Email: ${email}</p>
            <p>Subject: ${subject}</p>
@@ -85,7 +85,9 @@ router.post("/api/contact", (req, res) => {
   contactEmail.sendMail(mail, (error) => {
     if (error) {
       console.log("Email error : ", error);
-      res.status(500).json({code: 500, status: "Error sending message", error});
+      res
+        .status(500)
+        .json({ code: 500, status: "Error sending message", error });
     } else {
       res.json({ code: 200, status: "Message Sent" });
     }
@@ -96,10 +98,9 @@ app.use("/api/admin", authRoutes);
 app.use("/api/post", blogRoutes);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
