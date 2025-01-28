@@ -1,6 +1,5 @@
 import { Stack } from "@mui/material";
 import React from "react";
-import Coroussel from "../components/Coroussel";
 import Feature from "../components/Feature";
 import Introduction from "../components/Introduction";
 import OurProducts from "../components/OurProducts";

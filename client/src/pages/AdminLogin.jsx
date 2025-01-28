@@ -2,29 +2,43 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../AuthContext";
+axios.defaults.baseURL = 'http://localhost:5000'; // or whatever your backend port is
 
 const AdminLogin = () => {
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setIsLoading(true);
     try {
       const response = await axios.post("/api/admin/login", {
         email,
         password,
       });
-      login(response.data.token);
+      const { token, admin } = response.data;
+      
+      if (!token) {
+        throw new Error("No token received from server");
+      }
+
+      // Set the token in auth context
+      login(token);
       axios.defaults.headers.common[
         "Authorization"
-      ] = `Bearer ${response.data.token}`;
-      localStorage.setItem("adminToken", response.data.token);
+      ] = `Bearer ${token}`;
+      localStorage.setItem("adminToken", token);
+      localStorage.setItem("adminData", JSON.stringify(admin));
       navigate("/admin/create-post");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      setError(err.response?.data?.message || err.message || "Login failed. Please check your credentials and try again.");
+    }finally{
+      setIsLoading(false);
     }
   };
 
@@ -46,6 +60,7 @@ const AdminLogin = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
               required
+              disabled={isLoading}
             />
           </div>
           <div className="mb-6">
@@ -58,13 +73,15 @@ const AdminLogin = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
               required
+              disabled={isLoading}
             />
           </div>
           <button
             type="submit"
             className="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors"
+            disabled={isLoading}
           >
-            Login
+          {isLoading ? 'Logging in...' : 'Login'}
           </button>
         </form>
       </div>
