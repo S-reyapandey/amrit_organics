@@ -164,8 +164,8 @@ function BlogSection() {
           {blogs.map((blog) => {
             return (
               <Link
-                to={`/blogs/${blog.id}`}
-                key={blog.id}
+                to={`/blogs/${blog._id}`}
+                key={blog._id}
                 className="no-underline"
                 style={{ textDecoration: "none" }}
               >
@@ -244,7 +244,7 @@ function BlogSection() {
                           },
                         }}
                         component={Link}
-                        to={`/blogs/${blog.id}`}
+                        to={`/blogs/${blog._id}`}
                       >
                         Read More
                       </Button>

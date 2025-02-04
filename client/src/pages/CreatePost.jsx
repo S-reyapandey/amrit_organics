@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../AuthContext";
-import DOMPurify from "dompurify";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -78,7 +77,7 @@ const CreatePost = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      const newPostId = response.data.id;
+      const newPostId = response.data._id;
       navigate(`/blogs/${newPostId}`);
     } catch (err) {
       setError(err.response?.data?.message || "Failed to create post");
@@ -245,7 +244,7 @@ const CreatePost = () => {
                   accept="image/*"
                   className="sr-only"
                   required
-                  id="file-upload"
+                  _id="file-upload"
                 />
                 <label
                   htmlFor="file-upload"
